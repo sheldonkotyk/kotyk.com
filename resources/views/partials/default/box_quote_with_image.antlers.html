@@ -1,0 +1,13 @@
+<div class="flex flex-wrap-reverse md:flex bg-brand-socialbg mb-16 w-full items-center">
+	<div class="bg-brand-socialbg w-full md:w-3/5 text-white text-2xl leading-tight font-black mx-auto p-8">
+		{{ text | nl2br }}
+		{{ if button_text }}
+		<div class="mt-16 text-center">
+			<a class="button-primary" href="{{ button_url }}">{{ button_text }}</a>
+		</div>
+		{{ /if }}
+	</div>
+	<div class="w-full md:w-2/5">
+		<img src="{{ image }}" class="w-full">
+	</div>
+</div>

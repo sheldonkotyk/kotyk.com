@@ -1,0 +1,38 @@
+<nav class="w-full md:w-1/4 mb-8 md:mb-0">
+	<div class="rounded bg-gray-100 leading-normal">
+		{{ if segment_1 != "courses" }}
+			<div class="px-6 md:px-4 py-2 bg-wscorange text-white font-black">Our Services</div>
+		{{ else }}
+			<div class="px-6 md:px-4 py-2 bg-wscorange text-white font-black">Training Courses</div>
+		{{ /if }}
+		<div class="px-6 md:px-4 py-4">
+		    <ul class="">
+				{{ if segment_1 != "courses" }}
+					{{ nav from="/services" max_depth="2" include_home="false" is_hidden:isnt="true" }}
+				      {{ if !children }}
+					      <li class="nav-item{{ if is_current }} active{{ endif }}">
+					        <a class="nav-link" href="{{ url }}"><strong>{{ title }}</strong></a>
+					      </li>
+				      {{ else }}
+					      <li class="nav-item dropdown{{ if is_current }} active {{ endif }}">
+					        <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ title }}</a>
+					        <ul class="dropdown-menu" aria-labelledby="navbarDropdown{{ id }}">
+					          <li><a class="dropdown-item" href="{{ url }}">{{ title }}</a></li>
+					          {{ children }}
+					          <li><a class="dropdown-item" href="{{ url }}">{{ title }}</a></li>
+					          {{ /children }}
+					        </ul>
+					      </li>
+					  {{ endif }}
+			      	{{ /nav }}
+			    {{ else }}
+			    	{{ collection:courses }}
+			  		  <li class="nav-item{{ if is_current }} active{{ endif }}">
+				        <a class="nav-link" href="{{ url }}"><strong>{{ title }}</strong></a>
+				      </li>
+			  		{{ /collection:courses }}
+			    {{ /if }}
+		    </ul>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,33 @@
+{{ rows }}
+	<div {{ if bg_color }}style="background-color:{{ bg_color }}"{{ /if }} class="w-full ">
+		<div class="container px-6 mx-auto lg:px-32 xl:px-64">
+			<div class="flex flex-wrap {{ switch between='md:flex-row | md:flex-row-reverse' }} items-center">
+				<div class="{{ if hide_image_on_mobile=="true" }}hidden md:block {{ else }} w-full {{ /if }} p-4
+					{{if split == '1/3' }} md:w-2/3 {{ else }} md:w-1/2 {{ /if }}">
+
+					{{ image }}<img src="{{ url }}" alt="{{ alt }}" class="w-full">{{ /image }}
+                    {{ if embed }}<div class="mx-auto my-8 text-center">{{ embed }}</div>{{ /if }}
+				</div>
+				<div class="w-full
+					{{if split == '1/3' }} md:w-1/3 {{ else }} md:w-1/2 {{ /if }} mx-auto px-8 pt-16 pb-16">
+					<span class="{{ if ! bg_color || bg_color == '#DADADA' || bg_color == '#F9FAFB' }}text-brand-androidgreen{{else}}text-white{{ /if }} font-brand block text-5xl mb-4 font-black">{{ title }}</span>
+					<span class="{{ if ! bg_color || bg_color == '#DADADA' || bg_color == '#F9FAFB' }}text-brand-charcoal{{else}}text-white{{ /if }} text-xl">{{ text | nl2br }}</span>
+					{{ if button_text }}
+						<div class="mt-8">
+							<a class="button-primary" href="{{ button_url }}">{{ button_text }}</a>
+						</div>
+					{{ /if }}
+					{{  if buttons }}
+						<div class="mt-6">
+							{{  buttons }}
+							<div class="inline my-8 text-left">
+								<a class="inline-block my-2 button-primary" href="{{ button_link }}">{{ button_text }}</a>
+							</div>
+							{{  /buttons }}
+						</div>
+					{{ /if }}
+				</div>
+			</div>
+		</div>
+	</div>
+{{ /rows }}

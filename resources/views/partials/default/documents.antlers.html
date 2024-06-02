@@ -1,0 +1,19 @@
+{{ documents}}
+	<ul class="mx-6">
+		{{ document }}
+			<li class="mb-2">
+				<a class="underline font-black" href="{{url}}" target="_blank">
+					{{ if alt!=""}}{{ alt }}{{ else }}{{ title }}{{/if}}
+				</a> 
+				{{ if extension=="pdf"}}<i class="far fa-file-pdf"></i>
+				{{ elseif extension=="doc"}}<i class="far fa-file-word"></i>
+				{{ elseif extension=="docx"}}<i class="far fa-file-word"></i>
+				{{ elseif extension=="xls"}}<i class="far fa-file-excel"></i>
+				{{ elseif extension=="xlsx"}}<i class="far fa-file-excel"></i>
+				{{ elseif extension=="zip"}}<i class="far fa-file-archive"></i>
+				{{ else }}<i class="far fa-file"></i>
+				{{ /if }}
+			</li>
+		{{/document}}
+	</ul>
+{{ documents}}

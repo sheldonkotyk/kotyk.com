@@ -1,0 +1,82 @@
+
+
+{{ product_entry }}
+    <div class="mt-8 {{ switch between='bg-white|bg-gray-100' }}">
+        <div class="container px-6 py-8 mx-auto lg:px-24 xl:px-64">
+            <div class="flex flex-wrap  {{ switch between='flex-row | flex-row-reverse' }}">
+                 <div class="w-full lg:pr-4 lg:w-1/2">
+                    <h2 class="text-4xl font-bold text-brand-charcoal">{{ title }}</h2>
+                    {{ body }}
+                        {{ if type == "text" }}
+                            <div class="mt-4">{{ text }}</div>
+                        {{ elseif type == "image" }}
+                            <p>
+                                <img src="{{ photo }}" class="{{ size | lower }} {{ if caption }}captioned{{ /if }}" alt="{{ caption }}">
+                            </p>
+                        {{ elseif type == "quote" }}
+                            <blockquote style="font-style: italic;">
+                                {{ quote | markdown }}
+                                {{ if cite }}<cite>&mdash; {{ cite}}</cite>{{ /if }}
+                            </blockquote>
+                        {{ /if }}
+                    {{ /body }}
+
+                    <div class="my-4">
+                        <p class="font-bold text-gray-400">Specifications</p>
+                        <ul class="pl-4 text-sm list-disc md:columns-2">
+                            {{ descriptors }}<li>{{ descriptor }}</li>{{ /descriptors }}
+                        </ul>
+                    </div>
+                    {{ if accessories }}
+                    <div class="my-4">
+                        <p class="font-bold text-gray-400">Optional</p>
+                        <ul class="pl-4 text-sm list-disc md:columns-2">
+                            {{ relate:accessories }}<li>{{title}}</li>{{ /relate:accessories }}
+                        </ul>
+                    </div>
+                    {{ /if }}
+                    {{ if inventory }}
+                        <h4>Inventory</h4>
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Height</th>
+                            <th scope="col">Colour</th>
+                            <th scope="col">Condition</th>
+                            <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ inventory }}
+                                <tr>
+                                <th scope="row">{{ description }}</th>
+                                <td>{{ height }}</td>
+                                <td>{{ colour }}</td>
+                                <td>{{ condition }}</td>
+                                <td>{{ if price }}{{ price }}{{ else }}<a href="/contact">Contact us</a>{{ /if }}</td>
+                                </tr>
+                            {{ /inventory }}
+                        </tbody>
+                        </table>
+                    {{ /if }}
+                </div>
+                <div class="w-full lg:w-1/2">
+                    {{ gallery limit="4"}}
+                        <a href="{{ url }}" class="glightbox">
+                            <img class="inline pt-4 md:h-72 md:w-72 lg:h-36 lg:w-36 md:pb-8 md:px-4 lg:px-4 xl:h-36 xl:w-36 2xl:h-48 2xl:w-48"
+                                 src="{{ glide:url w="800" h="800" crop="focal"}}">
+                        </a>
+                    {{ /gallery }}
+                </div>
+            </div>
+        </div>
+    </div>
+{{ /product_entry }}
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<script type="text/javascript">
+  const lightbox = GLightbox({ loop: true });
+</script>

@@ -1,0 +1,22 @@
+<div class="{{ if locate == 'center' }}w-full flex justify-center {{ /if }}">
+	<div class="rounded overflow-hidden
+		{{ if locate == 'left' }}
+			max-w-xs md:float-left my-4 md:w-full md:mr-16 md:clearfix
+		{{ elseif locate == 'right' }}
+			max-w-xs md:float-right my-4 md:w-full md:ml-16 md:clearfix
+		{{ elseif locate == 'center' }}
+			w-full md:w-1/2
+		{{ elseif locate == 'full' }}
+			w-full my-8
+		{{ /if }}
+	    ">
+		<img class="w-full" src="{{ glide:image  format='webp' fit='crop_focal' }}" alt="{{caption}}">
+		{{ if caption }}
+			<div class="px-6 py-4">
+				<div class="mb-2 text-sm font-bold text-center">{{caption}}</div>
+			</div>
+		{{ /if }}
+	</div>
+</div>
+
+

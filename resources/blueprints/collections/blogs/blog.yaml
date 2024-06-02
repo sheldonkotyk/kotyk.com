@@ -1,0 +1,100 @@
+title: Blog
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: feature_image
+            field:
+              mode: list
+              container: main
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              max_files: 1
+              display: 'Feature Image'
+              type: assets
+              icon: assets
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+          -
+            handle: description
+            field:
+              always_show_set_button: false
+              previews: true
+              buttons:
+                - h2
+                - h3
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+                - image
+                - table
+              save_html: false
+              toolbar_mode: fixed
+              link_noopener: false
+              link_noreferrer: false
+              target_blank: false
+              reading_time: false
+              fullscreen: true
+              allow_source: true
+              enable_input_rules: true
+              enable_paste_rules: true
+              antlers: false
+              remove_empty_nodes: false
+              display: Description
+              type: bard
+              icon: bard
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+          -
+            import: content_block
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: tags
+            field:
+              mode: typeahead
+              create: true
+              taxonomies:
+                - tags
+              display: Tags
+              type: terms
+              icon: taxonomy
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false

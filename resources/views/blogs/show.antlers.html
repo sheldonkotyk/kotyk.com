@@ -1,0 +1,30 @@
+<div class="relative z-10 max-w-6xl px-6 py-8 mx-auto">
+    <div class="flex items-start">
+        <article class="flex-1 py-8 pr-24">
+            <h1 class="mb-6">{{ title | entities | widont }}</h1>
+            <div class="flex items-start">
+                <div>
+                    <p class="text-lg text-gray-800">{{ summary }}</p>
+                    <div class="flex mt-4 space-x-3 font-mono text-xs tracking-widest text-gray-500 uppercase">
+                        <span>{{ date }}</span>
+                    </div>
+                </div>
+            </div>
+            {{ if feature_image }}
+                {{ asset:feature_image }}<img class="mt-4" src="{{ feature_image }}"/>{{ /asset:feature_image }}
+            {{ /if }}
+            {{ if content }}
+            <div class="pt-8 mt-8 border-t content">
+                {{ content }}
+            {{ /if }}
+
+            {{ if content_area }}
+                <div class="pt-8 mt-8 content">
+                    {{ content_area }}
+                        {{ partial src="default/{type}" }}
+                    {{ /content_area }}
+                </div>
+            {{ /if }}
+        </article>
+    </div>
+</div>

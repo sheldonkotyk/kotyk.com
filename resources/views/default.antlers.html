@@ -1,1 +1,18 @@
-{{ content }}
+<div class="relative z-10 max-w-6xl px-6 py-8 mx-auto">
+    <div class="flex items-start">
+        <article class="flex-1 py-8">
+            <h1 class="mb-6">{{ title | entities | widont }}</h1>
+
+            {{ if feature_image }}
+                {{ asset:feature_image }}<img class="mt-4" src="{{ feature_image }}"/>{{ /asset:feature_image }}
+            {{ /if }}
+            {{ if content_area }}
+                <div class="pt-8 mt-8 content">
+                    {{ content_area }}
+                        {{ partial src="default/{type}" }}
+                    {{ /content_area }}
+                </div>
+            {{ /if }}
+        </article>
+    </div>
+</div>

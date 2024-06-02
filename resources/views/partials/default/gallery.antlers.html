@@ -1,0 +1,7 @@
+<div class="mt-8 container px-6 mx-auto md:px-24 lg:px-64 space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-{{ images_per_row }}">
+    {{ images }}
+        <div class="w-full rounded">
+            <img src="{{ glide:url  w='400' }}"  alt="{{ alt }}">
+        </div>
+    {{ /images }}
+</div>

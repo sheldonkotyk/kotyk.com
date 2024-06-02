@@ -1,0 +1,67 @@
+{{# Partial for "latest news" type in Bard fieldset #}}
+
+{{ scope:jason }}
+{{ collection:events as="entry" paginate="true"  sort="start" start:is_after=now limit="10" }}
+  {{ if jason:display === "horizontal" }}
+    {{ entry }}
+      <div class="flex-wrap md:flex mb-16 w-full">
+        <div class="w-full md:w-1/3 text-white text-2xl font-black mx-auto pr-8">
+          {{ if feature_image }}<img src="{{ feature_image }}" class="w-full" style="max-height: 190px">{{ /if }}
+        </div>
+        <div class="card w-full md:w-2/3">
+          <a href="{{ url }}"><h5>{{ title }}</h5></a>
+          <div class="mb-4">{{ date }}</div>
+          {{ if teaser != "[]" }}
+            <div class="text-gray-700 text-base text-left">
+              {{ teaser }}
+            </div>
+          {{ /if }}
+          <div class="my-8 text-left">
+            <a class="button-outline" href="{{ url }}">Read More</a>
+          </div>
+        </div>
+      </div>
+    {{ /entry }}
+
+    <!-- {{ paginate }}
+      <div class="text-center mb-16">
+        <a href="{{ prev_page }}">⬅ Previous</a>
+
+        {{ current_page }} of {{ total_pages }} pages
+        (There are {{ total_items }} posts)
+
+        <a href="{{ next_page }}">Next ➡</a>
+      </div>
+    {{ /paginate }} -->
+
+  {{ else }}
+    <div class="mb-16">
+      <div class="flex-wrap md:flex -mx-4">
+        {{ entry }}
+          <div class="md:w-1/{{ cards_per_row }} px-4 mb-4">
+            <div class="mb-8 md:mb-0 border border-1-gray-600{{ if background_colour }} bg-{{background_colour}}{{ /if }}">
+              <a href="{{ url }}">
+                {{ asset:feature_image }}<img class="w-full" src="{{ feature_image }}" alt="{{ title }}">{{ /asset:feature_image }}
+              </a>
+              <div class="px-6 py-4">
+                <div class="{{ if feature_image }}md:h-64{{ /if }}">
+                  <a href="{{ url }}" class="text-2xl font-black no-underline">{{ title }}</a>
+                  <div class="mb-4 font-bold">{{ author }}by {{ name }}{{ /author }} on {{ start format="F d, Y" }} at {{ start format="g:ia" }}</div>
+                  {{ if teaser}}
+                    <div class="text-gray-700 text-base">
+                      {{ teaser }}
+                    </div>
+                  {{ /if }}
+                  <div class="my-8 text-left">
+                      <a class="button-primary" href="{{ url }}">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{ /entry }}
+      </div>
+    </div>
+  {{ /if }}
+{{ /collection:events }}
+{{ /scope:jason }}
