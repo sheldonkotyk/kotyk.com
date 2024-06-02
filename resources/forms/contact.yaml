@@ -1,1 +1,9 @@
 title: Contact
+honeypot: full_name
+email:
+  -
+    id: lcbcaatg
+    to: sheldon@kotyk.com
+    from: website@kotyk.com
+    reply_to: '{{email}}'
+    subject: 'Kotyk.com Contact Form Submission'
