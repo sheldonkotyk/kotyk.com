@@ -3,8 +3,6 @@ fields:
   -
     handle: content_area
     field:
-      always_show_set_button: false
-      previews: true
       buttons:
         - h2
         - h3
@@ -22,984 +20,788 @@ fields:
         - aligncenter
         - alignright
         - alignjustify
-      save_html: false
-      toolbar_mode: fixed
-      link_noopener: false
-      link_noreferrer: false
-      target_blank: false
-      reading_time: false
-      fullscreen: true
-      allow_source: true
-      enable_input_rules: true
-      enable_paste_rules: true
-      antlers: false
       remove_empty_nodes: false
       display: 'Content Area'
       type: bard
-      icon: bard
-      listable: hidden
-      instructions_position: above
-      visibility: visible
       always_save: false
       sets:
-        image_with_caption:
-          display: 'Image with Caption'
-          fields:
-            -
-              handle: image
-              field:
-                mode: grid
-                restrict: false
-                allow_uploads: true
-                max_files: 1
-                type: assets
-                display: Image
-                container: main
-                folder: pages
-                listable: hidden
-                instructions_position: above
-                show_filename: true
-            -
-              handle: caption
-              field:
-                character_limit: 0
-                type: text
-                display: Caption
-            -
-              handle: locate
-              field:
-                options:
-                  left: 'Float Left'
-                  right: 'Float Right'
-                  center: Center
-                  full: 'Full Width'
-                clearable: true
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Locate
-        divider:
-          display: Divider
-          fields:
-            -
-              handle: anchor_id
-              field:
-                input_type: text
-                type: text
-                listable: hidden
-                display: 'Anchor ID'
-            -
-              handle: color
-              field:
-                swatches:
-                  - '#074B54'
-                  - '#005D70'
-                  - '#5D9BAE'
-                  - '#8DCED5'
-                  - '#DADADA'
-                theme: classic
-                lock_opacity: false
-                default_color_mode: HEXA
-                color_modes:
-                  - hex
-                type: color
-                listable: hidden
-                display: Color
-            -
-              handle: size
-              field:
-                options:
-                  small: Small
-                  medium: Medium
-                  large: 'Large (Default)'
-                multiple: false
-                max_items: 1
-                clearable: false
-                searchable: false
-                taggable: false
-                push_tags: false
-                cast_booleans: false
-                default: large
-                display: Size
-                type: select
-                icon: select
-                instructions: 'The top and bottom padding on the divider'
-                listable: hidden
-                instructions_position: above
-        video:
-          display: Video
-          fields:
-            -
-              handle: video_url
-              field:
-                type: video
-                instructions: 'Paste the URL of a YouTube or Vimeo link. More info [in the Statamic docs.](https://docs.statamic.com/fieldtypes/video)'
-                display: 'Video URL'
-            -
-              handle: locate
-              field:
-                options:
-                  left: 'Float Left'
-                  center: Center
-                  right: 'Float Right'
-                  full: 'Full Width'
-                clearable: true
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Locate
-                listable: hidden
-                cast_booleans: false
-        button:
-          display: Button
-          fields:
-            -
-              handle: button_text
-              field:
-                character_limit: 0
-                type: text
-                display: 'Button Text'
-            -
-              handle: button_url
-              field:
-                character_limit: 0
-                type: text
-                display: 'Button Url'
-        image_background:
-          display: 'Image Background'
-          fields:
-            -
-              handle: image
-              field:
-                container: main
-                mode: grid
-                folder: pages
-                restrict: false
-                allow_uploads: true
-                max_files: 1
-                type: assets
-                display: Image
-                listable: hidden
-                instructions_position: above
-                show_filename: true
-            -
-              handle: title
-              field:
-                input_type: text
-                type: text
-                listable: hidden
-                display: Title
-            -
-              handle: text
-              field:
-                buttons:
-                  - h2
-                  - h3
-                  - bold
-                  - italic
-                  - unorderedlist
-                  - orderedlist
-                  - removeformat
-                  - quote
-                  - anchor
-                  - image
-                  - table
-                save_html: false
-                toolbar_mode: fixed
-                link_noopener: false
-                link_noreferrer: false
-                target_blank: false
-                reading_time: false
-                fullscreen: true
-                allow_source: true
-                type: bard
-                display: Text
-            -
-              handle: buttons
-              field:
-                sets:
-                  button:
-                    display: Button
-                    fields:
-                      -
-                        handle: button_text
-                        field:
-                          input_type: text
-                          type: text
-                          localizable: false
-                          listable: hidden
-                          display: 'Button Text'
-                      -
-                        handle: button_url
-                        field:
-                          input_type: text
-                          type: text
-                          localizable: false
-                          listable: hidden
-                          display: 'Button URL'
-                      -
-                        handle: button_type
-                        field:
-                          options:
-                            primary: Primary
-                            secondary: Secondary
-                            Link: Link
-                          clearable: false
-                          multiple: false
-                          searchable: false
-                          taggable: false
-                          push_tags: false
-                          cast_booleans: false
-                          type: select
-                          localizable: false
-                          listable: true
-                          display: 'Button Type'
-                type: replicator
-                listable: hidden
-                display: Buttons
-        box_quote_with_image:
-          display: 'Box Quote with Image'
-          fields:
-            -
-              handle: text
-              field:
-                type: textarea
-                display: Text
-            -
-              handle: image
-              field:
-                container: main
-                mode: grid
-                folder: pages
-                restrict: false
-                allow_uploads: true
-                max_files: 1
-                type: assets
-                display: Image
-                listable: hidden
-                instructions_position: above
-                show_filename: true
-            -
-              handle: button_url
-              field:
-                character_limit: 0
-                type: text
-                display: 'Button URL'
-            -
-              handle: button_text
-              field:
-                character_limit: 0
-                type: text
-                display: 'Button Text'
-        form:
-          display: Form
-          fields:
-            -
-              handle: form
-              field:
-                options:
-                  contact: Contact
-                  quote: Quote
-                  career: Careers
-                  financing: Financing
-                clearable: false
-                multiple: false
-                searchable: false
-                taggable: false
-                push_tags: false
-                type: select
-                display: Form
-                listable: hidden
-                cast_booleans: false
-                instructions_position: above
-                visibility: visible
-        latest_releases:
-          display: 'Latest Press Releases'
-          fields:
-            -
-              handle: number_to_show
-              field:
-                type: integer
-                display: 'Number to show'
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        coming_events:
-          display: 'Coming Events'
-          fields:
-            -
-              handle: number_to_show
-              field:
-                type: integer
-                display: 'Number to show'
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        past_events:
-          display: 'Past Events'
-          fields:
-            -
-              handle: number_to_show
-              field:
-                type: integer
-                display: 'Number to show'
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        cards:
-          display: Cards
-          fields:
-            -
-              handle: card_sets
-              field:
-                sets:
-                  card:
-                    display: Card
-                    fields:
-                      -
-                        handle: image
-                        field:
-                          container: main
-                          mode: grid
-                          folder: pages
-                          restrict: true
-                          allow_uploads: true
-                          max_files: 1
-                          type: assets
-                          display: Image
-                          listable: hidden
-                          instructions_position: above
-                          show_filename: true
-                      -
-                        handle: title
-                        field:
-                          character_limit: 0
-                          type: text
-                          display: Title
-                      -
-                        handle: subtitle
-                        field:
-                          character_limit: 0
-                          type: text
-                          display: Subtitle
-                      -
-                        handle: teaser
-                        field:
-                          type: textarea
-                          display: Teaser
-                      -
-                        handle: alignment
-                        field:
-                          options:
-                            left: Left
-                            center: Center
-                            right: Right
-                          display: Alignment
-                          type: button_group
-                          icon: button_group
-                          listable: hidden
-                      -
-                        handle: link
-                        field:
-                          character_limit: 0
-                          type: text
-                          display: Link
-                      -
-                        handle: button_text
-                        field:
-                          character_limit: 0
-                          type: text
-                          display: 'Button Text'
-                      -
-                        handle: highlight_color
-                        field:
-                          theme: classic
-                          lock_opacity: true
-                          default_color_mode: HEXA
-                          color_modes:
-                            - hex
-                          type: color
-                          listable: hidden
-                          display: 'Background Color'
-                          swatches:
-                            - '#074B54'
-                            - '#005D70'
-                            - '#5D9BAE'
-                            - '#8DCED5'
-                            - '#DADADA'
-                            - '#F9FAFB'
-                          instructions_position: above
-                          read_only: false
-                      -
-                        handle: buttons
-                        field:
-                          sets:
-                            button:
-                              display: Button
-                              fields:
-                                -
-                                  handle: button_link
-                                  field:
-                                    input_type: text
-                                    type: text
-                                    listable: hidden
-                                    display: 'Button Link'
-                                -
-                                  handle: button_text
-                                  field:
-                                    input_type: text
-                                    type: text
-                                    listable: hidden
-                                    display: 'Button Text'
-                          type: replicator
-                          listable: hidden
-                          display: Buttons
-                type: replicator
-                display: 'Card Sets'
-                listable: hidden
-                collapse: false
-                instructions_position: above
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        two_videos:
-          display: 'Two Videos'
-          fields:
-            -
-              handle: videos
-              field:
-                sets:
-                  video:
-                    display: Video
-                    fields:
-                      -
-                        handle: video_url
-                        field:
-                          type: video
-                          localizable: false
-                          display: 'Video URL'
-                type: replicator
-                display: Videos
-        latest_news:
-          display: 'Latest News'
-          fields:
-            -
-              handle: number_to_show
-              field:
-                type: integer
-                display: 'Number to show'
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        latest_testimonies:
-          display: 'Latest Testimonies'
-          fields:
-            -
-              handle: number_to_show
-              field:
-                type: integer
-                display: 'Number to show'
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        latest_articles:
-          display: 'Latest Articles'
-          fields:
-            -
-              handle: number_to_show
-              field:
-                type: integer
-                display: 'Number to show'
-            -
-              handle: display
-              field:
-                options:
-                  horizontal: Horizontal
-                  vertical: Vertical
-                clearable: false
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                type: select
-                display: Display
-                placeholder: Horizontal
-            -
-              handle: cards_per_row
-              field:
-                type: integer
-                display: 'Cards per row'
-                if:
-                  display: 'equals vertical'
-        map:
-          display: Map
-          fields:
-            -
-              handle: embed_code
-              field:
-                character_limit: 0
-                type: text
-                display: 'Embed Code'
-        testimonial:
-          display: Testimonial
-          fields:
-            -
-              handle: testimony
-              field:
-                sets:
-                  testimony:
+        main:
+          display: Main
+          sets:
+            image_with_caption:
+              display: 'Image with Caption'
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    max_files: 1
+                    type: assets
+                    display: Image
+                    container: main
+                    folder: pages
+                -
+                  handle: caption
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: Caption
+                -
+                  handle: locate
+                  field:
+                    options:
+                      left: 'Float Left'
+                      right: 'Float Right'
+                      center: Center
+                      full: 'Full Width'
+                    clearable: true
+                    type: select
+                    display: Locate
+            divider:
+              display: Divider
+              fields:
+                -
+                  handle: anchor_id
+                  field:
+                    type: text
+                    display: 'Anchor ID'
+                -
+                  handle: color
+                  field:
+                    swatches:
+                      - '#074B54'
+                      - '#005D70'
+                      - '#5D9BAE'
+                      - '#8DCED5'
+                      - '#DADADA'
+                    theme: classic
+                    lock_opacity: false
+                    default_color_mode: HEXA
+                    color_modes:
+                      - hex
+                    type: color
+                    display: Color
+                -
+                  handle: size
+                  field:
+                    options:
+                      small: Small
+                      medium: Medium
+                      large: 'Large (Default)'
+                    max_items: 1
+                    searchable: false
+                    default: large
+                    display: Size
+                    type: select
+                    instructions: 'The top and bottom padding on the divider'
+            video:
+              display: Video
+              fields:
+                -
+                  handle: video_url
+                  field:
+                    type: video
+                    instructions: 'Paste the URL of a YouTube or Vimeo link. More info [in the Statamic docs.](https://docs.statamic.com/fieldtypes/video)'
+                    display: 'Video URL'
+                -
+                  handle: locate
+                  field:
+                    options:
+                      left: 'Float Left'
+                      center: Center
+                      right: 'Float Right'
+                      full: 'Full Width'
+                    clearable: true
+                    type: select
+                    display: Locate
+            button:
+              display: Button
+              fields:
+                -
+                  handle: button_text
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: 'Button Text'
+                -
+                  handle: button_url
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: 'Button Url'
+            image_background:
+              display: 'Image Background'
+              fields:
+                -
+                  handle: image
+                  field:
+                    container: main
+                    mode: grid
+                    folder: pages
+                    max_files: 1
+                    type: assets
+                    display: Image
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                -
+                  handle: text
+                  field:
+                    type: bard
+                    display: Text
+                -
+                  handle: buttons
+                  field:
+                    type: replicator
+                    display: Buttons
+                    sets:
+                      button:
+                        display: Button
+                        fields:
+                          -
+                            handle: button_text
+                            field:
+                              input_type: text
+                              type: text
+                              localizable: false
+                              listable: hidden
+                              display: 'Button Text'
+                          -
+                            handle: button_url
+                            field:
+                              input_type: text
+                              type: text
+                              localizable: false
+                              listable: hidden
+                              display: 'Button URL'
+                          -
+                            handle: button_type
+                            field:
+                              options:
+                                primary: Primary
+                                secondary: Secondary
+                                Link: Link
+                              clearable: false
+                              multiple: false
+                              searchable: false
+                              taggable: false
+                              push_tags: false
+                              cast_booleans: false
+                              type: select
+                              localizable: false
+                              listable: true
+                              display: 'Button Type'
+            box_quote_with_image:
+              display: 'Box Quote with Image'
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: textarea
+                    display: Text
+                -
+                  handle: image
+                  field:
+                    container: main
+                    mode: grid
+                    folder: pages
+                    max_files: 1
+                    type: assets
+                    display: Image
+                -
+                  handle: button_url
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: 'Button URL'
+                -
+                  handle: button_text
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: 'Button Text'
+            form:
+              display: Form
+              fields:
+                -
+                  handle: form
+                  field:
+                    options:
+                      contact: Contact
+                      quote: Quote
+                      career: Careers
+                      financing: Financing
+                    searchable: false
+                    type: select
+                    display: Form
+            latest_releases:
+              display: 'Latest Press Releases'
+              fields:
+                -
+                  handle: number_to_show
+                  field:
+                    type: integer
+                    display: 'Number to show'
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            coming_events:
+              display: 'Coming Events'
+              fields:
+                -
+                  handle: number_to_show
+                  field:
+                    type: integer
+                    display: 'Number to show'
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            past_events:
+              display: 'Past Events'
+              fields:
+                -
+                  handle: number_to_show
+                  field:
+                    type: integer
+                    display: 'Number to show'
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            cards:
+              display: Cards
+              fields:
+                -
+                  handle: card_sets
+                  field:
+                    type: replicator
+                    display: 'Card Sets'
+                    sets:
+                      card:
+                        display: Card
+                        fields:
+                          -
+                            handle: image
+                            field:
+                              container: main
+                              mode: grid
+                              folder: pages
+                              restrict: true
+                              allow_uploads: true
+                              max_files: 1
+                              type: assets
+                              display: Image
+                              listable: hidden
+                              instructions_position: above
+                              show_filename: true
+                          -
+                            handle: title
+                            field:
+                              character_limit: 0
+                              type: text
+                              display: Title
+                          -
+                            handle: subtitle
+                            field:
+                              character_limit: 0
+                              type: text
+                              display: Subtitle
+                          -
+                            handle: teaser
+                            field:
+                              type: textarea
+                              display: Teaser
+                          -
+                            handle: alignment
+                            field:
+                              options:
+                                left: Left
+                                center: Center
+                                right: Right
+                              display: Alignment
+                              type: button_group
+                              icon: button_group
+                              listable: hidden
+                          -
+                            handle: link
+                            field:
+                              character_limit: 0
+                              type: text
+                              display: Link
+                          -
+                            handle: button_text
+                            field:
+                              character_limit: 0
+                              type: text
+                              display: 'Button Text'
+                          -
+                            handle: highlight_color
+                            field:
+                              theme: classic
+                              lock_opacity: true
+                              default_color_mode: HEXA
+                              color_modes:
+                                - hex
+                              type: color
+                              listable: hidden
+                              display: 'Background Color'
+                              swatches:
+                                - '#074B54'
+                                - '#005D70'
+                                - '#5D9BAE'
+                                - '#8DCED5'
+                                - '#DADADA'
+                                - '#F9FAFB'
+                              instructions_position: above
+                              read_only: false
+                          -
+                            handle: buttons
+                            field:
+                              sets:
+                                button:
+                                  display: Button
+                                  fields:
+                                    -
+                                      handle: button_link
+                                      field:
+                                        input_type: text
+                                        type: text
+                                        listable: hidden
+                                        display: 'Button Link'
+                                    -
+                                      handle: button_text
+                                      field:
+                                        input_type: text
+                                        type: text
+                                        listable: hidden
+                                        display: 'Button Text'
+                              type: replicator
+                              listable: hidden
+                              display: Buttons
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            two_videos:
+              display: 'Two Videos'
+              fields:
+                -
+                  handle: videos
+                  field:
+                    type: replicator
+                    display: Videos
+                    sets:
+                      video:
+                        display: Video
+                        fields:
+                          -
+                            handle: video_url
+                            field:
+                              type: video
+                              localizable: false
+                              display: 'Video URL'
+            latest_news:
+              display: 'Latest News'
+              fields:
+                -
+                  handle: number_to_show
+                  field:
+                    type: integer
+                    display: 'Number to show'
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            latest_testimonies:
+              display: 'Latest Testimonies'
+              fields:
+                -
+                  handle: number_to_show
+                  field:
+                    type: integer
+                    display: 'Number to show'
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            latest_articles:
+              display: 'Latest Articles'
+              fields:
+                -
+                  handle: number_to_show
+                  field:
+                    type: integer
+                    display: 'Number to show'
+                -
+                  handle: display
+                  field:
+                    options:
+                      horizontal: Horizontal
+                      vertical: Vertical
+                    type: select
+                    display: Display
+                    placeholder: Horizontal
+                -
+                  handle: cards_per_row
+                  field:
+                    type: integer
+                    display: 'Cards per row'
+                    if:
+                      display: 'equals vertical'
+            map:
+              display: Map
+              fields:
+                -
+                  handle: embed_code
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: 'Embed Code'
+            testimonial:
+              display: Testimonial
+              fields:
+                -
+                  handle: testimony
+                  field:
+                    type: replicator
                     display: Testimony
-                    fields:
-                      -
-                        handle: quote
-                        field:
-                          buttons:
-                            - h2
-                            - h3
-                            - bold
-                            - italic
-                            - unorderedlist
-                            - orderedlist
-                            - removeformat
-                            - quote
-                            - anchor
-                            - image
-                            - table
-                          save_html: false
-                          toolbar_mode: fixed
-                          link_noopener: false
-                          link_noreferrer: false
-                          target_blank: false
-                          reading_time: false
-                          fullscreen: true
-                          allow_source: true
-                          type: bard
-                          localizable: false
-                          display: Quote
-                      -
-                        handle: cite
-                        field:
-                          character_limit: 0
-                          type: text
-                          localizable: false
-                          display: Cite
-                      -
-                        handle: company
-                        field:
-                          character_limit: 0
-                          type: text
-                          localizable: false
-                          display: Company
-                type: replicator
-                display: Testimony
-        buttons:
-          display: Buttons
-          fields:
-            -
-              handle: button_sets
-              field:
-                sets:
-                  button:
-                    display: Button
-                    fields:
-                      -
-                        handle: button_text
-                        field:
-                          input_type: text
-                          type: text
-                          localizable: false
-                          listable: hidden
-                          display: 'Button Text'
-                      -
-                        handle: button_url
-                        field:
-                          input_type: text
-                          type: text
-                          localizable: false
-                          listable: hidden
-                          display: 'Button URL'
-                      -
-                        handle: button_type
-                        field:
-                          options:
-                            primary: Primary
-                            secondary: Secondary
-                            Link: Link
-                          clearable: false
-                          multiple: false
-                          searchable: false
-                          taggable: false
-                          push_tags: false
-                          cast_booleans: false
-                          type: select
-                          localizable: false
-                          listable: true
-                          display: 'Button Type'
-                type: replicator
-                listable: true
-                display: 'Button Sets'
-        side_by_sides:
-          display: 'Side by Sides'
-          fields:
-            -
-              handle: rows
-              field:
-                sets:
-                  row:
-                    display: Row
-                    fields:
-                      -
-                        handle: split
-                        field:
-                          options:
-                            1/4: 1/4
-                            1/3: 1/3
-                            1/2: 1/2
-                          type: button_group
-                          instructions: 'Choose the split between the two boxes based on the first box size'
-                          listable: hidden
-                          display: Split
-                      -
-                        handle: bg_color
-                        field:
-                          theme: classic
-                          lock_opacity: true
-                          default_color_mode: HEXA
-                          color_modes:
-                            - hex
-                          type: color
-                          listable: hidden
-                          display: 'Background Color'
-                          swatches:
-                            - '#074B54'
-                            - '#005D70'
-                            - '#5D9BAE'
-                            - '#8DCED5'
-                            - '#DADADA'
-                            - '#F9FAFB'
-                          instructions_position: above
-                      -
-                        handle: image
-                        field:
-                          container: main
-                          mode: grid
-                          folder: pages
-                          restrict: false
-                          allow_uploads: true
-                          max_files: 1
-                          type: assets
-                          display: Image
-                          listable: hidden
-                      -
-                        handle: hide_image_on_mobile
-                        field:
-                          inline_label: Hidden
-                          default: false
-                          display: 'Hide Image on Mobile'
-                          type: toggle
-                          icon: toggle
-                          listable: hidden
-                          instructions_position: above
-                          visibility: visible
-                      -
-                        handle: embed
-                        field:
-                          input_type: text
-                          antlers: false
-                          display: Embed
-                          type: text
-                          icon: text
-                          instructions: 'Lottie files'
-                          listable: hidden
-                          instructions_position: above
-                      -
-                        handle: title
-                        field:
-                          input_type: text
-                          type: text
-                          listable: hidden
-                          display: Title
-                      -
-                        handle: text
-                        field:
-                          type: textarea
-                          display: Text
-                      -
-                        handle: button_url
-                        field:
-                          character_limit: 0
-                          type: text
-                          display: 'Button URL'
-                      -
-                        handle: button_text
-                        field:
-                          character_limit: 0
-                          type: text
-                          display: 'Button Text'
-                      -
-                        handle: buttons
-                        field:
-                          sets:
-                            button:
-                              display: Button
-                              fields:
-                                -
-                                  handle: button_link
-                                  field:
-                                    input_type: text
-                                    type: text
-                                    listable: hidden
-                                    display: 'Button Link'
-                                -
-                                  handle: button_text
-                                  field:
-                                    input_type: text
-                                    type: text
-                                    listable: hidden
-                                    display: 'Button Text'
-                          type: replicator
-                          listable: hidden
-                          display: Buttons
-                type: replicator
-                listable: hidden
-                display: Rows
-                collapse: false
-                instructions_position: above
-                visibility: visible
-                previews: true
-        mission_statement:
-          display: 'Mission Statement'
-          fields:
-            -
-              handle: text
-              field:
-                input_type: text
-                type: text
-                listable: hidden
-                display: Text
-        event_calendar:
-          display: 'Event Calendar'
-          fields: {  }
-        components:
-          display: Components
-          fields:
-            -
-              handle: component
-              field:
-                options:
-                  join_us: 'Join Us Component'
-                  process: 'Our Process'
-                  mission_vision_values: 'Mission / Vision / Values'
-                clearable: true
-                multiple: false
-                searchable: true
-                taggable: false
-                push_tags: false
-                cast_booleans: false
-                type: select
-                listable: hidden
-                display: Component
-                instructions_position: above
-        text_auto_columns:
-          display: 'Text Auto Columns'
-          fields:
-            -
-              handle: content
-              field:
-                always_show_set_button: false
-                buttons:
-                  - h2
-                  - h3
-                  - bold
-                  - italic
-                  - unorderedlist
-                  - orderedlist
-                  - removeformat
-                  - quote
-                  - anchor
-                  - image
-                  - table
-                save_html: false
-                toolbar_mode: fixed
-                link_noopener: false
-                link_noreferrer: false
-                target_blank: false
-                reading_time: false
-                fullscreen: true
-                allow_source: true
-                display: Content
-                type: bard
-                icon: bard
-                instructions: 'Enter the text here. Depending on device, this will columnize the information.'
-                listable: hidden
-                container: main
-                enable_input_rules: true
-                enable_paste_rules: true
-                instructions_position: above
-                antlers: false
-        quote:
-          display: Quote
-          fields:
-            -
-              handle: quote
-              field:
-                always_show_set_button: false
-                previews: true
-                buttons:
-                  - h2
-                  - h3
-                  - bold
-                  - italic
-                  - unorderedlist
-                  - orderedlist
-                  - removeformat
-                  - quote
-                  - anchor
-                  - image
-                  - table
-                save_html: false
-                toolbar_mode: fixed
-                link_noopener: false
-                link_noreferrer: false
-                target_blank: false
-                reading_time: false
-                fullscreen: true
-                allow_source: true
-                enable_input_rules: true
-                enable_paste_rules: true
-                antlers: false
-                remove_empty_nodes: false
-                display: Quote
-                type: bard
-                icon: bard
-                listable: hidden
-                instructions_position: above
-                visibility: visible
-                always_save: false
-            -
-              handle: cite
-              field:
-                input_type: text
-                antlers: false
-                display: Cite
-                type: text
-                icon: text
-                listable: hidden
-                instructions_position: above
-                visibility: visible
-                always_save: false
-      collapse: false
-      smart_typography: false
-      inline: false
+                    sets:
+                      testimony:
+                        display: Testimony
+                        fields:
+                          -
+                            handle: quote
+                            field:
+                              buttons:
+                                - h2
+                                - h3
+                                - bold
+                                - italic
+                                - unorderedlist
+                                - orderedlist
+                                - removeformat
+                                - quote
+                                - anchor
+                                - image
+                                - table
+                              save_html: false
+                              toolbar_mode: fixed
+                              link_noopener: false
+                              link_noreferrer: false
+                              target_blank: false
+                              reading_time: false
+                              fullscreen: true
+                              allow_source: true
+                              type: bard
+                              localizable: false
+                              display: Quote
+                          -
+                            handle: cite
+                            field:
+                              character_limit: 0
+                              type: text
+                              localizable: false
+                              display: Cite
+                          -
+                            handle: company
+                            field:
+                              character_limit: 0
+                              type: text
+                              localizable: false
+                              display: Company
+            buttons:
+              display: Buttons
+              fields:
+                -
+                  handle: button_sets
+                  field:
+                    type: replicator
+                    listable: true
+                    display: 'Button Sets'
+                    sets:
+                      button:
+                        display: Button
+                        fields:
+                          -
+                            handle: button_text
+                            field:
+                              input_type: text
+                              type: text
+                              localizable: false
+                              listable: hidden
+                              display: 'Button Text'
+                          -
+                            handle: button_url
+                            field:
+                              input_type: text
+                              type: text
+                              localizable: false
+                              listable: hidden
+                              display: 'Button URL'
+                          -
+                            handle: button_type
+                            field:
+                              options:
+                                primary: Primary
+                                secondary: Secondary
+                                Link: Link
+                              clearable: false
+                              multiple: false
+                              searchable: false
+                              taggable: false
+                              push_tags: false
+                              cast_booleans: false
+                              type: select
+                              localizable: false
+                              listable: true
+                              display: 'Button Type'
+            side_by_sides:
+              display: 'Side by Sides'
+              fields:
+                -
+                  handle: rows
+                  field:
+                    type: replicator
+                    display: Rows
+                    sets:
+                      row:
+                        display: Row
+                        fields:
+                          -
+                            handle: split
+                            field:
+                              options:
+                                1/4: 1/4
+                                1/3: 1/3
+                                1/2: 1/2
+                              type: button_group
+                              instructions: 'Choose the split between the two boxes based on the first box size'
+                              listable: hidden
+                              display: Split
+                          -
+                            handle: bg_color
+                            field:
+                              theme: classic
+                              lock_opacity: true
+                              default_color_mode: HEXA
+                              color_modes:
+                                - hex
+                              type: color
+                              listable: hidden
+                              display: 'Background Color'
+                              swatches:
+                                - '#074B54'
+                                - '#005D70'
+                                - '#5D9BAE'
+                                - '#8DCED5'
+                                - '#DADADA'
+                                - '#F9FAFB'
+                              instructions_position: above
+                          -
+                            handle: image
+                            field:
+                              container: main
+                              mode: grid
+                              folder: pages
+                              restrict: false
+                              allow_uploads: true
+                              max_files: 1
+                              type: assets
+                              display: Image
+                              listable: hidden
+                          -
+                            handle: hide_image_on_mobile
+                            field:
+                              inline_label: Hidden
+                              default: false
+                              display: 'Hide Image on Mobile'
+                              type: toggle
+                              icon: toggle
+                              listable: hidden
+                              instructions_position: above
+                              visibility: visible
+                          -
+                            handle: embed
+                            field:
+                              input_type: text
+                              antlers: false
+                              display: Embed
+                              type: text
+                              icon: text
+                              instructions: 'Lottie files'
+                              listable: hidden
+                              instructions_position: above
+                          -
+                            handle: title
+                            field:
+                              input_type: text
+                              type: text
+                              listable: hidden
+                              display: Title
+                          -
+                            handle: text
+                            field:
+                              type: textarea
+                              display: Text
+                          -
+                            handle: button_url
+                            field:
+                              character_limit: 0
+                              type: text
+                              display: 'Button URL'
+                          -
+                            handle: button_text
+                            field:
+                              character_limit: 0
+                              type: text
+                              display: 'Button Text'
+                          -
+                            handle: buttons
+                            field:
+                              sets:
+                                button:
+                                  display: Button
+                                  fields:
+                                    -
+                                      handle: button_link
+                                      field:
+                                        input_type: text
+                                        type: text
+                                        listable: hidden
+                                        display: 'Button Link'
+                                    -
+                                      handle: button_text
+                                      field:
+                                        input_type: text
+                                        type: text
+                                        listable: hidden
+                                        display: 'Button Text'
+                              type: replicator
+                              listable: hidden
+                              display: Buttons
+            mission_statement:
+              display: 'Mission Statement'
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Text
+            event_calendar:
+              display: 'Event Calendar'
+              fields: {  }
+            components:
+              display: Components
+              fields:
+                -
+                  handle: component
+                  field:
+                    options:
+                      join_us: 'Join Us Component'
+                      process: 'Our Process'
+                      mission_vision_values: 'Mission / Vision / Values'
+                    clearable: true
+                    type: select
+                    display: Component
+            text_auto_columns:
+              display: 'Text Auto Columns'
+              fields:
+                -
+                  handle: content
+                  field:
+                    display: Content
+                    type: bard
+                    instructions: 'Enter the text here. Depending on device, this will columnize the information.'
+                    container: main
+            quote:
+              display: Quote
+              fields:
+                -
+                  handle: quote
+                  field:
+                    remove_empty_nodes: false
+                    display: Quote
+                    type: bard
+                    always_save: false
+                -
+                  handle: cite
+                  field:
+                    display: Cite
+                    type: text
+                    always_save: false

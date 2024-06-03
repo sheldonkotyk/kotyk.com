@@ -11,11 +11,12 @@
                 </div>
             </div>
             {{ if feature_image }}
-                {{ asset:feature_image }}<img class="mt-4" src="{{ feature_image }}"/>{{ /asset:feature_image }}
+                {{ feature_image }}<img class="mt-4" src="{{ url }}" alt="{{ alt }}"/>{{ /feature_image }}
             {{ /if }}
             {{ if content }}
-            <div class="pt-8 mt-8 border-t content">
-                {{ content }}
+                <div class="pt-8 mt-8 border-t content">
+                    {{ content }}
+                </div>
             {{ /if }}
 
             {{ if content_area }}

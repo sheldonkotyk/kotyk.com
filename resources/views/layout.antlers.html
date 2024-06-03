@@ -5,12 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title ?? site:name }}</title>
+        {{ partial src="favicons" }}
         {{ vite src="resources/css/site.css|resources/js/site.js" }}
     </head>
     <body class="font-sans">
         <div class="container mx-auto">
             {{ partial src="nav" }}
             {{ template_content }}
+            {{ partial src="footer" }}
         </div>
     </body>
 </html>
