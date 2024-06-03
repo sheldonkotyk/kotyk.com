@@ -4,7 +4,7 @@
             <h1 class="mb-6">{{ title | entities | widont }}</h1>
 
             {{ if feature_image }}
-                {{ feature_image }}<img class="mt-4" src="{{ url }}" alt="{{ alt }}"/>{{ /feature_image }}
+                {{ feature_image }}<img class="mt-4 rounded-md shadow-md" src="{{ url }}" alt="{{ alt }}"/>{{ /feature_image }}
             {{ /if }}
             {{ if content_area }}
                 <div class="pt-8 mt-8 content">
