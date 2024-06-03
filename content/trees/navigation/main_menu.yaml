@@ -1,10 +1,8 @@
 tree:
   -
-    id: e8535c39-155b-42d7-818f-fc66e78fb01e
-    entry: home
-  -
     id: 4580bd94-3989-44af-9217-c2e767bd897e
     entry: 6aa327dd-2dec-4faf-9408-51ed7f431afc
+    title: Blog
   -
     id: aa9f5d1f-073e-4c24-b826-07a9487baee5
     entry: cd9da715-39c7-44a7-8245-d5d573f0ba64

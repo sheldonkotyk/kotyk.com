@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{ seo_pro:meta }}
         {{ partial src="favicons" }}
+        {{ livewire:styles }}
         {{ vite src="resources/css/site.css|resources/js/site.js" }}
     </head>
     <body class="font-sans">
@@ -14,5 +15,6 @@
             {{ template_content }}
             {{ partial src="footer" }}
         </div>
+        {{ livewire:scripts }}
     </body>
 </html>

@@ -1,20 +1,20 @@
-<nav class="md:mt-8">
+<nav class="bg-gray-800 md:mt-2 md:rounded-lg">
     <div x-data="{showMenu : false}" class="container flex justify-between max-w-screen-lg mx-auto md:justify-start h-14">
         <!-- Brand-->
-        <a href="/" class="flex items-center px-2 ml-3 cursor-pointer hover:bg-red-50">
-            <!-- Logo-->
-            <div class="font-semibold text-gray-700">Kotyk.com</div>
+        <a href="/" class="flex items-center px-2 ml-3 cursor-pointer hover:bg-gray-700 rounded-md m-2">
+            <img class="h-10 w-10  rounded-md mr-4" src="/favicons/apple-icon.png"/>
+            <div class="font-semibold text-gray-50">Sheldon Kotyk</div>
         </a>
         <!-- Navbar Toggle Button -->
-        <button @click="showMenu = !showMenu" class="block p-2 my-2 mr-2 text-gray-700 rounded md:hidden hover:border focus:border focus:bg-gray-100" type="button" aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
+        <button @click="showMenu = !showMenu" class="block p-2 my-2 mr-2 text-gray-100 rounded md:hidden hover:border focus:border focus:bg-gray-600" type="button" aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
         <!-- Nav Links-->
-        <ul class="mr-3 text-base text-gray-700 origin-top md:flex"
+        <ul class="mr-3 text-base text-gray-900 md:text-gray-100 origin-top md:flex"
             :class="{ 'bg-white border-gray-700 border-b block absolute top-14 w-full px-2 z-20': showMenu, 'hidden': !showMenu}"
             id="navbar-main" x-cloak>
-            {{ nav:main_menu include_home="true" }}
-                <li class="flex items-center mx-3 cursor-pointer hover:text-red-800 {{ is_current || is_parent ?= 'font-bold' }}" :class="showMenu && 'py-1'">
+            {{ nav:main_menu }}
+                <li class="border-b border-gray-200 md:border-none py-3 md:py-0 flex items-center mx-3 cursor-pointer hover:underline hover:text-gray-800 md:hover:text-gray-50 {{ is_current || is_parent ?= 'font-bold' }}" :class="showMenu && 'py-1'">
                     <a href="{{ url }}">{{ title }}</a>
                 </li>
             {{ /nav:main_menu }}
