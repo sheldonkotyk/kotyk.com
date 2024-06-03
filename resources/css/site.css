@@ -7,6 +7,54 @@
 @import url('https://rsms.me/inter/inter.css');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
 
+h1 {
+    @apply font-sans text-5xl font-black;
+}
+
+.content {
+    @apply font-sans;
+
+    h2 {
+        @apply font-bold text-2xl mb-8;
+    }
+
+    h3 {
+        @apply font-bold text-lg mb-4;
+    }
+
+    > p {
+        margin-bottom: 2em;
+    }
+
+    a {
+        @apply underline;
+
+        &:hover {
+            @apply text-gray-700;
+        }
+    }
+
+    ul:not(.list-none) {
+        @apply pl-0 list-disc ml-8 mb-8;
+
+        li {
+            @apply mb-1;
+        }
+
+        li ul {
+            @apply mb-0;
+        }
+    }
+
+    ol {
+        @apply pl-0 list-decimal ml-8 mb-8;
+
+        li {
+            @apply mb-1;
+        }
+    }
+}
+
 .videoWrapper {
     position: relative;
     padding-bottom: 38.59%; /* 16:9 */
