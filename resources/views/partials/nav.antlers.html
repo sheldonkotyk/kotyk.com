@@ -14,7 +14,7 @@
             :class="{ 'bg-white border-gray-700 border-b block absolute top-14 w-full p-2 z-20': showMenu, 'hidden': !showMenu}"
             id="navbar-main" x-cloak>
             {{ nav:main_menu }}
-                <li class="border-b border-gray-200 md:border-none hover:bg-gray-700 py-3 md:rounded-md  md:py-2 md:px-2  my-2 flex items-center mx-3 cursor-pointer md:hover:text-white {{ is_current || is_parent ?= 'font-bold' }}" :class="showMenu && 'py-1'">
+                <li class="border-b border-gray-200 md:border-none md:hover:bg-gray-700 py-3 md:rounded-md  md:py-2 md:px-2  my-2 flex items-center mx-3 cursor-pointer md:hover:text-white {{ is_current || is_parent ?= 'font-bold' }}" :class="showMenu && 'py-1'">
                     <a href="{{ url }}">{{ title }}</a>
                 </li>
             {{ /nav:main_menu }}
