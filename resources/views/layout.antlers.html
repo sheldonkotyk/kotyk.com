@@ -10,11 +10,9 @@
         {{ vite src="resources/css/site.css|resources/js/site.js" }}
     </head>
     <body class="font-sans">
-        <div class="container mx-auto">
-            {{ partial src="nav" }}
-            {{ template_content }}
-            {{ partial src="footer" }}
-        </div>
+        {{ partial src="nav" }}
+        {{ template_content }}
+        {{ partial src="footer" }}
         {{ livewire:scripts }}
     </body>
 </html>

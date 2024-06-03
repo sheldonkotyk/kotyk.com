@@ -5,10 +5,8 @@ title: Contact
 content_area:
   -
     type: paragraph
-    content:
-      -
-        type: text
-        text: 'Contact me using this form.'
+    attrs:
+      textAlign: left
   -
     type: set
     attrs:
@@ -18,6 +16,9 @@ content_area:
         form: contact
   -
     type: paragraph
-updated_by: 30240118-ccf0-437f-a925-abf0a38bac95
-updated_at: 1672454305
+    attrs:
+      textAlign: left
+updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
+updated_at: 1717382430
+parent: home
 ---
