@@ -1,5 +1,7 @@
 name: 'Sheldon Kotyk'
 super: true
+roles:
+  - editor
 id: e3193a78-e0d1-437d-bb20-86616a16642d
 password_hash: $2y$12$RK8X/ZHnBfDET7rdxrbk.egJfzZDxURlkSsSkjKahIGwJS4tJWHOe
 preferences:
