@@ -116,7 +116,7 @@ content_area:
     type: heading
     attrs:
       textAlign: left
-      level: 2
+      level: 3
     content:
       -
         type: text
@@ -130,12 +130,8 @@ content_area:
         number_to_show: 3
         display: vertical
         cards_per_row: 3
-  -
-    type: paragraph
-    attrs:
-      textAlign: left
-updated_by: 30240118-ccf0-437f-a925-abf0a38bac95
-updated_at: 1700885810
+updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
+updated_at: 1722045349
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0

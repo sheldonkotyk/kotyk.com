@@ -3,56 +3,10 @@
 @import "tailwindcss/utilities";
 
 /* This is all you. */
-
-@import url('https://rsms.me/inter/inter.css');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
 
 h1 {
     @apply font-sans text-5xl font-black;
-}
-
-.content {
-    @apply font-sans;
-
-    h2 {
-        @apply font-bold text-2xl mb-8;
-    }
-
-    h3 {
-        @apply font-bold text-lg mb-4;
-    }
-
-    > p {
-        margin-bottom: 2em;
-    }
-
-    a {
-        @apply underline;
-
-        &:hover {
-            @apply text-gray-700;
-        }
-    }
-
-    ul:not(.list-none) {
-        @apply pl-0 list-disc ml-8 mb-8;
-
-        li {
-            @apply mb-1;
-        }
-
-        li ul {
-            @apply mb-0;
-        }
-    }
-
-    ol {
-        @apply pl-0 list-decimal ml-8 mb-8;
-
-        li {
-            @apply mb-1;
-        }
-    }
 }
 
 .videoWrapper {
@@ -81,3 +35,36 @@ h1 {
 [x-cloak] {
     display: none;
 }
+
+.button-primary {
+	@apply font-bold rounded-md bg-red-800 no-underline py-2 px-4 whitespace-nowrap text-white hover:bg-red-400 !important;
+}
+
+.button-primary-sm {
+	@apply font-bold rounded-md bg-red-800 no-underline py-1 px-2 whitespace-nowrap text-white hover:bg-red-400 !important;
+}
+
+.button-yellow {
+	@apply font-bold rounded-md bg-brand-yellow no-underline py-2 px-4 whitespace-nowrap text-black hover:bg-brand-primarybuttonhover !important;
+}
+
+.button-white {
+	@apply font-bold rounded-md bg-white no-underline py-2 px-4 whitespace-nowrap text-black hover:bg-brand-primarybuttonhover !important;
+}
+
+.button-black {
+	@apply font-bold rounded-md bg-black no-underline py-2 px-4 whitespace-nowrap text-white hover:bg-brand-primarybuttonhover !important;
+}
+
+.button-secondary {
+	@apply font-bold rounded-md bg-white no-underline py-2 px-4 whitespace-nowrap text-black hover:bg-brand-orange hover:text-white !important;
+}
+
+.button-outline {
+	@apply rounded-lg border-brand-darkgraybg border-2 no-underline py-2 px-4 whitespace-nowrap text-brand-darkgraybg hover:bg-brand-primarybutton hover:text-white !important;
+}
+
+.button-Link {
+	@apply underline py-2 whitespace-nowrap text-3xl text-brand-verydarkblue font-black !important;
+}
+

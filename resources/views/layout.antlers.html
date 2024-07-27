@@ -11,13 +11,12 @@
         {{ /user:isnt }}
         {{ seo_pro:meta }}
         {{ partial src="favicons" }}
-        {{ livewire:styles }}
+        <script src="https://kit.fontawesome.com/29548d475a.js" crossorigin="anonymous"></script>
         {{ vite src="resources/css/site.css|resources/js/site.js" }}
     </head>
     <body class="font-sans">
         {{ partial src="nav" }}
         {{ template_content }}
         {{ partial src="footer" }}
-        {{ livewire:scripts }}
     </body>
 </html>
