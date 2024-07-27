@@ -37,11 +37,11 @@ h1 {
 }
 
 .button-primary {
-	@apply font-bold rounded-md bg-red-800 no-underline py-2 px-4 whitespace-nowrap text-white hover:bg-red-400 !important;
+	@apply font-bold rounded-md bg-red-800 no-underline py-2 px-4 whitespace-nowrap text-white hover:bg-red-900 !important;
 }
 
 .button-primary-sm {
-	@apply font-bold rounded-md bg-red-800 no-underline py-1 px-2 whitespace-nowrap text-white hover:bg-red-400 !important;
+	@apply font-bold rounded-md bg-red-800 no-underline py-1 px-2 whitespace-nowrap text-white hover:bg-red-900 !important;
 }
 
 .button-yellow {
