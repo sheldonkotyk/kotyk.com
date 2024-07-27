@@ -4,21 +4,13 @@ blueprint: pages
 title: Contact
 content_area:
   -
-    type: paragraph
-    attrs:
-      textAlign: left
-  -
     type: set
     attrs:
-      id: lcbc15jm
+      id: lz3ic5cm
       values:
         type: form
         form: contact
-  -
-    type: paragraph
-    attrs:
-      textAlign: left
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1717382430
+updated_at: 1722047028
 parent: home
 ---
