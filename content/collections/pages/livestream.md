@@ -73,13 +73,13 @@ content_area:
         type: two_videos
         videos:
           -
-            id: leq9rnxt
-            video_url: 'https://www.youtube.com/watch?v=TIPjyubhXTw'
+            id: m0zlmhwe
+            video_url: 'https://www.youtube.com/watch?v=XLJkvCq7oMQ'
             type: video
             enabled: true
           -
-            id: ldcjysnd
-            video_url: 'https://www.youtube.com/watch?v=3jLy-chgV-E&t=5s'
+            id: leq9rnxt
+            video_url: 'https://www.youtube.com/watch?v=TIPjyubhXTw'
             type: video
             enabled: true
   -
@@ -104,6 +104,7 @@ content_area:
       -
         type: text
         text: .
-updated_by: 30240118-ccf0-437f-a925-abf0a38bac95
-updated_at: 1686235673
+updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
+updated_at: 1726164306
+parent: home
 ---
