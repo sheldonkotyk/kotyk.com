@@ -51,7 +51,43 @@ content_area:
     content:
       -
         type: text
-        text: "We're taking a little break as Kirk is taking some time off. Don't forget to like, subscribe, and hit the bell to be notified of future livestreams as well as the well produced videos that Kirk occasionally drops."
+        text: "We're back from our break and getting right into it. This season we'll be discussing the word \"HATE\", Darwin's theory of common descent, politics, and how the world ends (not technically the same thing)."
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      -
+        type: text
+        text: "We'll be moving around our times a bit due to travel and things like dentist appointments so like, subscribe, and hit the bell on YouTube to be notified of future livestreams as well as the well produced videos that Kirk occasionally drops."
+  -
+    type: heading
+    attrs:
+      textAlign: center
+      level: 3
+    content:
+      -
+        type: text
+        text: 'Next Stream (Friday at 2pm Eastern / 11am Pacific)'
+  -
+    type: paragraph
+    attrs:
+      textAlign: center
+  -
+    type: set
+    attrs:
+      id: m19cg643
+      values:
+        type: video
+        video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
+        locate: center
+  -
+    type: set
+    attrs:
+      id: m19cmr0u
+      values:
+        type: divider
+        size: small
   -
     type: heading
     attrs:
@@ -61,10 +97,6 @@ content_area:
       -
         type: text
         text: 'Recent Streams'
-  -
-    type: paragraph
-    attrs:
-      textAlign: left
   -
     type: set
     attrs:
@@ -105,6 +137,6 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1726164306
+updated_at: 1726753849
 parent: home
 ---
