@@ -92,7 +92,35 @@ content_area:
         text: 'Power to Change'
       -
         type: text
-        text: '. He serves a team of more than 40 dedicated staff and hundreds of online missionaries around the globe.'
+        text: '. He serves a team of more than 40 dedicated staff and hundreds of online missionaries around the globe. You can catch him trying to understand what Kirk is talking about on the '
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://www.youtube.com/@KirkDurstonquest/streams'
+              rel: null
+              target: _blank
+              title: null
+        text: 'Quest with Kirk Durston'
+      -
+        type: text
+        text: ' '
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: /livestream
+              rel: null
+              target: null
+              title: null
+        text: livestream
+      -
+        type: text
+        text: .
   -
     type: paragraph
     attrs:
@@ -131,7 +159,7 @@ content_area:
         display: vertical
         cards_per_row: 3
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1722045349
+updated_at: 1726754541
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0

@@ -29,7 +29,7 @@ content_area:
         text: 'Quest with Kirk Durston'
       -
         type: text
-        text: '. A weekly show where topics of faith, science, and philosophy are discussed '
+        text: '. A weekly discussion where topics of faith, science, and philosophy are discussed '
       -
         type: text
         marks:
@@ -43,7 +43,7 @@ content_area:
         text: 'live on YouTube'
       -
         type: text
-        text: .
+        text: ' with someone who is way smarter than Sheldon.'
   -
     type: paragraph
     attrs:
@@ -64,19 +64,16 @@ content_area:
     type: heading
     attrs:
       textAlign: center
-      level: 3
+      level: 2
     content:
       -
         type: text
-        text: 'Next Stream (Friday at 2pm Eastern / 11am Pacific)'
-  -
-    type: paragraph
-    attrs:
-      textAlign: center
+        text: 'Next Stream (Thursday at 2pm Eastern / 11am Pacific)'
   -
     type: set
     attrs:
       id: m19cg643
+      enabled: false
       values:
         type: video
         video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
@@ -105,13 +102,13 @@ content_area:
         type: two_videos
         videos:
           -
-            id: m0zlmhwe
-            video_url: 'https://www.youtube.com/watch?v=XLJkvCq7oMQ'
+            id: m21zccqn
+            video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
             type: video
             enabled: true
           -
-            id: leq9rnxt
-            video_url: 'https://www.youtube.com/watch?v=TIPjyubhXTw'
+            id: m0zlmhwe
+            video_url: 'https://www.youtube.com/watch?v=XLJkvCq7oMQ'
             type: video
             enabled: true
   -
@@ -137,6 +134,6 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1726753849
+updated_at: 1728485131
 parent: home
 ---
