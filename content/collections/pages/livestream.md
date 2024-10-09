@@ -93,7 +93,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Recent Streams'
+        text: 'Recent Streams from this Season'
   -
     type: paragraph
     attrs:
@@ -105,6 +105,11 @@ content_area:
       values:
         type: two_videos
         videos:
+          -
+            id: m22072nm
+            video_url: 'https://www.youtube.com/watch?v=6jet6SdCgWw&t=515s'
+            type: video
+            enabled: true
           -
             id: m21zccqn
             video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
@@ -138,5 +143,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1728486143
+updated_at: 1728486457
 ---
