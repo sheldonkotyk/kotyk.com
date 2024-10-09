@@ -95,6 +95,10 @@ content_area:
         type: text
         text: 'Recent Streams'
   -
+    type: paragraph
+    attrs:
+      textAlign: left
+  -
     type: set
     attrs:
       id: lcbb08qa
@@ -134,6 +138,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1728485131
-parent: home
+updated_at: 1728486143
 ---
