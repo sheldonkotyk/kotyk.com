@@ -59,7 +59,7 @@ content_area:
     content:
       -
         type: text
-        text: "We'll be moving around our times a bit due to travel and things like dentist appointments so like, subscribe, and hit the bell on YouTube to be notified of future livestreams as well as the well produced videos that Kirk occasionally drops."
+        text: 'Like, subscribe, and hit the bell on YouTube to be notified of future streams as well as the well produced videos that Kirk occasionally drops.'
   -
     type: heading
     attrs:
@@ -68,7 +68,15 @@ content_area:
     content:
       -
         type: text
-        text: 'Next Stream (Thursday at 2pm Eastern / 11am Pacific)'
+        text: 'Thursdays at 1pm Eastern / 10am Pacific'
+  -
+    type: paragraph
+    attrs:
+      textAlign: center
+    content:
+      -
+        type: text
+        text: 'There will not be a stream on October 31 due to travel commitments.'
   -
     type: set
     attrs:
@@ -76,7 +84,6 @@ content_area:
       enabled: false
       values:
         type: video
-        video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
         locate: center
   -
     type: set
@@ -106,20 +113,46 @@ content_area:
         type: two_videos
         videos:
           -
-            id: m22072nm
-            video_url: 'https://www.youtube.com/watch?v=6jet6SdCgWw&t=515s'
+            id: m2nq053p
+            video_url: 'https://www.youtube.com/watch?v=ECOrlpcqqlU'
             type: video
             enabled: true
           -
-            id: m21zccqn
+            id: m2dlkbdp
+            video_url: 'https://www.youtube.com/watch?v=2fNns935aV4'
+            type: video
+            enabled: true
+          -
+            id: m2dlm292
+            video_url: 'https://www.youtube.com/watch?v=EJsTiv7cGh8'
+            type: video
+            enabled: true
+  -
+    type: set
+    attrs:
+      id: m242oeob
+      values:
+        type: two_videos
+        videos:
+          -
+            id: m2dlmqbf
+            type: video
+            enabled: true
+            video_url: 'https://www.youtube.com/watch?v=6jet6SdCgWw&t=515s'
+          -
+            id: m242og0k
             video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
             type: video
             enabled: true
           -
-            id: m0zlmhwe
+            id: m242p255
             video_url: 'https://www.youtube.com/watch?v=XLJkvCq7oMQ'
             type: video
             enabled: true
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
   -
     type: paragraph
     attrs:
@@ -143,5 +176,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1728486457
+updated_at: 1729866602
 ---
