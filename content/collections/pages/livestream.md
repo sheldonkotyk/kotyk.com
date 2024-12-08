@@ -73,18 +73,14 @@ content_area:
     type: paragraph
     attrs:
       textAlign: center
-    content:
-      -
-        type: text
-        text: 'There will not be a stream on October 31 due to travel commitments.'
   -
     type: set
     attrs:
       id: m19cg643
-      enabled: false
       values:
         type: video
         locate: center
+        video_url: 'https://www.youtube.com/watch?v=E7BbyamVn8Q'
   -
     type: set
     attrs:
@@ -176,5 +172,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1729866602
+updated_at: 1730993723
 ---
