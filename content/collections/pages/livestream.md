@@ -68,7 +68,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Thursdays at 1pm Eastern / 10am Pacific'
+        text: 'Latest Video'
   -
     type: paragraph
     attrs:
@@ -80,7 +80,7 @@ content_area:
       values:
         type: video
         locate: center
-        video_url: 'https://www.youtube.com/watch?v=E7BbyamVn8Q'
+        video_url: 'https://www.youtube.com/watch?v=_HOyYKCdddg'
   -
     type: set
     attrs:
@@ -109,6 +109,16 @@ content_area:
         type: two_videos
         videos:
           -
+            id: m6fn63o2
+            video_url: 'https://www.youtube.com/watch?v=_HOyYKCdddg'
+            type: video
+            enabled: true
+          -
+            id: m5ziz6fe
+            video_url: 'https://www.youtube.com/watch?v=E7BbyamVn8Q'
+            type: video
+            enabled: true
+          -
             id: m2nq053p
             video_url: 'https://www.youtube.com/watch?v=ECOrlpcqqlU'
             type: video
@@ -118,11 +128,6 @@ content_area:
             video_url: 'https://www.youtube.com/watch?v=2fNns935aV4'
             type: video
             enabled: true
-          -
-            id: m2dlm292
-            video_url: 'https://www.youtube.com/watch?v=EJsTiv7cGh8'
-            type: video
-            enabled: true
   -
     type: set
     attrs:
@@ -130,6 +135,11 @@ content_area:
       values:
         type: two_videos
         videos:
+          -
+            id: m5zj1ngz
+            video_url: 'https://www.youtube.com/watch?v=EJsTiv7cGh8'
+            type: video
+            enabled: true
           -
             id: m2dlmqbf
             type: video
@@ -172,5 +182,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1730993723
+updated_at: 1738018259
 ---
