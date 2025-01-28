@@ -1,12 +1,12 @@
 <nav class="bg-gray-800 md:mt-2 md:rounded-lg md:mx-2 ">
-    <div x-data="{showMenu : false}" class="container flex justify-between max-w-screen-xl mx-auto md:justify-start h-14">
+    <div x-data="{showMenu : false}" class="container flex justify-between max-w-(--breakpoint-xl) mx-auto md:justify-start h-14">
         <!-- Brand-->
         <a href="/" class="flex items-center pr-2 m-2 ml-3 rounded-md cursor-pointer hover:bg-gray-700">
             <img class="w-10 h-10 my-2 mr-4 rounded-md" src="/favicons/apple-icon.png"/>
             <div class="font-semibold text-gray-50">Sheldon Kotyk</div>
         </a>
         <!-- Navbar Toggle Button -->
-        <button @click="showMenu = !showMenu" class="block p-2 my-2 mr-2 text-gray-100 rounded md:hidden hover:border focus:border focus:bg-gray-600" type="button" aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
+        <button @click="showMenu = !showMenu" class="block p-2 my-2 mr-2 text-gray-100 rounded-sm md:hidden hover:border focus:border focus:bg-gray-600" type="button" aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
         <!-- Nav Links-->

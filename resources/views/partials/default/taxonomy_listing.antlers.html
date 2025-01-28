@@ -4,7 +4,7 @@
 {{ collection:people as="entry" taxonomy:people_type="board-of-directors"}}
   {{ entry }}
     <div class="flex flex-col overflow-hidden text-center">
-      <div class="flex-shrink-0">
+      <div class="shrink-0">
         <a href="/people/{{ slug }}"> <img {{ if highlight_color }}style="border-color: {{  highlight_color }}" {{ /if }}
             class="mx-auto {{ if highlight_color }}border-solid border-8 p-4{{ /if }} w-100 h-100 rounded-full"
             src="{{ glide:bio_image width='250' height='250'  fit='crop_focal' }}" alt="Image of {{ title }}"></a>

@@ -1,9 +1,115 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss';
 
 /* This is all you. */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap') */
+
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/aspect-ratio';
+
+@source "../views";
+
+@theme {
+  --color-white: #ffffff;
+
+  --color-brand-darkgraybg: #333333;
+  --color-brand-blue: #00bdbb;
+  --color-brand-green: #5ebf4a;
+  --color-brand-greenhover: #3d7831;
+  --color-brand-orange: #fa993e;
+  --color-brand-yellow: #f8b312;
+  --color-brand-primarybutton: #3ba4a3;
+  --color-brand-primarybuttonhover: #297271;
+  --color-brand-verydarkdesaturatedblue: #1f273b;
+  --color-brand-verydarkblue: #124a70;
+  --color-brand-darkmoderateblue: #4b698b;
+  --color-brand-lightgray: #f4f4f4;
+  --color-brand-lightergray: #fafafa;
+
+  --font-headline: Assistant, sans-serif;
+  --font-title: Assistant, sans-serif;
+  --font-regular: Assistant, sans-serif;
+
+  --padding-29: 7rem;
+
+  --padding--29: -7rem;
+  --padding--36: -10rem;
+
+  --margin-29: 7rem;
+  --margin-36: 10rem;
+  --margin-72: 22rem;
+  --margin-128: 48rem;
+
+  --margin--22: -5rem;
+  --margin--26: -6rem;
+  --margin--29: -7rem;
+  --margin--36: -10rem;
+  --margin--72: -22rem;
+  --margin--74: -24rem;
+  --margin--82: -28rem;
+
+  --height-300: 300px;
+  --height-350: 350px;
+  --height-500: 500px;
+  --height-750: 750px;
+
+  --width-500: 500px;
+
+  --z-index-0: 0;
+  --z-index-10: 10;
+  --z-index-20: 20;
+  --z-index-25: 25;
+  --z-index-30: 30;
+  --z-index-40: 40;
+  --z-index-50: 50;
+  --z-index-75: 75;
+  --z-index-100: 100;
+
+  --z-index--10: -10;
+
+  --z-index-auto: auto;
+}
+
+/* Typography plugin */
+@utility prose {
+    --tw-prose-body: var(--color-primary);
+    --tw-prose-headings: var(--color-primary);
+    --tw-prose-bold: var(--color-primary);
+    --tw-prose-quote-borders: var(--color-slate-300);
+    --tw-prose-quotes: var(--color-muted-foreground);
+    --tw-prose-code: var(--color-primary);
+
+    code {
+      &::before,
+      &::after {
+        display : none ;
+      }
+      text-wrap : nowrap ;
+    }
+
+    blockquote {
+      font-weight : 400 ;
+    }
+  }
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 h1 {
     @apply font-sans text-5xl font-black;
@@ -37,34 +143,34 @@ h1 {
 }
 
 .button-primary {
-	@apply font-bold rounded-md bg-red-800 no-underline py-2 px-4 whitespace-nowrap text-white hover:bg-red-900 !important;
+	@apply font-bold! rounded-md! bg-red-800! no-underline! py-2! px-4! whitespace-nowrap! text-white! hover:bg-red-900!;
 }
 
 .button-primary-sm {
-	@apply font-bold rounded-md bg-red-800 no-underline py-1 px-2 whitespace-nowrap text-white hover:bg-red-900 !important;
+	@apply font-bold! rounded-md! bg-red-800! no-underline! py-1! px-2! whitespace-nowrap! text-white! hover:bg-red-900!;
 }
 
 .button-yellow {
-	@apply font-bold rounded-md bg-brand-yellow no-underline py-2 px-4 whitespace-nowrap text-black hover:bg-brand-primarybuttonhover !important;
+	@apply font-bold! rounded-md! bg-brand-yellow! no-underline! py-2! px-4! whitespace-nowrap! text-black! hover:bg-brand-primarybuttonhover!;
 }
 
 .button-white {
-	@apply font-bold rounded-md bg-white no-underline py-2 px-4 whitespace-nowrap text-black hover:bg-brand-primarybuttonhover !important;
+	@apply font-bold! rounded-md! bg-white! no-underline! py-2! px-4! whitespace-nowrap! text-black! hover:bg-brand-primarybuttonhover!;
 }
 
 .button-black {
-	@apply font-bold rounded-md bg-black no-underline py-2 px-4 whitespace-nowrap text-white hover:bg-brand-primarybuttonhover !important;
+	@apply font-bold! rounded-md! bg-black! no-underline! py-2! px-4! whitespace-nowrap! text-white! hover:bg-brand-primarybuttonhover!;
 }
 
 .button-secondary {
-	@apply font-bold rounded-md bg-white no-underline py-2 px-4 whitespace-nowrap text-black hover:bg-brand-orange hover:text-white !important;
+	@apply font-bold! rounded-md! bg-white! no-underline! py-2! px-4! whitespace-nowrap! text-black! hover:bg-brand-orange! hover:text-white!;
 }
 
 .button-outline {
-	@apply rounded-lg border-brand-darkgraybg border-2 no-underline py-2 px-4 whitespace-nowrap text-brand-darkgraybg hover:bg-brand-primarybutton hover:text-white !important;
+	@apply rounded-lg! border-brand-darkgraybg! border-2! no-underline! py-2! px-4! whitespace-nowrap! text-brand-darkgraybg! hover:bg-brand-primarybutton! hover:text-white!;
 }
 
 .button-Link {
-	@apply underline py-2 whitespace-nowrap text-3xl text-brand-verydarkblue font-black !important;
+	@apply underline! py-2! whitespace-nowrap! text-3xl! text-brand-verydarkblue! font-black!;
 }
 

@@ -38,7 +38,7 @@
       {{ card_sets }}
         <div class="flex flex-col overflow-hidden mb-8 bg-brand-reallylightgray {{ if card_sets | count == 1 }}col-start-2{{  /if }}">
           {{ if image }}
-            <div class="flex-shrink-0 px-4 pt-4">
+            <div class="shrink-0 px-4 pt-4">
                 {{ if link }}
                 <a href="{{ link }}"> <img {{ if highlight_color }}style="border-color: {{  highlight_color }}" {{ /if }}
                     class="shadow-2xl mx-auto {{ if highlight_color }}border-solid border-8 p-4{{ /if }} w-100 h-100"
