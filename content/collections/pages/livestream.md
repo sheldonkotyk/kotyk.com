@@ -61,6 +61,17 @@ content_area:
         type: text
         text: 'Like, subscribe, and hit the bell on YouTube to be notified of future streams as well as the well produced videos that Kirk occasionally drops.'
   -
+    type: paragraph
+    attrs:
+      textAlign: center
+    content:
+      -
+        type: text
+        marks:
+          -
+            type: bold
+        text: "We'll be off next week but back on February 13."
+  -
     type: heading
     attrs:
       textAlign: center
@@ -68,26 +79,27 @@ content_area:
     content:
       -
         type: text
-        text: 'Latest Video'
+        text: 'The Latest'
   -
     type: paragraph
     attrs:
       textAlign: center
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      -
+        type: text
+        text: "This was a fun stream. If you're interested in math, science, philosophy, and logic on whether we exist because of a purely natural process, watch this one."
   -
     type: set
     attrs:
       id: m19cg643
       values:
         type: video
-        locate: center
-        video_url: 'https://www.youtube.com/watch?v=_HOyYKCdddg'
-  -
-    type: set
-    attrs:
-      id: m19cmr0u
-      values:
-        type: divider
-        size: small
+        locate: full
+        video_url: 'https://www.youtube.com/watch?v=rXUVvz_HZ4U'
   -
     type: heading
     attrs:
@@ -109,6 +121,11 @@ content_area:
         type: two_videos
         videos:
           -
+            id: m6jk1pyh
+            video_url: 'https://www.youtube.com/watch?v=IVDW4gGWFv8'
+            type: video
+            enabled: true
+          -
             id: m6fn63o2
             video_url: 'https://www.youtube.com/watch?v=_HOyYKCdddg'
             type: video
@@ -116,16 +133,6 @@ content_area:
           -
             id: m5ziz6fe
             video_url: 'https://www.youtube.com/watch?v=E7BbyamVn8Q'
-            type: video
-            enabled: true
-          -
-            id: m2nq053p
-            video_url: 'https://www.youtube.com/watch?v=ECOrlpcqqlU'
-            type: video
-            enabled: true
-          -
-            id: m2dlkbdp
-            video_url: 'https://www.youtube.com/watch?v=2fNns935aV4'
             type: video
             enabled: true
   -
@@ -136,29 +143,42 @@ content_area:
         type: two_videos
         videos:
           -
+            id: m6jk4th7
+            video_url: 'https://www.youtube.com/watch?v=ECOrlpcqqlU'
+            type: video
+            enabled: true
+          -
+            id: m6jk2308
+            video_url: 'https://www.youtube.com/watch?v=2fNns935aV4'
+            type: video
+            enabled: true
+          -
             id: m5zj1ngz
             video_url: 'https://www.youtube.com/watch?v=EJsTiv7cGh8'
             type: video
             enabled: true
+  -
+    type: set
+    attrs:
+      id: m6jk7ql9
+      values:
+        type: two_videos
+        videos:
           -
-            id: m2dlmqbf
+            id: m6jk8ab2
+            video_url: 'https://www.youtube.com/watch?v=6jet6SdCgWw'
             type: video
             enabled: true
-            video_url: 'https://www.youtube.com/watch?v=6jet6SdCgWw&t=515s'
           -
-            id: m242og0k
+            id: m6jk7rl5
             video_url: 'https://www.youtube.com/watch?v=POuFJDpbeyM'
             type: video
             enabled: true
           -
-            id: m242p255
+            id: m6jk7w3w
             video_url: 'https://www.youtube.com/watch?v=XLJkvCq7oMQ'
             type: video
             enabled: true
-  -
-    type: paragraph
-    attrs:
-      textAlign: left
   -
     type: paragraph
     attrs:
@@ -182,5 +202,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1738018259
+updated_at: 1738292896
 ---
