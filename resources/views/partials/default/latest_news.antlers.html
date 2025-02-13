@@ -1,85 +1,87 @@
 {{# Partial for "latest news" type in Bard fieldset #}}
-{{ collection from="blogs" as="entry" paginate="true" limit="{number_to_show}" }}
-    {{ if entry | count == 0 }}
-        There are no blog entries published.
-    {{  /if  }}
-    {{ if display === "horizontal" }}
-        {{ entry }}
-            <div class="flex-wrap w-full mb-16 md:flex">
-                <div class="w-full pr-8 mx-auto text-2xl font-black text-white md:w-1/3">
-                {{ if feature_image }}<img src="{{ feature_image }}" class="w-full" style="max-height: 190px">{{ /if }}
-                </div>
-                <div class="w-full card md:w-2/3">
-                <a href="{{ url }}"><h5>{{ title }}</h5></a>
-                <div class="mb-4">{{ date }}</div>
-                {{ if teaser != "[]" }}
-                    <div class="text-base text-left text-gray-700">
-                    {{ teaser }}
+<div class="container mx-auto">
+    {{ collection from="blogs" as="entry" paginate="true" limit="{number_to_show}" }}
+        {{ if entry | count == 0 }}
+            There are no blog entries published.
+        {{  /if  }}
+        {{ if display === "horizontal" }}
+            {{ entry }}
+                <div class="flex-wrap w-full mb-16 md:flex">
+                    <div class="w-full pr-8 mx-auto text-2xl font-black text-white md:w-1/3">
+                    {{ if feature_image }}<img src="{{ feature_image }}" class="w-full" style="max-height: 190px">{{ /if }}
                     </div>
-                {{ /if }}
-                <div class="my-8 text-left">
-                    <a class="button-outline" href="{{ url }}">Read More</a>
+                    <div class="w-full card md:w-2/3">
+                    <a href="{{ url }}"><h5>{{ title }}</h5></a>
+                    <div class="mb-4">{{ date }}</div>
+                    {{ if teaser != "[]" }}
+                        <div class="text-base text-left text-gray-700">
+                        {{ teaser }}
+                        </div>
+                    {{ /if }}
+                    <div class="my-8 text-left">
+                        <a class="button-outline" href="{{ url }}">Read More</a>
+                    </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-        {{ /entry }}
-    {{ else }}
-      {{ if segment_one == "" }}
-        <div class="mx-2 my-4 font-brand">
-            <div class="flex-wrap -mx-2 md:flex">
-                {{ entry }}
-                    <div class="md:w-1/{{ cards_per_row }} px-2">
-                        <div class="py-4">
-                            <a href="{{ url }}">
-                                {{ header_image }}<img class="w-full" src="{{ url }}" alt="{{ title }}">{{ /header_image }}
-                            </a>
-                            <div class="px-4 md:px-4">
-                                <a href="{{ url }}" class="text-lg font-black no-underline text-brand-androidgreen">{{ title }}</a>
-                                <div class="mb-4 text-sm">{{ date }}</div>
-                                {{ if lead}}
-                                    <div class="mb-4 text-base">
-                                    {{ lead }}
-                                    </div>
-                                {{ /if }}
-                                <a href="{{ url }}"
-                                    class="button-primary-sm">
-                                    Read More
+            {{ /entry }}
+        {{ else }}
+        {{ if segment_one == "" }}
+            <div class="mx-2 my-4 font-brand">
+                <div class="flex-wrap -mx-2 md:flex">
+                    {{ entry }}
+                        <div class="md:w-1/{{ cards_per_row }} px-2">
+                            <div class="py-4">
+                                <a href="{{ url }}">
+                                    {{ header_image }}<img class="w-full" src="{{ url }}" alt="{{ title }}">{{ /header_image }}
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                {{ /entry }}
-            </div>
-        </div>
-    {{ else }}
-        <div class="mb-4 font-brand">
-            <div class="flex-wrap -mx-4 md:flex">
-                {{ entry }}
-                <div class="md:w-1/{{ cards_per_row }} px-4">
-                    <div>
-                        <a href="{{ url }}">
-                            {{ asset:hero_image }}<img class="w-full" src="{{ hero_image }}" alt="{{ title }}">{{
-                            /asset:hero_image }}
-                        </a>
-                        <div class="py-4">
-                            <div class="{{ if feature_image }}md:h-64{{ /if }}">
-                                <a href="{{ url }}" class="text-2xl font-black no-underline">{{ title }}</a>
-                                <div class="mb-4 font-bold">{{ author }}by {{ name }}{{ /author }} on {{ date }}</div>
-                                {{ if teaser}}
-                                <div class="text-base text-gray-700">
-                                    {{ teaser }}
-                                </div>
-                                {{ /if }}
-                                <div class="my-8 text-left">
-                                    <a class="button-primary" href="{{ url }}">Read More</a>
+                                <div class="px-4 md:px-4">
+                                    <a href="{{ url }}" class="text-lg font-black no-underline text-brand-androidgreen">{{ title }}</a>
+                                    <div class="mb-4 text-sm">{{ date }}</div>
+                                    {{ if lead}}
+                                        <div class="mb-4 text-base">
+                                        {{ lead }}
+                                        </div>
+                                    {{ /if }}
+                                    <a href="{{ url }}"
+                                        class="button-primary-sm">
+                                        Read More
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {{ /entry }}
                 </div>
-                {{ /entry }}
             </div>
-        </div>
+        {{ else }}
+            <div class="mb-4 font-brand">
+                <div class="flex-wrap -mx-4 md:flex">
+                    {{ entry }}
+                    <div class="md:w-1/{{ cards_per_row }} px-4">
+                        <div>
+                            <a href="{{ url }}">
+                                {{ asset:hero_image }}<img class="w-full" src="{{ hero_image }}" alt="{{ title }}">{{
+                                /asset:hero_image }}
+                            </a>
+                            <div class="py-4">
+                                <div class="{{ if feature_image }}md:h-64{{ /if }}">
+                                    <a href="{{ url }}" class="text-2xl font-black no-underline">{{ title }}</a>
+                                    <div class="mb-4 font-bold">{{ author }}by {{ name }}{{ /author }} on {{ date }}</div>
+                                    {{ if teaser}}
+                                    <div class="text-base text-gray-700">
+                                        {{ teaser }}
+                                    </div>
+                                    {{ /if }}
+                                    <div class="my-8 text-left">
+                                        <a class="button-primary" href="{{ url }}">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ /entry }}
+                </div>
+            </div>
+        {{ /if }}
     {{ /if }}
-  {{ /if }}
-{{ /collection }}
+    {{ /collection }}
+</div>

@@ -1,13 +1,7 @@
-<div class="relative z-10 max-w-6xl px-6 py-4 mx-auto">
-    <div class="flex flex-col items-center md:flex-row">
-        <div class="flex-1 order-2 md:order-first">
-            {{ if content_area }}
-                <div class="">
-                    {{ content_area }}
-                        {{ partial src="default/{type}" }}
-                    {{ /content_area }}
-                </div>
-            {{ /if }}
-        </div>
+{{ if content_area }}
+    <div class="">
+        {{ content_area }}
+            {{ partial src="default/{type}" }}
+        {{ /content_area }}
     </div>
-</div>
+{{ /if }}

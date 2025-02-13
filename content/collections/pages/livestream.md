@@ -68,15 +68,15 @@ content_area:
     content:
       -
         type: text
-        text: 'Today at noon Central'
+        text: 'Thursdays at noon Central'
   -
     type: set
     attrs:
       id: m19cg643
+      enabled: false
       values:
         type: video
         locate: full
-        video_url: 'https://www.youtube.com/watch?v=Tuhoao0cL7c'
   -
     type: heading
     attrs:
@@ -87,16 +87,17 @@ content_area:
         type: text
         text: 'Recent Streams from this Season'
   -
-    type: paragraph
-    attrs:
-      textAlign: left
-  -
     type: set
     attrs:
       id: lcbb08qa
       values:
         type: two_videos
         videos:
+          -
+            id: m73rz7i7
+            type: video
+            enabled: true
+            video_url: 'https://www.youtube.com/watch?v=Tuhoao0cL7c'
           -
             id: m73igi0u
             video_url: 'https://www.youtube.com/watch?v=rXUVvz_HZ4U'
@@ -112,17 +113,6 @@ content_area:
             video_url: 'https://www.youtube.com/watch?v=_HOyYKCdddg'
             type: video
             enabled: true
-  -
-    type: paragraph
-    attrs:
-      textAlign: left
-  -
-    type: set
-    attrs:
-      id: m6jk7ql9
-      values:
-        type: two_videos
-        videos:
           -
             id: m73im6s0
             type: video
@@ -131,6 +121,16 @@ content_area:
           -
             id: m73ipe5w
             video_url: 'https://www.youtube.com/watch?v=ECOrlpcqqlU'
+            type: video
+            enabled: true
+          -
+            id: m73jyrec
+            video_url: 'https://www.youtube.com/watch?v=2fNns935aV4'
+            type: video
+            enabled: true
+          -
+            id: m73keyew
+            video_url: 'https://www.youtube.com/watch?v=EJsTiv7cGh8'
             type: video
             enabled: true
           -
@@ -171,5 +171,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1739461989
+updated_at: 1739477647
 ---
