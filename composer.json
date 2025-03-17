@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.2",
         "jonassiewertsen/statamic-jobs": "^1.5",
-        "jonassiewertsen/statamic-livewire": "^3.3",
+        "marcorieser/statamic-livewire": "^3.3",
         "laravel/framework": "^11",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
