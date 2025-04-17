@@ -70,6 +70,17 @@ content_area:
         type: text
         text: 'Thursdays at noon Central'
   -
+    type: paragraph
+    attrs:
+      textAlign: center
+    content:
+      -
+        type: text
+        marks:
+          -
+            type: bold
+        text: 'Starting again on May 1'
+  -
     type: set
     attrs:
       id: m19cg643
@@ -171,5 +182,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1739477647
+updated_at: 1744896837
 ---
