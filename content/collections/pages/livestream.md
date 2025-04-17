@@ -68,7 +68,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Thursdays at noon Central'
+        text: 'Thursdays at Noon Central'
   -
     type: paragraph
     attrs:
@@ -84,10 +84,10 @@ content_area:
     type: set
     attrs:
       id: m19cg643
-      enabled: false
       values:
         type: video
-        locate: full
+        locate: center
+        video_url: 'https://www.youtube.com/watch?v=BfJcfSLkVzs'
   -
     type: heading
     attrs:
@@ -182,5 +182,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1744896837
+updated_at: 1744896966
 ---
