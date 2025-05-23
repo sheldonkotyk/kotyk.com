@@ -68,18 +68,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Thursdays at Noon Central'
-  -
-    type: paragraph
-    attrs:
-      textAlign: center
-    content:
-      -
-        type: text
-        marks:
-          -
-            type: bold
-        text: 'Starting again on May 1'
+        text: 'Thursdays at 12 Central'
   -
     type: set
     attrs:
@@ -87,7 +76,7 @@ content_area:
       values:
         type: video
         locate: center
-        video_url: 'https://www.youtube.com/watch?v=BfJcfSLkVzs'
+        video_url: 'https://www.youtube.com/watch?v=paJjaCu9AXc'
   -
     type: heading
     attrs:
@@ -104,6 +93,21 @@ content_area:
       values:
         type: two_videos
         videos:
+          -
+            id: mag5dnps
+            video_url: 'https://www.youtube.com/watch?v=YnjvOGmuMBo'
+            type: video
+            enabled: true
+          -
+            id: ma5gm8ar
+            video_url: 'https://www.youtube.com/watch?v=RCuKTLlQu_k'
+            type: video
+            enabled: true
+          -
+            id: m9vef48o
+            video_url: 'https://www.youtube.com/watch?v=BfJcfSLkVzs'
+            type: video
+            enabled: true
           -
             id: m73rz7i7
             type: video
@@ -182,5 +186,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1744896966
+updated_at: 1746755955
 ---
