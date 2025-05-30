@@ -25,5 +25,8 @@
                 {{ /content_area }}
             </div>
         {{ /if }}
+        {{ if allow_spaces !== false }}
+            {{ spaces:show }}
+        {{ /if }}
     </article>
 </div>

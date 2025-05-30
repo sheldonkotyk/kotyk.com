@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "050415fc7675cbf9f8987bf6d534e7fa",
+    "content-hash": "547c77ef741b1f21109fced873c9888f",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -3368,6 +3368,58 @@
                 }
             ],
             "time": "2025-05-08T08:14:37+00:00"
+        },
+        {
+            "name": "p2cds/spaces-statamic-addon",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:TheLifeProject/spaces-statamic-addon.git",
+                "reference": "206e55e0e81a437c4e14869f65ee99b80394a85b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheLifeProject/spaces-statamic-addon/zipball/206e55e0e81a437c4e14869f65ee99b80394a85b",
+                "reference": "206e55e0e81a437c4e14869f65ee99b80394a85b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "laravel/framework": "^8.24 || ^9.0 || ^10.0 || ^11.0",
+                "php": "^8.2",
+                "statamic/cms": "^3.0 || ^4.0 || ^5.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "statamic": {
+                    "name": "Spaces Statamic Addon",
+                    "description": "Facilitate the use of spaces.run on Statamic-based sites"
+                },
+                "laravel": {
+                    "providers": [
+                        "P2cds\\Spaces\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "P2cds\\Spaces\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "James Warkentin",
+                    "email": "james.warkentin@p2c.com",
+                    "homepage": "https://ptc.jamesandcarolanne.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Facilitate the use of spaces.run on Statamic-based sites",
+            "support": {
+                "source": "https://github.com/TheLifeProject/spaces-statamic-addon/tree/1.0.3",
+                "issues": "https://github.com/TheLifeProject/spaces-statamic-addon/issues"
+            },
+            "time": "2025-05-29T21:50:21+00:00"
         },
         {
             "name": "phpoption/phpoption",

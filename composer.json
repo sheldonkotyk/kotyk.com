@@ -8,13 +8,20 @@
         "flat file",
         "laravel"
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/TheLifeProject/spaces-statamic-addon"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "jonassiewertsen/statamic-jobs": "^1.5",
-        "marcorieser/statamic-livewire": "^4.0",
         "laravel/framework": "^11",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "marcorieser/statamic-livewire": "^4.0",
+        "p2cds/spaces-statamic-addon": "^1.0",
         "resend/resend-laravel": "^0.11.0",
         "statamic/cms": "^5.0",
         "statamic/seo-pro": "^6.0"
