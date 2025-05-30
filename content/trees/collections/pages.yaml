@@ -30,3 +30,6 @@ tree:
     entry: f716568d-7e4b-4802-9a9d-32e70fe6bbab
   -
     entry: f4a1189b-5967-46fd-b74d-b25b8c1633d3
+    children:
+      -
+        entry: b9b9d193-3835-4573-8720-c9d1506b8752

@@ -229,10 +229,12 @@ fields:
                   handle: form
                   field:
                     options:
-                      contact: Contact
-                      quote: Quote
-                      career: Careers
-                      financing: Financing
+                      -
+                        key: contact
+                        value: Contact
+                      -
+                        key: ds_dispatch_notifications
+                        value: 'DS Dispatch Notifications'
                     searchable: false
                     type: select
                     display: Form

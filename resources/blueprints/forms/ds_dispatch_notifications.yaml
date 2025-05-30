@@ -1,0 +1,43 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              type: text
+              display: Name
+              validate:
+                - required
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+          -
+            handle: phone
+            field:
+              type: text
+              display: Phone
+          -
+            handle: notification_method
+            field:
+              type: radio
+              display: 'Notification Method'
+              options:
+                -
+                  key: email
+                  value: Email
+                -
+                  key: sms
+                  value: SMS
+                -
+                  key: whatsapp
+                  value: WhatsApp
+          -
+            handle: livestream_notifications
+            field:
+              type: toggle
+              display: 'LIvestream Notifications'

@@ -1,3 +1,80 @@
+{{ if form == "ds_dispatch_notifications"}}
+  <div class="container pt-4 pb-2 mx-auto bg-gray-100 rounded-lg">
+    <div class="w-full">
+      <div class="mx-6 content md:mx-4">
+        <div class="default-text">
+          {{ form:create in="ds_dispatch_notifications" attr="w-full max-w-md"}}
+            {{ if success }}
+              <h4 class="mb-4 font-black text-green-900">Your notification request has been sent.</h4>
+            {{ else }}
+
+              {{ if errors }}
+                <p>Oops, here's what went wrong:</p>
+                <ul>
+                  {{ errors }}
+                    <li>{{ value }}</li>
+                  {{ /errors }}
+                </ul>
+              {{ /if }}
+
+            <input type="text" name="first_name" class="hidden" />
+            <div class="flex flex-wrap mb-4 -mx-3">
+              <div class="w-full px-3 mb-6 md:w-1/4 md:mb-0">
+                <label class="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker" for="grid-name">
+                  Name
+                </label>
+                <input
+                  class="block w-full px-4 py-3 leading-tight border rounded-sm appearance-none bg-grey-lighter text-grey-darker border-grey-lighter focus:outline-hidden focus:bg-white focus:border-grey"
+                  id="grid-name" type="text" placeholder="First Name" name="name" value="{{ old:name }}" required>
+              </div>
+              <div class="w-full px-3 md:w-1/4">
+                <label class="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker" for="grid-email">
+                  Email
+                </label>
+                <input
+                  class="block w-full px-4 py-3 mb-3 leading-tight border rounded-sm appearance-none bg-grey-lighter text-grey-darker border-grey-lighter focus:outline-hidden focus:bg-white focus:border-grey"
+                  id="grid-email" type="email" placeholder="name@domain.com" name="email" value="{{ old:email }}" required>
+              </div>
+              <div class="w-full px-3 md:w-1/4">
+                <label class="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker" for="grid-phone">
+                SMS / WhatsApp
+                </label>
+                <input
+                class="block w-full px-4 py-3 mb-3 leading-tight border rounded-sm appearance-none bg-grey-lighter text-grey-darker border-grey-lighter focus:outline-hidden focus:bg-white focus:border-grey"
+                id="grid-phone" type="text" placeholder="555-555-5555" name="phone" value="{{ old:phone }}" required>
+              </div>
+              <div class="w-full px-3 md:w-1/4">
+                <label class="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker" for="grid-method">
+                    Method
+                </label>
+                <select
+                class="block w-full px-4 py-3 mb-3 leading-tight border rounded-sm appearance-none bg-grey-lighter text-grey-darker border-grey-lighter focus:outline-hidden focus:bg-white focus:border-grey"
+                id="grid-notification_method" type="text" name="notification_method" value="{{ old:notification_method }}" required>
+                    <option value="email">Email</option>
+                    <option value="sms">SMS</option>
+                    <option value="whatsapp">WhatsApp</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex flex-wrap mb-4 -mx-3">
+              <div class="flex w-full px-3 md:w-1/2">
+                <label class="items-center text-xs tracking-wide uppercase text-grey-darker" for="grid-livestream_notifications">
+                    <input name="livestream_notifications" value="true" type="checkbox" class="mr-2"/>
+                    Subscribe to Livestream Notifications
+                </label>
+
+              </div>
+              <div class="w-full px-3 md:w-1/2">
+                <button class="button-primary" name="submit" type="submit">Submit</button>
+              </div>
+            </div>
+          {{ /if }}
+        {{ /form:create}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if }}
 {{ if form == "contact"}}
   <div class="container mx-auto">
     <div class="w-full">
