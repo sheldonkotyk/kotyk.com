@@ -8,3 +8,6 @@ preferences:
   assets:
     main:
       mode: grid
+  collections:
+    blogs:
+      after_save: continue_editing
