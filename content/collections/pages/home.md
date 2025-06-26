@@ -129,7 +129,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Latest Blog Posts'
+        text: Latest
   -
     type: set
     attrs:
@@ -140,7 +140,7 @@ content_area:
         display: vertical
         cards_per_row: 3
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1750904983
+updated_at: 1750905049
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
