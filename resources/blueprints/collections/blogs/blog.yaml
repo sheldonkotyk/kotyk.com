@@ -13,6 +13,13 @@ tabs:
               validate:
                 - required
           -
+            handle: teaser_image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Teaser Image'
+          -
             handle: feature_image
             field:
               container: main
