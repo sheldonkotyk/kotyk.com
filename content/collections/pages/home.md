@@ -125,7 +125,7 @@ content_area:
     type: heading
     attrs:
       textAlign: left
-      level: 3
+      level: 2
     content:
       -
         type: text
@@ -140,7 +140,7 @@ content_area:
         display: vertical
         cards_per_row: 5
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1750905174
+updated_at: 1750907220
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
