@@ -122,25 +122,6 @@ content_area:
         type: text
         text: .
   -
-    type: paragraph
-    attrs:
-      textAlign: left
-    content:
-      -
-        type: text
-        text: 'In his spare time, Sheldon provides web services such as web design and development, SEO, strategic planning and marketing through '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://abigah.com'
-              rel: null
-              target: null
-              title: null
-        text: 'Abigah Co.'
-  -
     type: heading
     attrs:
       textAlign: left
@@ -159,7 +140,7 @@ content_area:
         display: vertical
         cards_per_row: 3
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1748811581
+updated_at: 1750904977
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
