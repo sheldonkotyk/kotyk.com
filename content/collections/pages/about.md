@@ -2,8 +2,8 @@
 id: 144bc2cd-9b3c-498e-bc14-6e225c050063
 blueprint: pages
 title: About
-updated_by: 30240118-ccf0-437f-a925-abf0a38bac95
-updated_at: 1708824740
+updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
+updated_at: 1750907935
 content_area:
   -
     type: paragraph
@@ -98,7 +98,7 @@ content_area:
         text: 'dog named Boston'
       -
         type: text
-        text: ' and also have three cats; Candycorn, Popcorn and '
+        text: ' and also have two cats; Popcorn and '
       -
         type: text
         marks:
@@ -112,7 +112,7 @@ content_area:
         text: 'Theodore Cornelious'
       -
         type: text
-        text: .
+        text: '. Unfortunately Candycorn recently passed away.'
   -
     type: paragraph
     attrs:

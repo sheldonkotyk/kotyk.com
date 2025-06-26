@@ -28,7 +28,7 @@ content_area:
         text: 'His dog Boston'
       -
         type: text
-        text: ' takes him for walks. His wife and kids have '
+        text: ' takes him for walks. His wife and kids have a '
       -
         type: text
         marks:
@@ -39,10 +39,10 @@ content_area:
               rel: null
               target: _blank
               title: null
-        text: '2 cats'
+        text: cat
       -
         type: text
-        text: ' that just lay there and '
+        text: ' that just lays there and '
       -
         type: text
         marks:
@@ -140,7 +140,7 @@ content_area:
         display: vertical
         cards_per_row: 5
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1750907220
+updated_at: 1750907825
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
