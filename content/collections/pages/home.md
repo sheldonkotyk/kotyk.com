@@ -64,7 +64,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Sheldon is the Director of '
+        text: 'As the Director of '
       -
         type: text
         marks:
@@ -92,7 +92,7 @@ content_area:
         text: 'Power to Change'
       -
         type: text
-        text: '. He serves a team of more than 40 dedicated staff and hundreds of online missionaries around the globe. You can catch him trying to understand what Kirk is talking about on the '
+        text: ', Sheldon serves a team of more than 30 dedicated staff and hundreds of online missionaries around the globe. You can also catch him trying to understand the mind of Kirk Durston on the '
       -
         type: text
         marks:
@@ -159,7 +159,7 @@ content_area:
         display: vertical
         cards_per_row: 3
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1726754541
+updated_at: 1748811581
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
