@@ -136,11 +136,11 @@ content_area:
       id: lin9ju7n
       values:
         type: latest_news
-        number_to_show: 3
+        number_to_show: 5
         display: vertical
-        cards_per_row: 3
+        cards_per_row: 5
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1750905083
+updated_at: 1750905174
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
