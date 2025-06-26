@@ -16,7 +16,7 @@ tabs:
             handle: teaser_image
             field:
               max_files: 1
-              container: assets
+              container: main
               type: assets
               display: 'Teaser Image'
           -
