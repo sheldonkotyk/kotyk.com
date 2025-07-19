@@ -2584,16 +2584,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v3.6.3",
+            "version": "v3.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "56aa1bb63a46e06181c56fa64717a7287e19115e"
+                "reference": "ef04be759da41b14d2d129e670533180a44987dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/56aa1bb63a46e06181c56fa64717a7287e19115e",
-                "reference": "56aa1bb63a46e06181c56fa64717a7287e19115e",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/ef04be759da41b14d2d129e670533180a44987dc",
+                "reference": "ef04be759da41b14d2d129e670533180a44987dc",
                 "shasum": ""
             },
             "require": {
@@ -2648,7 +2648,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v3.6.3"
+                "source": "https://github.com/livewire/livewire/tree/v3.6.4"
             },
             "funding": [
                 {
@@ -2656,26 +2656,26 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-12T22:26:52+00:00"
+            "time": "2025-07-17T05:12:15+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
-            "version": "3.1.2",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maennchen/ZipStream-PHP.git",
-                "reference": "aeadcf5c412332eb426c0f9b4485f6accba2a99f"
+                "reference": "9712d8fa4cdf9240380b01eb4be55ad8dcf71416"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/aeadcf5c412332eb426c0f9b4485f6accba2a99f",
-                "reference": "aeadcf5c412332eb426c0f9b4485f6accba2a99f",
+                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/9712d8fa4cdf9240380b01eb4be55ad8dcf71416",
+                "reference": "9712d8fa4cdf9240380b01eb4be55ad8dcf71416",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "ext-zlib": "*",
-                "php-64bit": "^8.2"
+                "php-64bit": "^8.3"
             },
             "require-dev": {
                 "brianium/paratest": "^7.7",
@@ -2684,7 +2684,7 @@
                 "guzzlehttp/guzzle": "^7.5",
                 "mikey179/vfsstream": "^1.6",
                 "php-coveralls/php-coveralls": "^2.5",
-                "phpunit/phpunit": "^11.0",
+                "phpunit/phpunit": "^12.0",
                 "vimeo/psalm": "^6.0"
             },
             "suggest": {
@@ -2726,7 +2726,7 @@
             ],
             "support": {
                 "issues": "https://github.com/maennchen/ZipStream-PHP/issues",
-                "source": "https://github.com/maennchen/ZipStream-PHP/tree/3.1.2"
+                "source": "https://github.com/maennchen/ZipStream-PHP/tree/3.2.0"
             },
             "funding": [
                 {
@@ -2734,25 +2734,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-01-27T12:07:53+00:00"
+            "time": "2025-07-17T11:15:13+00:00"
         },
         {
             "name": "marcorieser/statamic-livewire",
-            "version": "v4.5.2",
+            "version": "v4.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marcorieser/statamic-livewire.git",
-                "reference": "1dfef719dc45562cd4a60a0e7289d63e45d7eb0e"
+                "reference": "b809698f0b9dfa138739aa4e904e2fda51ea1238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marcorieser/statamic-livewire/zipball/1dfef719dc45562cd4a60a0e7289d63e45d7eb0e",
-                "reference": "1dfef719dc45562cd4a60a0e7289d63e45d7eb0e",
+                "url": "https://api.github.com/repos/marcorieser/statamic-livewire/zipball/b809698f0b9dfa138739aa4e904e2fda51ea1238",
+                "reference": "b809698f0b9dfa138739aa4e904e2fda51ea1238",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "^11.0 || ^12.0",
-                "livewire/livewire": "^3.0",
+                "livewire/livewire": "^3.6.4",
                 "php": "^8.2",
                 "statamic/cms": "^5.17.0"
             },
@@ -2803,7 +2803,7 @@
             "support": {
                 "docs": "https://github.com/marcorieser/statamic-livewire",
                 "issues": "https://github.com/marcorieser/statamic-livewire/issues",
-                "source": "https://github.com/marcorieser/statamic-livewire/tree/v4.5.2"
+                "source": "https://github.com/marcorieser/statamic-livewire/tree/v4.5.3"
             },
             "funding": [
                 {
@@ -2811,7 +2811,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-02T14:12:35+00:00"
+            "time": "2025-07-18T04:19:03+00:00"
         },
         {
             "name": "michelf/php-smartypants",
@@ -5009,16 +5009,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v5.59.0",
+            "version": "v5.60.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "f38ad40d2c042de1be2b7dc8a497ae6c73ee2221"
+                "reference": "5468fab685ccc8f0b4a95e89405ee6c065d2237a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/f38ad40d2c042de1be2b7dc8a497ae6c73ee2221",
-                "reference": "f38ad40d2c042de1be2b7dc8a497ae6c73ee2221",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/5468fab685ccc8f0b4a95e89405ee6c065d2237a",
+                "reference": "5468fab685ccc8f0b4a95e89405ee6c065d2237a",
                 "shasum": ""
             },
             "require": {
@@ -5103,7 +5103,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v5.59.0"
+                "source": "https://github.com/statamic/cms/tree/v5.60.0"
             },
             "funding": [
                 {
@@ -5111,7 +5111,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-10T20:46:03+00:00"
+            "time": "2025-07-15T16:44:33+00:00"
         },
         {
             "name": "statamic/seo-pro",
