@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5af74d82cdaa48fadfb229ecc2f026bf",
+    "content-hash": "aabe127d9a00798bf597834ac6fec88e",
     "packages": [
         {
             "name": "abigah/bot-cop",
-            "version": "v0.3.1",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abigah/bot-cop.git",
-                "reference": "f7eddf08b96da871eaf9188a671842232d005c89"
+                "reference": "cf9694f9e51553fa6ada4c06d0546da0c853080e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/f7eddf08b96da871eaf9188a671842232d005c89",
-                "reference": "f7eddf08b96da871eaf9188a671842232d005c89",
+                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/cf9694f9e51553fa6ada4c06d0546da0c853080e",
+                "reference": "cf9694f9e51553fa6ada4c06d0546da0c853080e",
                 "shasum": ""
             },
             "require": {
@@ -26,16 +26,17 @@
             "require-dev": {
                 "orchestra/testbench": "^9.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
-                "statamic": {
-                    "name": "Bot Cop",
-                    "description": "Block Bad Bots in Laravel Forge and Cloudflare."
-                },
                 "laravel": {
                     "providers": [
                         "Abigah\\BotCop\\ServiceProvider"
                     ]
+                },
+                "statamic": {
+                    "name": "Bot Cop",
+                    "description": "Block Bad Bots in Laravel Forge and Cloudflare."
                 }
             },
             "autoload": {
@@ -43,19 +44,15 @@
                     "Abigah\\BotCop\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Abigah\\BotCop\\Tests\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "support": {
-                "source": "https://github.com/abigah/bot-cop/tree/v0.3.1",
-                "issues": "https://github.com/abigah/bot-cop/issues"
+                "issues": "https://github.com/abigah/bot-cop/issues",
+                "source": "https://github.com/abigah/bot-cop/tree/main"
             },
-            "time": "2025-08-18T02:38:18+00:00"
+            "time": "2025-08-18T22:13:53+00:00"
         },
         {
             "name": "ajthinking/archetype",
@@ -11604,7 +11601,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "abigah/bot-cop": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
