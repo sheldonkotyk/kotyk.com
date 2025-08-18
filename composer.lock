@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "abigah/bot-cop",
-            "version": "v0.11",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:abigah/bot-cop.git",
-                "reference": "f07f4bda3e46a3f9b6e62a69d3986c0b65068052"
+                "url": "https://github.com/abigah/bot-cop.git",
+                "reference": "f7eddf08b96da871eaf9188a671842232d005c89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/f07f4bda3e46a3f9b6e62a69d3986c0b65068052",
-                "reference": "f07f4bda3e46a3f9b6e62a69d3986c0b65068052",
+                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/f7eddf08b96da871eaf9188a671842232d005c89",
+                "reference": "f7eddf08b96da871eaf9188a671842232d005c89",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +30,7 @@
             "extra": {
                 "statamic": {
                     "name": "Bot Cop",
-                    "description": "Bot Cop addon"
+                    "description": "Block Bad Bots in Laravel Forge and Cloudflare."
                 },
                 "laravel": {
                     "providers": [
@@ -48,11 +48,14 @@
                     "Abigah\\BotCop\\Tests\\": "tests"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "support": {
-                "source": "https://github.com/abigah/bot-cop/tree/v0.11",
+                "source": "https://github.com/abigah/bot-cop/tree/v0.3.1",
                 "issues": "https://github.com/abigah/bot-cop/issues"
             },
-            "time": "2025-08-18T00:13:24+00:00"
+            "time": "2025-08-18T02:38:18+00:00"
         },
         {
             "name": "ajthinking/archetype",

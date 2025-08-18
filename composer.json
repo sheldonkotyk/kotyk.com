@@ -12,10 +12,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/TheLifeProject/spaces-statamic-addon"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:abigah/bot-cop"
         }
     ],
     "require": {
