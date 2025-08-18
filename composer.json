@@ -12,10 +12,15 @@
         {
             "type": "vcs",
             "url": "https://github.com/TheLifeProject/spaces-statamic-addon"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:abigah/bot-cop"
         }
     ],
     "require": {
         "php": "^8.2",
+        "abigah/bot-cop": "*",
         "jonassiewertsen/statamic-jobs": "^1.5",
         "laravel/framework": "^11",
         "laravel/tinker": "^2.9",
@@ -23,6 +28,7 @@
         "marcorieser/statamic-livewire": "^4.0",
         "p2cds/spaces-statamic-addon": "^1.0",
         "resend/resend-laravel": "^0.11.0",
+        "spatie/laravel-ray": "^1.40",
         "statamic/cms": "^5.0",
         "statamic/seo-pro": "^6.0"
     },
