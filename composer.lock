@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/abigah/bot-cop.git",
-                "reference": "f938e5b3b4e2423530f17c7cb3c4c8351c2282cd"
+                "reference": "ad3d3c07db1bef52ee7ef28ecee13dd9d2dce304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/f938e5b3b4e2423530f17c7cb3c4c8351c2282cd",
-                "reference": "f938e5b3b4e2423530f17c7cb3c4c8351c2282cd",
+                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/ad3d3c07db1bef52ee7ef28ecee13dd9d2dce304",
+                "reference": "ad3d3c07db1bef52ee7ef28ecee13dd9d2dce304",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 "issues": "https://github.com/abigah/bot-cop/issues",
                 "source": "https://github.com/abigah/bot-cop/tree/main"
             },
-            "time": "2025-08-29T09:49:13+00:00"
+            "time": "2025-08-29T09:52:10+00:00"
         },
         {
             "name": "ajthinking/archetype",
