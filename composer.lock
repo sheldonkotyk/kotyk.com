@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aabe127d9a00798bf597834ac6fec88e",
+    "content-hash": "e282a223f7f3b62fbf93f2a8ed6c4257",
     "packages": [
         {
             "name": "abigah/bot-cop",
-            "version": "dev-main",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abigah/bot-cop.git",
@@ -26,7 +26,6 @@
             "require-dev": {
                 "orchestra/testbench": "^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -11649,9 +11648,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "abigah/bot-cop": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

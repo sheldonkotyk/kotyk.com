@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "abigah/bot-cop": "dev-main",
+        "abigah/bot-cop": "0.7",
         "jonassiewertsen/statamic-jobs": "^1.5",
         "laravel/framework": "^11",
         "laravel/tinker": "^2.9",
