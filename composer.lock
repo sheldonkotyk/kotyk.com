@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e282a223f7f3b62fbf93f2a8ed6c4257",
+    "content-hash": "2bf1c63dc644847a2c82e235dcd366cc",
     "packages": [
         {
             "name": "abigah/bot-cop",
@@ -2780,16 +2780,16 @@
         },
         {
             "name": "marcorieser/statamic-livewire",
-            "version": "v4.5.3",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marcorieser/statamic-livewire.git",
-                "reference": "b809698f0b9dfa138739aa4e904e2fda51ea1238"
+                "reference": "5b2cc093c7bfb3dca4f922417dca5adb7a59a46a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marcorieser/statamic-livewire/zipball/b809698f0b9dfa138739aa4e904e2fda51ea1238",
-                "reference": "b809698f0b9dfa138739aa4e904e2fda51ea1238",
+                "url": "https://api.github.com/repos/marcorieser/statamic-livewire/zipball/5b2cc093c7bfb3dca4f922417dca5adb7a59a46a",
+                "reference": "5b2cc093c7bfb3dca4f922417dca5adb7a59a46a",
                 "shasum": ""
             },
             "require": {
@@ -2845,7 +2845,7 @@
             "support": {
                 "docs": "https://github.com/marcorieser/statamic-livewire",
                 "issues": "https://github.com/marcorieser/statamic-livewire/issues",
-                "source": "https://github.com/marcorieser/statamic-livewire/tree/v4.5.3"
+                "source": "https://github.com/marcorieser/statamic-livewire/tree/v5.0.0"
             },
             "funding": [
                 {
@@ -2853,7 +2853,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-18T04:19:03+00:00"
+            "time": "2025-09-09T11:38:47+00:00"
         },
         {
             "name": "michelf/php-smartypants",
