@@ -69,6 +69,8 @@ content_area:
       -
         type: text
         text: 'Tuesday at 11 Central'
+      -
+        type: hardBreak
   -
     type: set
     attrs:
@@ -83,6 +85,8 @@ content_area:
       textAlign: left
       level: 3
     content:
+      -
+        type: hardBreak
       -
         type: text
         text: 'Recent Streams from this Season'
@@ -186,5 +190,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1757987873
+updated_at: 1757987919
 ---
