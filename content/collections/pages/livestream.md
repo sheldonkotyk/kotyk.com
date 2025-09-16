@@ -79,7 +79,7 @@ content_area:
       id: m19cg643
       values:
         type: video
-        locate: full
+        locate: center
         video_url: 'https://www.youtube.com/watch?v=paJjaCu9AXc'
   -
     type: heading
@@ -192,5 +192,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1757987999
+updated_at: 1757988009
 ---
