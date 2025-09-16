@@ -68,7 +68,7 @@ content_area:
     content:
       -
         type: text
-        text: 'Thursdays at 12 Central'
+        text: 'Tuesday at 11 Central'
   -
     type: set
     attrs:
@@ -186,5 +186,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1746755955
+updated_at: 1757987835
 ---
