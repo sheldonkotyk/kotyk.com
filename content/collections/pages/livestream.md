@@ -80,7 +80,7 @@ content_area:
       values:
         type: video
         locate: center
-        video_url: 'https://www.youtube.com/watch?v=paJjaCu9AXc'
+        video_url: 'https://www.youtube.com/watch?v=o3N07MBxpLs'
   -
     type: heading
     attrs:
@@ -195,5 +195,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1758032573
+updated_at: 1758032604
 ---
