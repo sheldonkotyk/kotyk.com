@@ -10,7 +10,7 @@ date: true
 sort_dir: desc
 date_behavior:
   past: public
-  future: private
+  future: unlisted
 preview_targets:
   -
     label: Entry
