@@ -70,6 +70,10 @@ content_area:
         type: text
         text: 'Tuesday at 11 Central'
   -
+    type: paragraph
+    attrs:
+      textAlign: center
+  -
     type: set
     attrs:
       id: m19cg643
@@ -188,5 +192,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1757987932
+updated_at: 1757987948
 ---
