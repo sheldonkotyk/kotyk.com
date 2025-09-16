@@ -88,10 +88,8 @@ content_area:
       level: 3
     content:
       -
-        type: hardBreak
-      -
         type: text
-        text: 'Recent Streams from this Season'
+        text: "Last Season's Streams"
   -
     type: set
     attrs:
@@ -99,6 +97,11 @@ content_area:
       values:
         type: two_videos
         videos:
+          -
+            id: mfmn78h5
+            video_url: 'https://www.youtube.com/watch?v=paJjaCu9AXc'
+            type: video
+            enabled: true
           -
             id: mag5dnps
             video_url: 'https://www.youtube.com/watch?v=YnjvOGmuMBo'
@@ -192,5 +195,5 @@ content_area:
         type: text
         text: .
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1757988009
+updated_at: 1758032573
 ---
