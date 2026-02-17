@@ -1,0 +1,11 @@
+{
+  "resources/js/spaces.js": {
+    "file": "assets/spaces-DYzpBgt-.js",
+    "name": "spaces",
+    "src": "resources/js/spaces.js",
+    "isEntry": true,
+    "css": [
+      "assets/spaces-ov2IbxvM.css"
+    ]
+  }
+}

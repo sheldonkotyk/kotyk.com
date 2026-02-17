@@ -5,6 +5,7 @@
 /public/vendor/statamic
 /storage/*.key
 /vendor
+/packages
 .env
 .env.backup
 .env.production

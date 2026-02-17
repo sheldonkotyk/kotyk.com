@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f6961bbe11ad35d0ff24de179772423",
+    "content-hash": "0f819b5932e5ffd96d268c84ee745b12",
     "packages": [
+        {
+            "name": "abigah/bot-cop",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/bot-cop",
+                "reference": "bbec5e1f800d28bb512392eb26e78c97a985c77b"
+            },
+            "require": {
+                "statamic/cms": "^5.0 || ^6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "statamic": {
+                    "name": "Bot Cop",
+                    "description": "Block Bad Bots in Laravel Forge and Cloudflare."
+                },
+                "laravel": {
+                    "providers": [
+                        "Abigah\\BotCop\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Abigah\\BotCop\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Abigah\\BotCop\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "ajthinking/archetype",
             "version": "v2.0.0",
@@ -3601,6 +3644,58 @@
                 }
             ],
             "time": "2026-02-16T23:10:27+00:00"
+        },
+        {
+            "name": "p2cds/spaces-statamic-addon",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/spaces-statamic-addon",
+                "reference": "bbab0cd5e25be779f2e0d8b07e406bcf0574efbc"
+            },
+            "require": {
+                "laravel/framework": "^11.0 || ^12.0",
+                "livewire/livewire": "^3.6.4|^4.0",
+                "php": "^8.2",
+                "statamic/cms": "^5.0 || ^6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^9.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "statamic": {
+                    "name": "Spaces Statamic Addon",
+                    "description": "Facilitate the use of spaces.run on Statamic-based sites"
+                },
+                "laravel": {
+                    "providers": [
+                        "P2cds\\Spaces\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "P2cds\\Spaces\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "P2cds\\Spaces\\Tests\\": "tests"
+                }
+            },
+            "authors": [
+                {
+                    "name": "James Warkentin",
+                    "email": "james.warkentin@p2c.com",
+                    "homepage": "https://ptc.jamesandcarolanne.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Facilitate the use of spaces.run on Statamic-based sites",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -13285,7 +13380,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "abigah/bot-cop": 20,
+        "p2cds/spaces-statamic-addon": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
