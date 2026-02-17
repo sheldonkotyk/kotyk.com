@@ -12,15 +12,11 @@
         {
             "type": "path",
             "url": "packages/spaces-statamic-addon"
-        },
-        {
-            "type": "path",
-            "url": "packages/bot-cop"
         }
     ],
     "require": {
         "php": "^8.2",
-        "abigah/bot-cop": "@dev",
+        "abigah/bot-cop": "^0.8",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",
         "marcorieser/statamic-livewire": "^5.0",

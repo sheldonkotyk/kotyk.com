@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f819b5932e5ffd96d268c84ee745b12",
+    "content-hash": "f33f6955a926f87cef7e88842ae496d9",
     "packages": [
         {
             "name": "abigah/bot-cop",
-            "version": "dev-main",
+            "version": "0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/abigah/bot-cop.git",
+                "reference": "77655efb3c11efee47f550c4e8cc2bdfb000cc27"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/bot-cop",
-                "reference": "bbec5e1f800d28bb512392eb26e78c97a985c77b"
+                "type": "zip",
+                "url": "https://api.github.com/repos/abigah/bot-cop/zipball/77655efb3c11efee47f550c4e8cc2bdfb000cc27",
+                "reference": "77655efb3c11efee47f550c4e8cc2bdfb000cc27",
+                "shasum": ""
             },
             "require": {
                 "statamic/cms": "^5.0 || ^6.0"
@@ -22,14 +28,14 @@
             },
             "type": "library",
             "extra": {
-                "statamic": {
-                    "name": "Bot Cop",
-                    "description": "Block Bad Bots in Laravel Forge and Cloudflare."
-                },
                 "laravel": {
                     "providers": [
                         "Abigah\\BotCop\\ServiceProvider"
                     ]
+                },
+                "statamic": {
+                    "name": "Bot Cop",
+                    "description": "Block Bad Bots in Laravel Forge and Cloudflare."
                 }
             },
             "autoload": {
@@ -37,17 +43,15 @@
                     "Abigah\\BotCop\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Abigah\\BotCop\\Tests\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/abigah/bot-cop/issues",
+                "source": "https://github.com/abigah/bot-cop/tree/0.8"
+            },
+            "time": "2026-02-17T03:01:44+00:00"
         },
         {
             "name": "ajthinking/archetype",
@@ -3647,11 +3651,11 @@
         },
         {
             "name": "p2cds/spaces-statamic-addon",
-            "version": "dev-master",
+            "version": "dev-support-statamic-6",
             "dist": {
                 "type": "path",
                 "url": "packages/spaces-statamic-addon",
-                "reference": "bbab0cd5e25be779f2e0d8b07e406bcf0574efbc"
+                "reference": "927d1fa46b58c8432a2d9618d407e1e461dcd2ba"
             },
             "require": {
                 "laravel/framework": "^11.0 || ^12.0",
@@ -13381,7 +13385,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "abigah/bot-cop": 20,
         "p2cds/spaces-statamic-addon": 20
     },
     "prefer-stable": true,
