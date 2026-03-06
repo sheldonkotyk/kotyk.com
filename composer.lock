@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b21522f78335a7691d2da0d858ea3655",
+    "content-hash": "ab0f0a0aaae0ccee6acae92c927ca51a",
     "packages": [
         {
             "name": "abigah/bot-cop",
@@ -3653,26 +3653,27 @@
         },
         {
             "name": "p2cds/spaces-statamic-addon",
-            "version": "2.6.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:sheldonkotyk/spaces-statamic-addon.git",
-                "reference": "927d1fa46b58c8432a2d9618d407e1e461dcd2ba"
+                "url": "git@github.com:TheLifeProject/spaces-statamic-addon.git",
+                "reference": "a335f3726217e562734ee383f90531ffc2985ed4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sheldonkotyk/spaces-statamic-addon/zipball/927d1fa46b58c8432a2d9618d407e1e461dcd2ba",
-                "reference": "927d1fa46b58c8432a2d9618d407e1e461dcd2ba",
+                "url": "https://api.github.com/repos/TheLifeProject/spaces-statamic-addon/zipball/a335f3726217e562734ee383f90531ffc2985ed4",
+                "reference": "a335f3726217e562734ee383f90531ffc2985ed4",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "^11.0 || ^12.0",
-                "livewire/livewire": "^3.6.4|^4.0",
+                "livewire/livewire": "^3.6 || ^4.1",
                 "php": "^8.2",
                 "statamic/cms": "^5.0 || ^6.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^9.0"
+                "orchestra/testbench": "^9.0",
+                "phpunit/phpunit": "^10.5.62"
             },
             "type": "statamic-addon",
             "extra": {
@@ -3706,9 +3707,10 @@
             ],
             "description": "Facilitate the use of spaces.run on Statamic-based sites",
             "support": {
-                "source": "https://github.com/sheldonkotyk/spaces-statamic-addon/tree/2.6.0"
+                "source": "https://github.com/TheLifeProject/spaces-statamic-addon/tree/2.7.1",
+                "issues": "https://github.com/TheLifeProject/spaces-statamic-addon/issues"
             },
-            "time": "2026-02-17T02:58:43+00:00"
+            "time": "2026-03-04T01:02:05+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
