@@ -3657,12 +3657,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:TheLifeProject/spaces-statamic-addon.git",
-                "reference": "53f54eefbedbc96d27df57e77fac8a359dab8e48"
+                "reference": "d77122434e437266591928433db6e06703624744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheLifeProject/spaces-statamic-addon/zipball/53f54eefbedbc96d27df57e77fac8a359dab8e48",
-                "reference": "53f54eefbedbc96d27df57e77fac8a359dab8e48",
+                "url": "https://api.github.com/repos/TheLifeProject/spaces-statamic-addon/zipball/d77122434e437266591928433db6e06703624744",
+                "reference": "d77122434e437266591928433db6e06703624744",
                 "shasum": ""
             },
             "require": {
@@ -3710,7 +3710,7 @@
                 "source": "https://github.com/TheLifeProject/spaces-statamic-addon/tree/fix/serializable-user-parsers",
                 "issues": "https://github.com/TheLifeProject/spaces-statamic-addon/issues"
             },
-            "time": "2026-03-06T07:23:38+00:00"
+            "time": "2026-03-06T07:32:45+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
