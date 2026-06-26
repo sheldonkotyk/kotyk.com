@@ -1,11 +1,15 @@
 {
   "resources/css/cp.css": {
-    "file": "assets/cp-BSb09-B0.css",
+    "file": "assets/cp-CkimKHnm.css",
+    "name": "cp",
+    "names": [
+      "cp.css"
+    ],
     "src": "resources/css/cp.css",
     "isEntry": true
   },
   "resources/js/cp.js": {
-    "file": "assets/cp-Dg1u13q0.js",
+    "file": "assets/cp-DifzARk2.js",
     "name": "cp",
     "src": "resources/js/cp.js",
     "isEntry": true

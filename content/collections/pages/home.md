@@ -12,8 +12,7 @@ content_area:
     attrs:
       textAlign: left
     content:
-      -
-        type: text
+      - type: text
         text: "Sheldon is Julie's husband and the father of Kristin, Ava & Jamie. "
       -
         type: text
@@ -26,8 +25,7 @@ content_area:
               target: null
               title: null
         text: 'His dog Boston'
-      -
-        type: text
+      - type: text
         text: ' takes him for walks. His wife and kids have a '
       -
         type: text
@@ -40,8 +38,7 @@ content_area:
               target: _blank
               title: null
         text: cat
-      -
-        type: text
+      - type: text
         text: ' that just lays there and '
       -
         type: text
@@ -54,17 +51,20 @@ content_area:
               target: _blank
               title: null
         text: 'one that has tons of kitten energy'
-      -
-        type: text
+      - type: text
         text: ', especially at midnight.'
   -
     type: paragraph
     attrs:
       textAlign: left
     content:
+      - type: text
+        text: 'As the '
       -
         type: text
-        text: 'As the Director of '
+        marks:
+          - type: strike
+        text: 'Director of '
       -
         type: text
         marks:
@@ -75,9 +75,9 @@ content_area:
               rel: null
               target: null
               title: null
+          - type: strike
         text: 'Digital Strategies'
-      -
-        type: text
+      - type: text
         text: ' for '
       -
         type: text
@@ -90,8 +90,7 @@ content_area:
               target: null
               title: null
         text: 'Power to Change'
-      -
-        type: text
+      - type: text
         text: ', Sheldon serves a team of more than 30 dedicated staff and hundreds of online missionaries around the globe. You can also catch him trying to understand the mind of Kirk Durston on the '
       -
         type: text
@@ -104,8 +103,7 @@ content_area:
               target: _blank
               title: null
         text: 'Quest with Kirk Durston'
-      -
-        type: text
+      - type: text
         text: ' '
       -
         type: text
@@ -118,17 +116,22 @@ content_area:
               target: null
               title: null
         text: livestream
-      -
-        type: text
+      - type: text
         text: .
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      - type: text
+        text: 'Update: Sheldon is now helping all the ministries as well as the Power to Change leadership in planning for a digitally mature future. More information coming soon.'
   -
     type: heading
     attrs:
       textAlign: left
       level: 2
     content:
-      -
-        type: text
+      - type: text
         text: 'The Latest'
   -
     type: set
@@ -140,7 +143,7 @@ content_area:
         display: vertical
         cards_per_row: 5
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1756410084
+updated_at: 1782484600
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0
