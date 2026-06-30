@@ -91,7 +91,21 @@ content_area:
               title: null
         text: 'Power to Change'
       - type: text
-        text: ', Sheldon serves a team of more than 30 dedicated staff and hundreds of online missionaries around the globe. You can also catch him trying to understand the mind of Kirk Durston on the '
+        text: ', '
+      -
+        type: text
+        marks:
+          - type: strike
+        text: 'Sheldon serves a team of more than 30 dedicated staff and hundreds of online missionaries around the globe.'
+      - type: text
+        text: ' '
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      - type: text
+        text: 'Update: Sheldon is now helping all the ministries as well as the Power to Change leadership in planning for a digitally mature future. More information coming soon. You can also catch him trying to understand the mind of Kirk Durston on the '
       -
         type: text
         marks:
@@ -117,14 +131,7 @@ content_area:
               title: null
         text: livestream
       - type: text
-        text: .
-  -
-    type: paragraph
-    attrs:
-      textAlign: left
-    content:
-      - type: text
-        text: 'Update: Sheldon is now helping all the ministries as well as the Power to Change leadership in planning for a digitally mature future. More information coming soon.'
+        text: ', (on summer break.)'
   -
     type: heading
     attrs:
@@ -143,7 +150,7 @@ content_area:
         display: vertical
         cards_per_row: 5
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1782484600
+updated_at: 1782484848
 meta_include_in_xml_sitemap: default
 meta_change_frequency: default
 meta_priority: 1.0

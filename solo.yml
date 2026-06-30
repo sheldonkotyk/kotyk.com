@@ -1,12 +1,18 @@
-# Visit https://soloterm.com to learn more
 name: kotyk
-icon: null
+icon: public/favicons/android-chrome-512x512.png
 processes:
   Queue:
     command: php artisan queue:work
     working_dir: null
     auto_start: false
     auto_restart: true
+    restart_when_changed: []
+    env: {}
+  Logs:
+    command: tail -n 50 -f storage/logs/laravel.log
+    working_dir: null
+    auto_start: false
+    auto_restart: false
     restart_when_changed: []
     env: {}
   Serve:
@@ -25,13 +31,6 @@ processes:
     env: {}
   Pint:
     command: vendor/bin/pint --test
-    working_dir: null
-    auto_start: false
-    auto_restart: false
-    restart_when_changed: []
-    env: {}
-  Logs:
-    command: tail -n 50 -f storage/logs/laravel.log
     working_dir: null
     auto_start: false
     auto_restart: false
