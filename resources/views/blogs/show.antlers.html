@@ -27,7 +27,7 @@
         {{ /if }}
         {{ if allow_spaces !== false }}
             <div class="p-4 my-8 border-2 border-gray-200 rounded-lg">
-                {{ spaces:show }}
+                {{ nocache }}{{ spaces:show }}{{ /nocache }}
             </div>
         {{ /if }}
     </article>

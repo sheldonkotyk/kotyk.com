@@ -64,7 +64,10 @@ return [
         'class' => null,
 
         'urls' => [
-            //
+            // Renders {{ success }} / {{ errors }} after a POST, which a cached
+            // page would never show. The spaces (Livewire) block on blog pages
+            // is kept dynamic with {{ nocache }} instead, so /blog stays cached.
+            '/contact',
         ],
 
     ],
@@ -103,7 +106,10 @@ return [
     |
     */
 
-    'ignore_query_strings' => false,
+    // True so ?utm_source=, ?fbclid= and crawler junk collapse onto one cached
+    // entry instead of each spawning its own. Safe here: every {{ paginate }}
+    // block is commented out, so the site renders no ?page= links.
+    'ignore_query_strings' => true,
 
     /*
     |--------------------------------------------------------------------------

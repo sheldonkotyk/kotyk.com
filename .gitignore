@@ -2,7 +2,9 @@
 /node_modules
 /public/hot
 /public/storage
-/public/vendor/statamic
+/public/assets
+/public/build
+/public/vendor
 /storage/*.key
 /vendor
 /packages
