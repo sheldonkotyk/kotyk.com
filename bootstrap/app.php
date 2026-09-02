@@ -11,7 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // The environment serves *.kotyk.com, so every subdomain reaches the app
+        // and renders an indexable copy of the site. Send them to the canonical host.
+        $middleware->web(append: [
+            \App\Http\Middleware\RedirectNonCanonicalHost::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
