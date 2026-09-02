@@ -8,16 +8,8 @@
         "flat file",
         "laravel"
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/abigah/send-it"
-        }
-    ],
     "require": {
         "php": "^8.2",
-        "abigah/bot-cop": "^0.8",
-        "abigah/send-it": "^0.7.0",
         "aws/aws-sdk-php": "^3.394",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",
