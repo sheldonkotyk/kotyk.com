@@ -94,6 +94,15 @@ return [
         // in storage/, which is ephemeral and per-instance on Laravel Cloud, so it
         // would be wiped every deploy. Uses the shared 'cache' Redis connection
         // rather than a separate database index, which managed Redis may not offer.
+        // Statamic falls back to a file-driver store under storage/ if this is
+        // undefined, which resets each deploy and makes Glide regenerate every
+        // derivative it already uploaded.
+        'glide' => [
+            'driver' => 'redis',
+            'connection' => 'cache',
+            'lock_connection' => 'default',
+        ],
+
         'static_cache' => [
             'driver' => 'redis',
             'connection' => 'cache',
