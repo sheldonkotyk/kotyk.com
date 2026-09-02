@@ -20,6 +20,10 @@ cd "$(dirname "$0")/.."
 APPLICATION="${LARAVEL_CLOUD_APPLICATION:-kotyk.com}"
 ENVIRONMENT="${LARAVEL_CLOUD_ENVIRONMENT:-production}"
 
+# Warming must target the deployed site, not APP_URL - that is the local
+# development host, and bin/warm.sh falls back to it when given no argument.
+SITE_URL="${LARAVEL_CLOUD_SITE_URL:-https://kotyk.com}"
+
 read_env() {
     [[ -f .env ]] || return 0
     grep -E "^$1=" .env | tail -n1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//'
@@ -57,5 +61,5 @@ echo "==> Deploying $APPLICATION/$ENVIRONMENT"
 # Waits for a terminal state by default; --no-wait would return immediately.
 cloud deploy "$APPLICATION" "$ENVIRONMENT" -n
 
-echo "==> Deployed. Warming cache."
-exec bin/warm.sh
+echo "==> Deployed. Warming $SITE_URL"
+exec bin/warm.sh "$SITE_URL"
