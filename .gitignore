@@ -3,7 +3,8 @@
 /public/hot
 /public/storage
 /public/assets
-/public/vendor/statamic
+/public/build
+/public/vendor
 /storage/*.key
 /vendor
 /packages
