@@ -11,10 +11,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/TheLifeProject/spaces-statamic-addon"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/abigah/send-it"
         }
     ],
@@ -27,7 +23,6 @@
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.35",
         "marcorieser/statamic-livewire": "^5.0",
-        "p2cds/spaces-statamic-addon": "^2.7",
         "resend/resend-laravel": "^1.0",
         "spatie/laravel-ray": "^1.40",
         "statamic/cms": "^6.0",

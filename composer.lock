@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f726ee889f6bdb43e67d5d89144feb51",
+    "content-hash": "0e303edf6845f6af86cf4548f78677d3",
     "packages": [
         {
             "name": "abigah/bot-cop",
@@ -4085,67 +4085,6 @@
                 }
             ],
             "time": "2025-09-03T16:03:54+00:00"
-        },
-        {
-            "name": "p2cds/spaces-statamic-addon",
-            "version": "2.8.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:TheLifeProject/spaces-statamic-addon.git",
-                "reference": "ee3d2998a3a103a3bd705b49937367bd4ccf112e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TheLifeProject/spaces-statamic-addon/zipball/ee3d2998a3a103a3bd705b49937367bd4ccf112e",
-                "reference": "ee3d2998a3a103a3bd705b49937367bd4ccf112e",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^11.0 || ^12.0 || ^13.0",
-                "livewire/livewire": "^3.6 || ^4.1",
-                "php": "^8.2",
-                "statamic/cms": "^5.0 || ^6.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^9.0",
-                "phpunit/phpunit": "^10.5.62"
-            },
-            "type": "statamic-addon",
-            "extra": {
-                "statamic": {
-                    "name": "Spaces Statamic Addon",
-                    "description": "Facilitate the use of spaces.run on Statamic-based sites"
-                },
-                "laravel": {
-                    "providers": [
-                        "P2cds\\Spaces\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "P2cds\\Spaces\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "P2cds\\Spaces\\Tests\\": "tests"
-                }
-            },
-            "authors": [
-                {
-                    "name": "James Warkentin",
-                    "email": "james.warkentin@p2c.com",
-                    "homepage": "https://ptc.jamesandcarolanne.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Facilitate the use of spaces.run on Statamic-based sites",
-            "support": {
-                "source": "https://github.com/TheLifeProject/spaces-statamic-addon/tree/2.8.0",
-                "issues": "https://github.com/TheLifeProject/spaces-statamic-addon/issues"
-            },
-            "time": "2026-04-10T22:47:11+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
