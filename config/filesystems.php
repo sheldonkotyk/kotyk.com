@@ -1,5 +1,14 @@
 <?php
 
+// Laravel Cloud exposes its bucket credentials as a single JSON blob rather than
+// discrete AWS_* variables. The framework only decodes it when LARAVEL_CLOUD=1 is
+// set at the OS level, so decode it here to get the same disk locally and on Cloud.
+$cloudDisks = json_decode((string) env('LARAVEL_CLOUD_DISK_CONFIG', '[]'), true) ?: [];
+
+$cloudDisk = collect($cloudDisks)->firstWhere('is_default', true)
+    ?? collect($cloudDisks)->first()
+    ?? [];
+
 return [
 
     /*
@@ -46,15 +55,17 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'key' => $cloudDisk['access_key_id'] ?? env('AWS_ACCESS_KEY_ID'),
+            'secret' => $cloudDisk['access_key_secret'] ?? env('AWS_SECRET_ACCESS_KEY'),
+            'region' => $cloudDisk['default_region'] ?? env('AWS_DEFAULT_REGION'),
+            'bucket' => $cloudDisk['bucket'] ?? env('AWS_BUCKET'),
+            'url' => $cloudDisk['url'] ?? env('AWS_URL'),
+            'endpoint' => $cloudDisk['endpoint'] ?? env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => $cloudDisk['use_path_style_endpoint'] ?? env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
-            // 'visibility' => 'public', // https://statamic.dev/assets#visibility
+            // No 'visibility' key: the backing store is Cloudflare R2, which rejects
+            // the per-object ACLs that Statamic's "public" visibility would send.
+            // Objects are served publicly through the bucket 'url' above instead.
         ],
 
         'assets' => [

@@ -89,9 +89,15 @@ return [
             'driver' => 'octane',
         ],
 
+        // Statamic resolves this store by name for static caching, which means it
+        // bypasses CACHE_STORE entirely. On the file driver the static cache lands
+        // in storage/, which is ephemeral and per-instance on Laravel Cloud, so it
+        // would be wiped every deploy. Uses the shared 'cache' Redis connection
+        // rather than a separate database index, which managed Redis may not offer.
         'static_cache' => [
-            'driver' => 'file',
-            'path' => storage_path('statamic/static-urls-cache'),
+            'driver' => 'redis',
+            'connection' => 'cache',
+            'lock_connection' => 'default',
         ],
 
     ],
