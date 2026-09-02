@@ -68,6 +68,7 @@ return [
             // page would never show. The spaces (Livewire) block on blog pages
             // is kept dynamic with {{ nocache }} instead, so /blog stays cached.
             '/contact',
+            '/dsdispatch',
         ],
 
     ],
