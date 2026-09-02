@@ -16,6 +16,13 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\RedirectNonCanonicalHost::class,
         ]);
+
+        // Prepended, not appended: middleware unwinds in reverse, so being
+        // first on the way in makes this last on the way out - after
+        // StartSession has attached the session cookie it needs to remove.
+        $middleware->web(prepend: [
+            \App\Http\Middleware\SetEdgeCacheHeaders::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
