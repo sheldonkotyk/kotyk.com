@@ -89,12 +89,12 @@ return [
             'driver' => 'octane',
         ],
 
-        // Statamic resolves this store by name for static caching, which means it
-        // bypasses CACHE_STORE entirely. On the file driver the static cache lands
-        // in storage/, which is ephemeral and per-instance on Laravel Cloud, so it
-        // would be wiped every deploy. Uses the shared 'cache' Redis connection
-        // rather than a separate database index, which managed Redis may not offer.
-        'static_cache' => [
+        // Required, not optional: Statamic injects a file-driver store under
+        // storage/framework/cache/glide when this is undefined, which resets on
+        // every deploy and makes Glide re-upload derivatives it already has.
+        // Static caching needs no equivalent entry - it falls back to the
+        // default store, which CACHE_STORE already points at Redis.
+        'glide' => [
             'driver' => 'redis',
             'connection' => 'cache',
             'lock_connection' => 'default',
