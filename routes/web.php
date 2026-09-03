@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RedirectMailSubdomain;
 use Illuminate\Support\Facades\Route;
 
 // Route::statamic('example', 'example-view', [
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 // A 302 rather than a 301: browsers cache 301s indefinitely, and the target
 // should stay changeable without visitors being stuck on the old one.
 Route::domain(config('redirects.mail_subdomain.host'))->group(function () {
-    Route::get('/{path?}', fn () => redirect()->away(config('redirects.mail_subdomain.target')))
+    Route::get('/{path?}', RedirectMailSubdomain::class)
         ->where('path', '.*')
         ->name('mail-subdomain.redirect');
 });
