@@ -4,8 +4,102 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0acd0b565d0773772c1baa3bb0403a5",
+    "content-hash": "8c7b95121cfef5e1d6d4e4664ba4488f",
     "packages": [
+        {
+            "name": "abigah/bot-cop-traffic-client",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:abigah/bot-cop-traffic-client.git",
+                "reference": "b8db32bb9a41b0695f87775b4abe22e3c5f8a423"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/abigah/bot-cop-traffic-client/zipball/b8db32bb9a41b0695f87775b4abe22e3c5f8a423",
+                "reference": "b8db32bb9a41b0695f87775b4abe22e3c5f8a423",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/contracts": "^12.0 || ^13.0",
+                "illuminate/http": "^12.0 || ^13.0",
+                "illuminate/support": "^12.0 || ^13.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.20",
+                "opis/json-schema": "^2.3",
+                "orchestra/testbench": "^10.0 || ^11.0",
+                "pestphp/pest": "^3.0 || ^4.0",
+                "pestphp/pest-plugin-laravel": "^3.0 || ^4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Abigah\\BotCopTrafficClient\\MonitoringClientServiceProvider"
+                    ],
+                    "aliases": {
+                        "MonitoringClient": "Abigah\\BotCopTrafficClient\\Facades\\MonitoringClient"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Abigah\\BotCopTrafficClient\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Abigah\\BotCopTrafficClient\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "lint": [
+                    "vendor/bin/pint --test"
+                ],
+                "fix": [
+                    "vendor/bin/pint"
+                ],
+                "contracts:init": [
+                    "git submodule update --init tests/contracts"
+                ],
+                "contracts:update": [
+                    "git submodule update --remote tests/contracts"
+                ],
+                "check": [
+                    "@lint",
+                    "@test"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Sheldon Kotyk",
+                    "email": "sheldon.kotyk@p2c.com"
+                }
+            ],
+            "description": "The site-side toolkit for Bot Cop Traffic Division: job heartbeats, deploy pings and exception reporting. No UI dependencies; installable on any Laravel or Statamic site.",
+            "keywords": [
+                "bot-cop",
+                "heartbeat",
+                "laravel",
+                "monitoring",
+                "uptime"
+            ],
+            "support": {
+                "source": "https://github.com/abigah/bot-cop-traffic-client/tree/main",
+                "issues": "https://github.com/abigah/bot-cop-traffic-client/issues"
+            },
+            "time": "2026-09-06T08:33:04+00:00"
+        },
         {
             "name": "ajthinking/archetype",
             "version": "v2.0.1",
@@ -13955,7 +14049,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "abigah/bot-cop-traffic-client": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

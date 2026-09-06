@@ -29,6 +29,35 @@ read_env() {
     grep -E "^$1=" .env | tail -n1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//'
 }
 
+# Deploy pings. A deploy is an event heartbeat: start opens a window, finish
+# closes it, and a start with no finish inside the hub's timeout is itself a
+# verdict - which is what catches a deploy that hung rather than one that broke.
+#
+# MONITORING_CLIENT_ENABLED is forced on for these calls only. This script runs
+# from a developer machine, where .env deliberately has it off: a laptop
+# reporting heartbeats is indistinguishable from the site reporting them. A real
+# environment variable beats .env, so the deploy can say what it is doing
+# without switching the laptop on for everything else.
+#
+# Never allowed to fail the deploy. A deploy script that stops because
+# monitoring was unreachable has been made less reliable by being monitored.
+MONITORING_DEPLOY_TOKEN="$(read_env MONITORING_CLIENT_DEPLOYMENT_TOKEN)"
+
+ping_monitoring() {
+    [[ -n "${MONITORING_DEPLOY_TOKEN:-}" ]] || return 0
+
+    local stage="$1" message="${2:-}"
+
+    MONITORING_CLIENT_ENABLED=true \
+    MONITORING_CLIENT_DEPLOYMENT_TOKEN="$MONITORING_DEPLOY_TOKEN" \
+        php artisan monitoring:deploy "$stage" ${message:+--message="$message"} \
+        >/dev/null 2>&1 || true
+}
+
+# Anything that trips `set -e` from here on is a failed deploy, and the hub
+# should hear it from us rather than infer it from a window that never closed.
+trap 'ping_monitoring fail "deploy.sh failed"' ERR
+
 # The CLI reads LARAVEL_CLOUD_TOKEN; we keep it in .env under the same name the
 # API docs use. Exported rather than passed so it stays out of the process list.
 export LARAVEL_CLOUD_TOKEN="${LARAVEL_CLOUD_TOKEN:-$(read_env LARAVEL_CLOUD_API_TOKEN)}"
@@ -58,8 +87,15 @@ if [[ -z "${LARAVEL_CLOUD_TOKEN:-}" ]]; then
 fi
 
 echo "==> Deploying $APPLICATION/$ENVIRONMENT"
+ping_monitoring start "deploying $APPLICATION/$ENVIRONMENT"
 # Waits for a terminal state by default; --no-wait would return immediately.
 cloud deploy "$APPLICATION" "$ENVIRONMENT" -n
 
 echo "==> Deployed. Warming $SITE_URL"
-exec bin/warm.sh "$SITE_URL"
+# Not exec: the process has to survive the warm so it can close the deploy
+# window afterwards. Warming is part of the deploy, so a failure there is a
+# failed deploy and the ERR trap reports it.
+bin/warm.sh "$SITE_URL"
+
+ping_monitoring finish
+echo "==> Done"

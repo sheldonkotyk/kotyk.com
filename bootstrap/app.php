@@ -23,6 +23,13 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(prepend: [
             \App\Http\Middleware\SetEdgeCacheHeaders::class,
         ]);
+
+        // Global, because Laravel's built-in health route is registered with no
+        // middleware group; the middleware scopes itself to /up. A cached 200
+        // there is a check that never reached the origin.
+        $middleware->append([
+            \App\Http\Middleware\NeverCacheHealth::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
