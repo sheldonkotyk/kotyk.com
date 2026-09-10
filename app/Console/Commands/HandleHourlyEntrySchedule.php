@@ -22,7 +22,7 @@ class HandleHourlyEntrySchedule extends Command
 {
     protected $signature = 'entries:handle-hourly-schedule';
 
-    protected $description = "Dispatch EntryScheduleReached for entries whose scheduled date fell in the previous hour";
+    protected $description = 'Dispatch EntryScheduleReached for entries whose scheduled date fell in the previous hour';
 
     public function handle(): int
     {
