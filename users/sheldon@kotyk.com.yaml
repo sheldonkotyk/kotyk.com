@@ -11,5 +11,6 @@ preferences:
   collections:
     blogs:
       after_save: continue_editing
+      view: list
     pages:
       view: tree

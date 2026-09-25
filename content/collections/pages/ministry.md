@@ -1,17 +1,8 @@
 ---
 id: f4a1189b-5967-46fd-b74d-b25b8c1633d3
 blueprint: page
-title: 'Digital Strategies Dispatch'
+title: Ministry
 content_area:
-  -
-    type: set
-    attrs:
-      id: mb17e6g2
-      values:
-        type: image_with_caption
-        caption: 'What DS Dispatch.com used to look like'
-        locate: left
-        image: pages/dsdispatch(1).png
   -
     type: paragraph
     attrs:
@@ -52,5 +43,5 @@ content_area:
         type: form
         form: ds_dispatch_notifications
 updated_by: e3193a78-e0d1-437d-bb20-86616a16642d
-updated_at: 1748141719
+updated_at: 1790346322
 ---
