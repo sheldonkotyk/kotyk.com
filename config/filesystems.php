@@ -9,6 +9,10 @@ $cloudDisk = $cloudDisks->firstWhere('is_default', true)
     ?? $cloudDisks->first()
     ?? [];
 
+// Cloud names each bucket's entry by its disk, so a second bucket is selected
+// by name rather than by being the default one.
+$cloudGlideDisk = $cloudDisks->firstWhere('disk', 'glide') ?? [];
+
 return [
 
     /*
@@ -66,6 +70,20 @@ return [
             // No 'visibility' key: the backing store is Cloudflare R2, which rejects
             // the per-object ACLs that a "public" visibility would send.
             // Objects are served publicly through the bucket 'url' above instead.
+        ],
+
+        // Resized images (see config/images.php). A different bucket from the
+        // originals, so clearing derivatives can never touch a source image.
+        // PHP serves these itself, so the bucket needs no public URL.
+        'glide' => [
+            'driver' => 's3',
+            'key' => $cloudGlideDisk['access_key_id'] ?? env('AWS_ACCESS_KEY_ID'),
+            'secret' => $cloudGlideDisk['access_key_secret'] ?? env('AWS_SECRET_ACCESS_KEY'),
+            'region' => $cloudGlideDisk['default_region'] ?? env('AWS_DEFAULT_REGION'),
+            'bucket' => $cloudGlideDisk['bucket'] ?? env('AWS_BUCKET_GLIDE'),
+            'endpoint' => $cloudGlideDisk['endpoint'] ?? env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => $cloudGlideDisk['use_path_style_endpoint'] ?? false,
+            'throw' => false,
         ],
 
     ],

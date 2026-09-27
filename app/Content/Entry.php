@@ -3,7 +3,6 @@
 namespace App\Content;
 
 use Carbon\CarbonImmutable;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * A page or blog post: one Blade file under resources/content, described by
@@ -69,10 +68,5 @@ final readonly class Entry
     public function image(): ?string
     {
         return $this->featureImage ?? $this->teaserImage;
-    }
-
-    public static function assetUrl(?string $path): ?string
-    {
-        return $path ? Storage::disk(config('content.assets_disk'))->url($path) : null;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\RedirectMailSubdomain;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,13 @@ Route::domain(config('redirects.mail_subdomain.host'))->group(function () {
         ->where('path', '.*')
         ->name('mail-subdomain.redirect');
 });
+
+// Resized content images. Outside the web group: without a session there is
+// no Set-Cookie, so the edge is willing to cache them.
+Route::get('/img/{preset}/{path}', ImageController::class)
+    ->where('path', '.*')
+    ->withoutMiddleware('web')
+    ->name('image');
 
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 Route::get('/feed', FeedController::class)->name('feed');

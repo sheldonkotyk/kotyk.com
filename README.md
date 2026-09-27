@@ -35,7 +35,12 @@ Livewire components: `<livewire:forms.contact />` and
 `<livewire:forms.ds-dispatch-notifications />`. A page containing one loads
 Livewire's script and is never cached at the edge; every other page is.
 
-Images and other media live on the `s3` disk (Cloudflare R2).
+Images and other media live on the `s3` disk (Cloudflare R2). Templates never
+link to the originals: `App\Support\Image::url($path, $preset)` points at
+`/img/{preset}/{path}`, where Glide resizes to one of the presets in
+`config/images.php` (`small`, `card`, `large`, `social`) and keeps the result
+in the glide bucket. Only those presets exist, so URLs cannot request
+arbitrary sizes.
 
 ## SEO
 
