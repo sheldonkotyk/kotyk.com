@@ -72,7 +72,7 @@ new class extends Component
             </div>
         </header>
         @if ($this->post->featureImage)
-            <img class="mt-4" src="{{ \App\Content\Entry::assetUrl($this->post->featureImage) }}" alt="" fetchpriority="high">
+            <img class="mt-4" src="{{ \App\Support\Image::url($this->post->featureImage) }}" alt="" fetchpriority="high">
         @endif
         <div class="pt-8 mt-8 content">
             @include($this->post->view)

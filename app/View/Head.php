@@ -3,6 +3,7 @@
 namespace App\View;
 
 use App\Content\Entry;
+use App\Support\Image;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Str;
 
@@ -53,7 +54,7 @@ class Head
     {
         $this->title = $entry->title;
         $this->description = $entry->summary() ?: null;
-        $this->image = Entry::assetUrl($entry->image());
+        $this->image = Image::url($entry->image(), 'social');
         $this->imageAlt = $entry->image() ? $entry->title : null;
         $this->canonical = $entry->url();
         $this->modifiedAt = $entry->lastModified();

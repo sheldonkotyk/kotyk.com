@@ -8,7 +8,7 @@
         'w-full md:w-1/2' => $locate === 'center',
         'w-full my-8' => $locate === 'full',
     ])>
-        <img class="w-full" src="{{ \App\Content\Entry::assetUrl($image) }}" alt="{{ $caption ?? '' }}" loading="lazy" decoding="async">
+        <img class="w-full" src="{{ \App\Support\Image::url($image, in_array($locate, ['left', 'right']) ? 'small' : 'large') }}" alt="{{ $caption ?? '' }}" loading="lazy" decoding="async">
         @if ($caption)
             <figcaption class="px-6 py-4 mb-2 text-sm font-bold text-center">{{ $caption }}</figcaption>
         @endif

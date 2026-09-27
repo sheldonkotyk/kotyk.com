@@ -70,7 +70,7 @@ new class extends Component
             <h1 class="container mx-auto mb-6">{{ $this->entry->title }}</h1>
             @if ($this->entry->featureImage)
                 <div class="container mx-auto">
-                    <img class="mt-4 rounded-md shadow-md" src="{{ \App\Content\Entry::assetUrl($this->entry->featureImage) }}" alt="" fetchpriority="high">
+                    <img class="mt-4 rounded-md shadow-md" src="{{ \App\Support\Image::url($this->entry->featureImage) }}" alt="" fetchpriority="high">
                 </div>
             @endif
             <div class="content">

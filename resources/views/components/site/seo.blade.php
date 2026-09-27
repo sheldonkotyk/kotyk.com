@@ -21,6 +21,10 @@
 <meta property="og:url" content="{{ $head->canonicalUrl() }}">
 @if ($head->imageUrl())
     <meta property="og:image" content="{{ $head->imageUrl() }}">
+    @if ($head->image)
+        <meta property="og:image:width" content="{{ config('images.presets.social.w') }}">
+        <meta property="og:image:height" content="{{ config('images.presets.social.h') }}">
+    @endif
     <meta property="og:image:alt" content="{{ $head->imageAlt ?? $head->title ?? config('seo.site_name') }}">
 @endif
 @if ($head->type === 'article')

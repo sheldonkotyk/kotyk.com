@@ -14,9 +14,6 @@ return [
 
     'path' => resource_path('content'),
 
-    // Where the image paths in front matter and content components resolve.
-    'assets_disk' => env('CONTENT_ASSETS_DISK', 's3'),
-
     // Where each Livewire form's submissions are emailed.
     'forms' => [
         'contact' => [
