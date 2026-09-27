@@ -1,5 +1,5 @@
 @props(['videos' => []])
-<div class="container grid grid-cols-1 mx-auto mt-4 md:grid-cols-3 md:gap-4">
+<div class="not-prose container grid grid-cols-1 mx-auto mt-4 md:grid-cols-3 md:gap-4">
     @foreach ($videos as $video)
         <div class="w-full rounded-lg shadow-sm">
             <div class="relative aspect-video">

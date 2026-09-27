@@ -5,7 +5,7 @@
         1 => 'md:w-full', 2 => 'md:w-1/2', 3 => 'md:w-1/3', 4 => 'md:w-1/4', 5 => 'md:w-1/5', default => 'md:w-1/6',
     };
 @endphp
-<div class="container mx-auto">
+<div class="not-prose container mx-auto">
     @if ($posts->isEmpty())
         <p>There are no blog entries published.</p>
     @elseif ($display === 'horizontal')

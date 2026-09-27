@@ -74,8 +74,8 @@ new class extends Component
         @if ($this->post->featureImage)
             <img class="mt-4" src="{{ \App\Support\Image::url($this->post->featureImage) }}" alt="" fetchpriority="high">
         @endif
-        <div class="pt-8 mt-8 content">
+        <x-content.body class="mt-8">
             @include($this->post->view)
-        </div>
+        </x-content.body>
     </article>
 </div>

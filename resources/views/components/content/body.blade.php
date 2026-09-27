@@ -1,0 +1,7 @@
+{{-- The text column every page and post body sits in: the site container, set
+     in Tailwind Typography. Content blocks inside opt out with not-prose. --}}
+<div {{ $attributes->class('container px-6 pt-4 mx-auto md:px-0') }}>
+    <div class="prose max-w-none lg:prose-xl prose-li:-my-4 prose-a:text-red-800 prose-h1:text-red-800 prose-h2:text-red-800 prose-h2:text-4xl prose-h3:text-gray-400 prose-h3:text-2xl prose-h3:mb-0 prose-headings:font-bold prose-p:mb-4">
+        {{ $slot }}
+    </div>
+</div>
