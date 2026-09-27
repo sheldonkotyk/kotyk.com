@@ -9,10 +9,6 @@ $cloudDisk = $cloudDisks->firstWhere('is_default', true)
     ?? $cloudDisks->first()
     ?? [];
 
-// Cloud names each bucket's entry by its disk, so a second bucket is selected
-// by name rather than by being the default one.
-$cloudGlideDisk = $cloudDisks->firstWhere('disk', 'glide') ?? [];
-
 return [
 
     /*
@@ -68,32 +64,8 @@ return [
             'use_path_style_endpoint' => $cloudDisk['use_path_style_endpoint'] ?? env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
             // No 'visibility' key: the backing store is Cloudflare R2, which rejects
-            // the per-object ACLs that Statamic's "public" visibility would send.
+            // the per-object ACLs that a "public" visibility would send.
             // Objects are served publicly through the bucket 'url' above instead.
-        ],
-
-        // Glide derivative cache. Must be a different bucket from the assets disk:
-        // glide:clear wipes this disk wholesale, and pointing it at the source
-        // bucket would delete the originals. Public-read, because Statamic emits
-        // this disk's URL directly into <img src> and PHP never serves the file.
-        'glide' => [
-            'driver' => 's3',
-            'key' => $cloudGlideDisk['access_key_id'] ?? env('AWS_ACCESS_KEY_ID'),
-            'secret' => $cloudGlideDisk['access_key_secret'] ?? env('AWS_SECRET_ACCESS_KEY'),
-            'region' => $cloudGlideDisk['default_region'] ?? env('AWS_DEFAULT_REGION'),
-            'bucket' => $cloudGlideDisk['bucket'] ?? env('AWS_BUCKET_GLIDE'),
-            'url' => $cloudGlideDisk['url'] ?? env('AWS_URL_GLIDE'),
-            'endpoint' => $cloudGlideDisk['endpoint'] ?? env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => $cloudGlideDisk['use_path_style_endpoint'] ?? false,
-            'throw' => false,
-        ],
-
-        'assets' => [
-            'driver' => 'local',
-            'root' => public_path('assets'),
-            'url' => '/assets',
-            'visibility' => 'public',
-            'throw' => false,
         ],
 
     ],

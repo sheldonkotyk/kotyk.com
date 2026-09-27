@@ -3,16 +3,15 @@
 # Build, test, deploy to Laravel Cloud, then warm the cache.
 #
 # Warming runs here, from a developer machine, rather than as a Cloud deploy
-# command. Statamic's `static:warm` runs inside the container, which means
-# reaching our own public hostname: out to the edge and back into the same
-# origin. Cloudflare's Browser Integrity Check rejects that with a 403 (error
-# 1010). A full browser header signature clears BIC from an ordinary client but
-# not from Cloud's egress address, because BIC weighs the client address too.
-# Rate limiting was ruled out - the environment has none configured.
+# command. A deploy command runs inside the container, which means reaching our
+# own public hostname: out to the edge and back into the same origin.
+# Cloudflare's Browser Integrity Check rejects that with a 403 (error 1010). A
+# full browser header signature clears BIC from an ordinary client but not from
+# Cloud's egress address, because BIC weighs the client address too. Rate
+# limiting was ruled out - the environment has none configured.
 #
 # `cloud deploy` blocks until the deployment reaches a terminal state, so the
-# warm below always runs against the new release. That matters: the deploy
-# commands run `static:clear`, so warming an outgoing release would be wiped.
+# warm below always runs against the new release rather than the outgoing one.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -63,7 +62,7 @@ trap 'ping_monitoring fail "deploy.sh failed"' ERR
 export LARAVEL_CLOUD_TOKEN="${LARAVEL_CLOUD_TOKEN:-$(read_env LARAVEL_CLOUD_API_TOKEN)}"
 
 # public/build is gitignored, so the Vite manifest only exists once Vite has
-# run. The suite renders templates through the {{ vite }} tag and 500s without it.
+# run. The suite renders pages through @vite and 500s without it.
 echo "==> Building front-end assets"
 npm run build
 

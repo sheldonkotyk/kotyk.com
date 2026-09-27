@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
  * — is registered with no middleware group at all. There is nothing to append
  * to. Defining our own /up instead would mean re-implementing the
  * DiagnosingHealth dispatch and the maintenance-mode exemption, and registering
- * it ahead of Statamic's catch-all, which is a lot of moving parts for a
+ * it ahead of the content catch-all, which is a lot of moving parts for a
  * header.
  *
  * Global also means this unwinds *after* the web group, so it wins over

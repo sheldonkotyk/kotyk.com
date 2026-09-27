@@ -63,21 +63,15 @@ class SetEdgeCacheHeaders
 
         $path = '/'.ltrim($request->path(), '/');
 
-        $excluded = array_merge(
-            config('edge_cache.exclude', []),
-            // Same list the static cache excludes: every URL carrying a form.
-            config('statamic.static_caching.exclude.urls', []),
-        );
-
-        foreach ($excluded as $pattern) {
+        foreach (config('edge_cache.exclude', []) as $pattern) {
             if ($request->is(ltrim($pattern, '/')) || $path === rtrim($pattern, '*')) {
                 return false;
             }
         }
 
-        // Backstop for the failure this design is most exposed to: a form added
-        // to a page nobody remembered to exclude. Caching a CSRF token at the
-        // edge would hand every visitor the same one.
+        // Pages carrying a form are recognised by their CSRF token rather than
+        // listed by path, so a form added to any page is excluded without anyone
+        // remembering to. Caching the token would hand every visitor the same one.
         if ($this->containsCsrfToken($response)) {
             return false;
         }
