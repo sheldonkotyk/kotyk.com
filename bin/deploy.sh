@@ -90,6 +90,24 @@ ping_monitoring start "deploying $APPLICATION/$ENVIRONMENT"
 # Waits for a terminal state by default; --no-wait would return immediately.
 cloud deploy "$APPLICATION" "$ENVIRONMENT" -n
 
+# The zone caches pages for up to an hour, and each build renames its hashed
+# CSS/JS. Without a purge the edge would keep serving the old release's HTML,
+# pointing at assets the new release no longer has. Purged before warming, so
+# the warm fills the edge with the new release.
+CLOUDFLARE_TOKEN="$(read_env CLOUDFLARE_API_TOKEN)"
+CLOUDFLARE_ZONE="$(read_env CLOUDFLARE_ZONE_ID)"
+
+if [[ -n "$CLOUDFLARE_TOKEN" && -n "$CLOUDFLARE_ZONE" ]]; then
+    echo "==> Purging the Cloudflare cache"
+    curl -fsS --max-time 30 -X POST \
+        "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE/purge_cache" \
+        -H "Authorization: Bearer $CLOUDFLARE_TOKEN" \
+        -H "Content-Type: application/json" \
+        --data '{"purge_everything":true}' >/dev/null
+else
+    echo "==> Warning: CLOUDFLARE_API_TOKEN / CLOUDFLARE_ZONE_ID not set; edge cache not purged" >&2
+fi
+
 echo "==> Deployed. Warming $SITE_URL"
 # Not exec: the process has to survive the warm so it can close the deploy
 # window afterwards. Warming is part of the deploy, so a failure there is a
