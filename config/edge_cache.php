@@ -23,15 +23,12 @@ return [
     'ttl' => env('EDGE_CACHE_TTL', 3600),
 
     /*
-    | Paths never made cacheable, on top of the static caching exclusions in
-    | config/statamic/static_caching.php - that list already names every URL
-    | carrying a form, and there is no reason to maintain a second copy of it.
+    | Paths never made cacheable. Pages carrying a form need no entry here:
+    | the middleware finds their CSRF token (Livewire's data-csrf included)
+    | and skips them.
     */
 
     'exclude' => [
-        '/!/*',   // Statamic action routes: form posts, live preview, glide
-        '/cp',    // control panel, disabled in production but never cacheable
-        '/cp/*',
         '/up',    // health check
     ],
 

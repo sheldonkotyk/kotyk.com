@@ -89,17 +89,6 @@ return [
             'driver' => 'octane',
         ],
 
-        // Required, not optional: Statamic injects a file-driver store under
-        // storage/framework/cache/glide when this is undefined, which resets on
-        // every deploy and makes Glide re-upload derivatives it already has.
-        // Static caching needs no equivalent entry - it falls back to the
-        // default store, which CACHE_STORE already points at Redis.
-        'glide' => [
-            'driver' => 'redis',
-            'connection' => 'cache',
-            'lock_connection' => 'default',
-        ],
-
     ],
 
     /*

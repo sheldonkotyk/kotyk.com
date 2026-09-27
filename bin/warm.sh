@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 #
-# Warm the static page cache (and, as a side effect, the Glide derivative
-# bucket) by requesting every URL in the sitemap.
+# Warm the edge cache by requesting every URL in the sitemap.
 #
-# Statamic's own `static:warm` cannot do this from inside Laravel Cloud: the
-# container has to reach its own public hostname, which means going out to the
-# edge and back into the same origin, and every request comes back 403. That is
-# not a user-agent or rate-limit problem - both were ruled out by testing - it
-# is the request path itself. See statamic/cms#13145.
+# This cannot run from inside Laravel Cloud: the container has to reach its own
+# public hostname, which means going out to the edge and back into the same
+# origin, and every request comes back 403. That is not a user-agent or
+# rate-limit problem - both were ruled out by testing - it is the request path
+# itself.
 #
 # Running it from a developer machine sidesteps that entirely, because an
 # ordinary external client reaches the site normally.

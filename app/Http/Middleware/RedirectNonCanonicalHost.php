@@ -10,8 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
  * Send any hostname that is not the canonical one to the canonical one.
  *
  * The environment serves a wildcard domain, so *every* subdomain reaches this
- * app and renders the full site. SEO Pro builds its canonical URL from the
- * request host, so each of those hostnames declares itself canonical - which,
+ * app and renders the full site. The canonical URL is built from the request
+ * host, so each of those hostnames declares itself canonical - which,
  * with X-Robots-Tag set to "index, follow", makes them indexable duplicates
  * that anyone can create just by linking to one.
  */

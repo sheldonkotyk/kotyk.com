@@ -10,6 +10,7 @@
 @plugin '@tailwindcss/aspect-ratio';
 
 @source "../views";
+@source "../content";
 
 @theme {
   --color-white: #ffffff;

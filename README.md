@@ -1,40 +1,56 @@
-<p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo+Wordmark-Rad.svg" width="400" alt="Statamic Logo" /></p>
+# Kotyk.com
 
-## About Statamic
+The online abode of Sheldon Kotyk. A Laravel app whose pages are Blade files
+rendered by Livewire; there is no database-backed CMS and no admin panel.
 
-Statamic is the flat-first, Laravel + Git powered CMS designed for building beautiful, easy to manage websites.
+## Content
 
-> **Note:** This repository contains the code for the Statamic application. To contribute to the core package, visit the [Statamic core package repository][cms-repo].
+Everything lives in `resources/content`, edited in any editor and deployed with git.
 
+- `pages/{path}.blade.php` is served at `/{path}`; `pages/home.blade.php` is `/`.
+- `blog/{slug}.blade.php` is served at `/blog/{slug}`.
+- `tags.yaml` maps tag slugs to their display names.
 
-## Learning Statamic
+Each file opens with YAML front matter inside a Blade comment:
 
-Statamic has extensive [documentation][docs]. We dedicate a significant amount of time and energy every day to improving them, so if something is unclear, feel free to open issues for anything you find confusing or incomplete. We are happy to consider anything you feel will make the docs and CMS better.
+```blade
+{{--
+title: 'Vision doesn’t just leak, it is squeezed'
+date: '2025-09-12 14:32'       # posts only; future dates stay unlisted until then
+updated: '2025-09-18'          # sitemap lastmod and article:modified_time
+tags: [vision, leadership]
+feature_image: pages/bucket.png  # path on the assets disk, also the social card image
+description: Optional meta description; defaults to the opening text.
+nav: 2                         # pages only: position in the main menu
+published: false               # hides the entry entirely
+--}}
+<p>Body HTML, styled with Tailwind.</p>
 
-## Support
+<x-content.image-with-caption image="pages/sponges.png" caption="Sponges" locate="left" />
+```
 
-We provide official developer support on [Statamic Pro](https://statamic.com/pricing) projects. Community-driven support is available on the [forum](https://statamic.com/forum) and in [Discord][discord].
+Content blocks live in `resources/views/components/content`: `image-with-caption`,
+`video`, `two-videos`, `quote`, `button`, `divider` and `latest-news`. Forms are
+Livewire components: `<livewire:forms.contact />` and
+`<livewire:forms.ds-dispatch-notifications />`. A page containing one loads
+Livewire's script and is never cached at the edge; every other page is.
 
+Images and other media live on the `s3` disk (Cloudflare R2).
 
-## Contributing
+## SEO
 
-Thank you for considering contributing to Statamic! We simply ask that you review the [contribution guide][contribution] before you open issues or send pull requests.
+`config/seo.php` holds the site name, default description, author and social
+profiles. Every page gets a canonical URL, meta description, Open Graph and
+Twitter tags, and JSON-LD; the site also serves `/sitemap.xml` and an Atom feed
+at `/feed`.
 
+## Development
 
-## Code of Conduct
+```sh
+composer install && npm install
+npm run build
+php artisan test
+```
 
-In order to ensure that the Statamic community is welcoming to all and generally a rad place to belong, please review and abide by the [Code of Conduct](https://github.com/statamic/cms/wiki/Code-of-Conduct).
-
-
-## Important Links
-
-- [Statamic Main Site](https://statamic.com)
-- [Statamic Documentation][docs]
-- [Statamic Core Package Repo][cms-repo]
-- [Statamic Migrator](https://github.com/statamic/migrator)
-- [Statamic Discord][discord]
-
-[docs]: https://statamic.dev/
-[discord]: https://statamic.com/discord
-[contribution]: https://github.com/statamic/cms/blob/master/CONTRIBUTING.md
-[cms-repo]: https://github.com/statamic/cms
+Deploy with `bin/deploy.sh`, which builds, tests, deploys to Laravel Cloud and
+then warms the edge from the sitemap.

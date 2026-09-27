@@ -1,12 +1,11 @@
 {
-    "name": "statamic/statamic",
+    "name": "sheldonkotyk/kotyk.com",
     "type": "project",
-    "description": "Statamic",
+    "description": "Kotyk.com - the online abode of Sheldon Kotyk",
     "keywords": [
-        "statamic",
-        "cms",
-        "flat file",
-        "laravel"
+        "laravel",
+        "livewire",
+        "blog"
     ],
     "require": {
         "php": "^8.2",
@@ -15,12 +14,10 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.35",
-        "marcorieser/statamic-livewire": "^5.0",
+        "livewire/livewire": "^4.4",
         "resend/resend-laravel": "^1.0",
         "spatie/laravel-ray": "^1.40",
-        "statamic/cms": "^6.0",
-        "statamic/eloquent-driver": "^5.11",
-        "statamic/seo-pro": "^7.0"
+        "symfony/yaml": "^7.4 || ^8.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^4.0",
@@ -46,13 +43,9 @@
         }
     },
     "scripts": {
-        "pre-update-cmd": [
-            "Statamic\\Console\\Composer\\Scripts::preUpdateCmd"
-        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
-            "@php artisan statamic:install --ansi"
+            "@php artisan package:discover --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -76,15 +69,16 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true,
-            "pixelfear/composer-dist-plugin": true
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [{
-        "name": "bot-cop-traffic-client",
-        "type": "vcs",
-        "url": "https://github.com/abigah/bot-cop-traffic-client"
-    }]
+    "repositories": [
+        {
+            "name": "bot-cop-traffic-client",
+            "type": "vcs",
+            "url": "https://github.com/abigah/bot-cop-traffic-client"
+        }
+    ]
 }

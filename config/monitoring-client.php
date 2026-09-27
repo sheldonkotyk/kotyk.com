@@ -122,23 +122,7 @@ return [
         'enabled' => env('MONITORING_CLIENT_HEARTBEATS_ENABLED', true),
 
         'jobs' => [
-            // This site has no queued jobs. Its periodic work is a scheduled
-            // command, which the package's job listener cannot see - a command
-            // is not dispatched through the queue, so JobProcessed never fires.
-        ],
-
-        /*
-        | Not read by the package. routes/console.php reads it, and pings from
-        | the scheduler's own onSuccess/onFailure hooks.
-        |
-        | It lives in config rather than being read with env() at the call site
-        | because Laravel Cloud caches config, and env() outside a config file
-        | returns null once it does - which would turn the heartbeat into a
-        | silent no-op exactly where it matters.
-        */
-
-        'scheduled' => [
-            'entries:handle-hourly-schedule' => env('HEARTBEAT_HOURLY_ENTRY_SCHEDULE'),
+            // This site has no queued jobs and no scheduled commands.
         ],
 
     ],
