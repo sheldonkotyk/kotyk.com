@@ -38,7 +38,7 @@ class SetEdgeCacheHeaders
 
         // max-age=0 keeps browsers revalidating, so a purge is visible to
         // someone who has already loaded the page; s-maxage is what the edge
-        // actually holds it for. Purge-on-deploy handles releases.
+        // actually holds it for. Cloud and bin/deploy.sh both purge on release.
         $response->headers->set(
             'Cache-Control',
             'public, max-age=0, s-maxage='.(int) config('edge_cache.ttl', 3600)
