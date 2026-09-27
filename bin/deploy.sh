@@ -25,7 +25,9 @@ SITE_URL="${LARAVEL_CLOUD_SITE_URL:-https://kotyk.com}"
 
 read_env() {
     [[ -f .env ]] || return 0
-    grep -E "^$1=" .env | tail -n1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//'
+    # A missing key is an empty value, not an error: under pipefail a grep with
+    # no match would otherwise fail the assignment and end the script silently.
+    { grep -E "^$1=" .env || true; } | tail -n1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//'
 }
 
 # Deploy pings. A deploy is an event heartbeat: start opens a window, finish
