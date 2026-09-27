@@ -58,7 +58,7 @@ new class extends Component
 };
 ?>
 
-<div class="container pt-4 pb-2 mx-auto bg-gray-100 rounded-lg">
+<div class="not-prose container pt-4 pb-2 mx-auto bg-gray-100 rounded-lg">
     @php($input = 'block w-full px-4 py-3 leading-tight border rounded-sm appearance-none focus:outline-hidden focus:bg-white')
     @php($label = 'block mb-2 text-xs font-bold tracking-wide uppercase')
     <div class="mx-6 content md:mx-4">

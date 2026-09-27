@@ -62,9 +62,9 @@ new class extends Component
 <div>
     @if ($this->isHome())
         <h1 class="sr-only">{{ config('seo.author.name') }}</h1>
-        <div class="content">
+        <x-content.body>
             @include($this->entry->view)
-        </div>
+        </x-content.body>
     @else
         <article class="py-8">
             <h1 class="container mx-auto mb-6">{{ $this->entry->title }}</h1>
@@ -73,9 +73,9 @@ new class extends Component
                     <img class="mt-4 rounded-md shadow-md" src="{{ \App\Support\Image::url($this->entry->featureImage) }}" alt="" fetchpriority="high">
                 </div>
             @endif
-            <div class="content">
+            <x-content.body>
                 @include($this->entry->view)
-            </div>
+            </x-content.body>
         </article>
     @endif
 </div>

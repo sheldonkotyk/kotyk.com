@@ -63,9 +63,9 @@ new class extends Component
     <div class="py-8">
         <h1 class="mb-8">{{ $this->page?->title ?? 'Blog' }}</h1>
         @if ($this->page)
-            <div class="content">
+            <x-content.body>
                 @include($this->page->view)
-            </div>
+            </x-content.body>
         @endif
         @foreach ($this->posts as $post)
             <x-blog.card :post="$post" />
