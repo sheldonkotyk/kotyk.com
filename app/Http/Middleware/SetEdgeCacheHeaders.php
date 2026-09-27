@@ -93,7 +93,9 @@ class SetEdgeCacheHeaders
             return false;
         }
 
+        // Livewire's script tag carries the token as data-csrf.
         return str_contains($content, 'name="_token"')
-            || str_contains($content, 'name="csrf-token"');
+            || str_contains($content, 'name="csrf-token"')
+            || str_contains($content, 'data-csrf=');
     }
 }

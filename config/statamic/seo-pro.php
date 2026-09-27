@@ -19,13 +19,13 @@ return [
     ],
 
     'sitemap' => [
-        'enabled' => true,
+        'enabled' => false,
         'url' => 'sitemap.xml',
         'expire' => 60,
     ],
 
     'humans' => [
-        'enabled' => true,
+        'enabled' => false,
         'url' => 'humans.txt',
     ],
 

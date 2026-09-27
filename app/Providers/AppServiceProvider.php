@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Content\ContentRepository;
+use App\View\Head;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Statamic\Statamic;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(ContentRepository::class, fn () => new ContentRepository(config('content.path')));
+
+        $this->app->scoped(Head::class);
     }
 
     /**
@@ -20,9 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Statamic::vite('app', [
-        //     'resources/js/cp.js',
-        //     'resources/css/cp.css',
-        // ]);
+        View::addNamespace('content', config('content.path'));
     }
 }
