@@ -1,9 +1,15 @@
 {{--
 title: Now
-updated: '2022-08-31'
+updated: '2026-10-01'
 nav: 4
 feature_image: img_2235.jpg
 --}}
-<p>My day job is at <a target="_blank" href="https://p2c.com">Power to Change</a>, specifically in the role of Director of <a target="_blank" href="https://p2cdigital.com">Digital Strategies</a>. My priorities in this role are finding people that are interested in helping change the world get involved as staff, volunteers, through prayer or as financial donors. </p>
-<p>I also lead a team of more than twenty amazing people around North America with a core leadership team of five people spread out across Canada. We have three main web strategies that help people come closer to Jesus: <a target="_blank" href="https://issuesiface.com">Issues I Face</a>, <a target="_blank" href="https://thelife.com">The Life</a>, and <a target="_blank" href="https://tmm.io">The Mentor Center</a>. We are also multi-lingual. </p>
+<p>My day job is at <a target="_blank" href="https://p2c.com">Power to Change</a> as the Digital Engineer and Strategist. I sit on our Digital Task Force with senior leaders from operations and IT, where we plan how the ministry uses technology, including where AI can help most and how to use it safely. I also lead the development team, which includes fellow Digital Engineer James Warkentin. James has worked closely with me for 28 years. On each project I do both the planning and the building. Right now we&#039;re:</p>
+<ul>
+<li>creating new sites like <a target="_blank" href="https://prayforawin.com">Pray for a Win</a></li>
+<li>figuring out what P2C&#039;s existing sites need, then updating them and keeping them secure</li>
+<li>building new apps for our ministries</li>
+<li>quickly building and testing new tools in areas we didn&#039;t have the capacity for before</li>
+</ul>
 <p> Evenings and weekends I run <a target="_blank" href="https://abigah.com">Abigah Co.</a>, a home-based business in Steinbach, MB that helps some of the coolest companies with their web strategies. See <a target="_blank" href="https://nownownow.com/about">nownownow.com</a> for more information about now pages.</p>
+<p><em>Last updated: October 2026</em></p>
