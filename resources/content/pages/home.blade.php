@@ -1,11 +1,10 @@
 {{--
 title: Home
-updated: '2026-06-26'
+updated: '2026-10-01'
 template: home
 --}}
 <p>Sheldon is Julie&#039;s husband and the father of Kristin, Ava &amp; Jamie. <a href="/boston">His dog Boston</a> takes him for walks. His wife and kids have a <a target="_blank" href="https://www.instagram.com/p/BBq8DhcNOpM/">cat</a> that just lays there and <a target="_blank" href="https://www.instagram.com/theodorecorneliusfeles/">one that has tons of kitten energy</a>, especially at midnight.</p>
-<p>As the <s>Director of <a href="https://p2cdigital.com">Digital Strategies</a></s> for <a href="https://p2c.com">Power to Change</a>, <s>Sheldon serves a team of more than 30 dedicated staff and hundreds of online missionaries around the globe.</s> </p>
-<p>Update: Sheldon is now helping all the ministries as well as the Power to Change leadership in planning for a digitally mature future. More information coming soon. You can also catch him trying to understand the mind of Kirk Durston on the <a target="_blank" href="https://www.youtube.com/@@KirkDurstonquest/streams">Quest with Kirk Durston</a> <a href="/livestream">livestream</a>, (on summer break.)</p>
+<p>As the Digital Engineer and Strategist for <a href="https://p2c.com">Power to Change</a>, Sheldon sits on P2C&#039;s Digital Task Force with senior leaders from operations and IT, planning how the ministry uses technology, including where AI can help most and how to use it safely. He also leads the development team and does both the planning and the building on each project. Right now that&#039;s creating new sites like <a target="_blank" href="https://prayforawin.com">Pray for a Win</a>, figuring out what P2C&#039;s existing sites need and updating them, and building new apps. Today&#039;s tools let his team build and test ideas quickly, so P2C can take on work it didn&#039;t have the capacity for before.</p>
 <h2>The Latest</h2>
 
 <x-content.latest-news :number-to-show="5" display="vertical" :cards-per-row="5" />
