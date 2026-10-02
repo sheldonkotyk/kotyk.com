@@ -1,7 +1,7 @@
 @props(['cite' => null])
-<figure class="not-prose w-4/5 p-8 m-auto mb-4 text-center border rounded-sm shadow-sm bg-gray-50 font-brand">
-    <blockquote>{{ $slot }}</blockquote>
+<figure class="not-prose my-12 border-s-4 border-canola ps-6 md:-ms-7">
+    <blockquote class="font-serif text-2xl md:text-3xl leading-snug text-ink dark:text-white">{{ $slot }}</blockquote>
     @if ($cite)
-        <figcaption class="pt-2 font-sans text-sm text-gray-900">&mdash; <cite>{{ $cite }}</cite></figcaption>
+        <figcaption class="mt-3 font-sans text-sm text-zinc-600 dark:text-zinc-400"><cite class="not-italic">{{ $cite }}</cite></figcaption>
     @endif
 </figure>

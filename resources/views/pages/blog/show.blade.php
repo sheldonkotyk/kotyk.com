@@ -54,28 +54,30 @@ new class extends Component
 };
 ?>
 
-<div class="container px-6 mx-auto md:px-0">
-    <article class="py-8">
-        <header>
-            <nav aria-label="Breadcrumb" class="mb-4 text-sm text-gray-500">
-                <a href="/blog" class="hover:underline">Blog</a>
-            </nav>
-            <h1 class="mb-6">{{ $this->post->title }}</h1>
-            @if ($this->post->description)
-                <p class="text-lg text-gray-800">{{ $this->post->description }}</p>
-            @endif
-            <div class="flex flex-wrap mt-4 gap-x-3 font-mono text-xs tracking-widest text-gray-500 uppercase">
-                <time datetime="{{ $this->post->date->toIso8601String() }}">{{ $this->post->date->format('F jS, Y') }}</time>
-                @foreach ($this->tags as $slug => $title)
-                    <a href="/tags/{{ $slug }}" rel="tag" class="hover:underline">#{{ $title }}</a>
-                @endforeach
-            </div>
-        </header>
-        @if ($this->post->featureImage)
-            <img class="mt-4" src="{{ \App\Support\Image::url($this->post->featureImage) }}" alt="" fetchpriority="high">
+<article class="pt-8 md:pt-12">
+    <header class="mx-auto max-w-6xl px-4 md:px-8">
+        <flux:breadcrumbs class="mb-6">
+            <flux:breadcrumbs.item href="/blog">Blog</flux:breadcrumbs.item>
+            <flux:breadcrumbs.item>
+                <time datetime="{{ $this->post->date->toIso8601String() }}">{{ $this->post->date->format('F j, Y') }}</time>
+            </flux:breadcrumbs.item>
+        </flux:breadcrumbs>
+        <h1 class="max-w-4xl font-semiwide text-4xl md:text-6xl font-bold tracking-tight text-balance">{{ $this->post->title }}</h1>
+        @if ($this->post->description)
+            <p class="mt-5 max-w-2xl font-serif text-xl md:text-2xl leading-snug text-zinc-700 dark:text-zinc-300">{{ $this->post->description }}</p>
         @endif
-        <x-content.body class="mt-8">
-            @include($this->post->view)
-        </x-content.body>
-    </article>
-</div>
+        @if ($this->tags)
+            <ul class="flex flex-wrap gap-2 mt-6" aria-label="Tags">
+                @foreach ($this->tags as $slug => $title)
+                    <li><flux:badge as="a" href="/tags/{{ $slug }}" rel="tag" size="sm">{{ $title }}</flux:badge></li>
+                @endforeach
+            </ul>
+        @endif
+        @if ($this->post->featureImage)
+            <img class="mt-10 w-full max-w-4xl rounded-sm" src="{{ \App\Support\Image::url($this->post->featureImage) }}" alt="" fetchpriority="high">
+        @endif
+    </header>
+    <x-content.body class="mt-10">
+        @include($this->post->view)
+    </x-content.body>
+</article>

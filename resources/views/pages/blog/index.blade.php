@@ -56,19 +56,48 @@ new class extends Component
     {
         return app(ContentRepository::class)->posts();
     }
+
+    /**
+     * Posts grouped by the year they went up, newest year first.
+     *
+     * @return Collection<int, Collection<int, Entry>>
+     */
+    #[Computed]
+    public function years(): Collection
+    {
+        return $this->posts->groupBy(fn (Entry $post) => $post->date->year);
+    }
 };
 ?>
 
-<div class="container px-6 mx-auto md:px-0">
-    <div class="py-8">
-        <h1 class="mb-8">{{ $this->page?->title ?? 'Blog' }}</h1>
-        @if ($this->page)
-            <x-content.body>
-                @include($this->page->view)
-            </x-content.body>
-        @endif
-        @foreach ($this->posts as $post)
-            <x-blog.card :post="$post" />
-        @endforeach
+<div class="pt-10 md:pt-14">
+    <header class="mx-auto max-w-6xl px-4 md:px-8">
+        <h1 class="font-semiwide text-4xl md:text-6xl font-bold tracking-tight">{{ $this->page?->title ?? 'Blog' }}</h1>
+        <p class="mt-4 max-w-2xl font-serif text-xl text-zinc-700 dark:text-zinc-300">Writing on leadership, faith, technology and family.</p>
+    </header>
+    @if ($this->page)
+        <x-content.body>
+            @include($this->page->view)
+        </x-content.body>
+    @endif
+
+    <div class="mx-auto max-w-6xl px-4 md:px-8 mt-12">
+        <flux:timeline align="start" class="max-w-4xl">
+            @foreach ($this->years as $year => $posts)
+                <flux:timeline.item>
+                    <flux:timeline.indicator class="bg-canola! text-ink! font-sans">
+                        <span class="sr-only">{{ $year }}</span>
+                    </flux:timeline.indicator>
+                    <flux:timeline.content>
+                        <h2 class="font-semiwide text-3xl font-bold tabular-nums pt-0.5">{{ $year }}</h2>
+                        <div class="mt-4 mb-10 [&>article:first-child]:border-t-0 [&>article:first-child]:pt-2">
+                            @foreach ($posts as $post)
+                                <x-blog.card :post="$post" />
+                            @endforeach
+                        </div>
+                    </flux:timeline.content>
+                </flux:timeline.item>
+            @endforeach
+        </flux:timeline>
     </div>
 </div>

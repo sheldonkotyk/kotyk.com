@@ -62,18 +62,18 @@ new class extends Component
 <div>
     @if ($this->isHome())
         <h1 class="sr-only">{{ config('seo.author.name') }}</h1>
-        <x-content.body>
+        <x-content.body class="pt-10 md:pt-14">
             @include($this->entry->view)
         </x-content.body>
     @else
-        <article class="py-8">
-            <h1 class="container mx-auto mb-6">{{ $this->entry->title }}</h1>
-            @if ($this->entry->featureImage)
-                <div class="container mx-auto">
-                    <img class="mt-4 rounded-md shadow-md" src="{{ \App\Support\Image::url($this->entry->featureImage) }}" alt="" fetchpriority="high">
-                </div>
-            @endif
-            <x-content.body>
+        <article class="pt-10 md:pt-14">
+            <header class="mx-auto max-w-6xl px-4 md:px-8">
+                <h1 class="max-w-3xl font-semiwide text-4xl md:text-6xl font-bold tracking-tight text-balance">{{ $this->entry->title }}</h1>
+                @if ($this->entry->featureImage)
+                    <img class="mt-8 w-full max-w-4xl rounded-sm" src="{{ \App\Support\Image::url($this->entry->featureImage) }}" alt="" fetchpriority="high">
+                @endif
+            </header>
+            <x-content.body class="mt-8">
                 @include($this->entry->view)
             </x-content.body>
         </article>

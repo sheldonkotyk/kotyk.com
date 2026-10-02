@@ -31,4 +31,13 @@ return [
         ],
     ],
 
+    // The weather over the sky, from Sheldon's aroundfor.com, which asks
+    // Apple's WeatherKit. Without a token the sky simply has no weather.
+    'aroundfor' => [
+        'url' => env('AROUNDFOR_URL', 'https://aroundfor.com'),
+        'token' => env('AROUNDFOR_TOKEN'),
+        'latitude' => 49.53,
+        'longitude' => -96.68,
+    ],
+
 ];

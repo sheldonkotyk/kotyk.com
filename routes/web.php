@@ -4,6 +4,7 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\RedirectMailSubdomain;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect the mail subdomain to webmail. Registered here so it is matched
@@ -22,6 +23,12 @@ Route::get('/img/{preset}/{path}', ImageController::class)
     ->where('path', '.*')
     ->withoutMiddleware('web')
     ->name('image');
+
+// The weather over Steinbach, for the sky. Outside the web group for the same
+// reason as images: no session cookie, so the edge caches it.
+Route::get('/weather.json', WeatherController::class)
+    ->withoutMiddleware('web')
+    ->name('weather');
 
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 Route::get('/feed', FeedController::class)->name('feed');

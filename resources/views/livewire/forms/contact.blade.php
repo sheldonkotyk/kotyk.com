@@ -58,54 +58,28 @@ new class extends Component
 };
 ?>
 
-<div class="not-prose container mx-auto">
-    @php($input = 'block w-full px-4 py-3 leading-tight border rounded-sm appearance-none focus:outline-hidden focus:bg-white')
-    @php($label = 'block mb-2 text-xs font-bold tracking-wide uppercase')
-    <div class="mx-6 content md:mx-4">
-        @if ($sent)
-            <p class="mb-8 font-black text-green-900" role="status">Your message has been successfully sent.</p>
-        @else
-            <form wire:submit="submit" class="w-full max-w-md" novalidate>
-                @if ($errors->any())
-                    <div role="alert" class="mb-4">
-                        <p>Oops, here's what went wrong:</p>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+<div class="not-prose my-8 font-sans">
+    @if ($sent)
+        <flux:callout icon="check-circle" color="green" heading="Message sent." class="max-w-xl" role="status" />
+    @else
+        <form wire:submit="submit" class="max-w-xl space-y-6" novalidate>
+            @error('form')
+                <flux:callout variant="danger" icon="exclamation-triangle" :heading="$message" role="alert" />
+            @enderror
 
-                <div class="hidden" aria-hidden="true">
-                    <label for="contact-full-name">Leave this empty</label>
-                    <input wire:model="full_name" id="contact-full-name" type="text" tabindex="-1" autocomplete="off">
-                </div>
+            <div class="hidden" aria-hidden="true">
+                <label for="contact-full-name">Leave this empty</label>
+                <input wire:model="full_name" id="contact-full-name" type="text" tabindex="-1" autocomplete="off">
+            </div>
 
-                <div class="flex flex-wrap mb-4 -mx-3">
-                    <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-                        <label class="{{ $label }}" for="contact-first-name">First Name</label>
-                        <input wire:model="first_name" class="{{ $input }}" id="contact-first-name" type="text" autocomplete="given-name" required>
-                    </div>
-                    <div class="w-full px-3 md:w-1/2">
-                        <label class="{{ $label }}" for="contact-last-name">Last Name</label>
-                        <input wire:model="last_name" class="{{ $input }}" id="contact-last-name" type="text" autocomplete="family-name" required>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label class="{{ $label }}" for="contact-email">Email</label>
-                    <input wire:model="email" class="{{ $input }}" id="contact-email" type="email" placeholder="name@domain.com" autocomplete="email" required>
-                </div>
-                <div class="mb-4">
-                    <label class="{{ $label }}" for="contact-phone">Phone</label>
-                    <input wire:model="phone" class="{{ $input }}" id="contact-phone" type="tel" placeholder="555-555-5555" autocomplete="tel">
-                </div>
-                <div class="mb-4">
-                    <label class="{{ $label }}" for="contact-comment">Comment / Question / Request</label>
-                    <textarea wire:model="comment" class="h-24 {{ $input }}" id="contact-comment" required></textarea>
-                </div>
-                <button class="button-primary" type="submit" wire:loading.attr="disabled">Submit</button>
-            </form>
-        @endif
-    </div>
+            <div class="grid gap-6 sm:grid-cols-2">
+                <flux:input wire:model="first_name" label="First name" autocomplete="given-name" required />
+                <flux:input wire:model="last_name" label="Last name" autocomplete="family-name" required />
+            </div>
+            <flux:input wire:model="email" type="email" label="Email" placeholder="name@domain.com" autocomplete="email" required />
+            <flux:input wire:model="phone" type="tel" label="Phone" badge="Optional" placeholder="555-555-5555" autocomplete="tel" />
+            <flux:textarea wire:model="comment" label="Comment, question or request" rows="5" required />
+            <flux:button type="submit" variant="primary">Send message</flux:button>
+        </form>
+    @endif
 </div>

@@ -15,6 +15,8 @@
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.35",
         "league/glide": "^4.1",
+        "livewire/flux": "^2.20",
+        "livewire/flux-pro": "^2.20",
         "livewire/livewire": "^4.4",
         "resend/resend-laravel": "^1.0",
         "spatie/laravel-ray": "^1.40",
@@ -76,6 +78,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
+        {
+            "name": "flux-pro",
+            "type": "composer",
+            "url": "https://composer.fluxui.dev"
+        },
         {
             "name": "bot-cop-traffic-client",
             "type": "vcs",
