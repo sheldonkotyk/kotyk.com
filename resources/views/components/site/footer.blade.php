@@ -1,20 +1,42 @@
-<footer class="container z-10 px-6 py-6 mx-auto mt-6 font-mono border-t md:px-0 md:border-none">
-    <div class="flex flex-wrap items-center mt-4 space-x-5 md:justify-start">
-        <a href="{{ config('seo.social.x') }}" rel="me" class="flex items-center w-5 h-5 text-gray-500 hover:text-black" title="X" aria-label="X">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="{{ config('seo.social.instagram') }}" rel="me" class="flex items-center w-5 h-5 text-gray-500 hover:text-black" title="Instagram" aria-label="Instagram">
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-        </a>
-        <a href="{{ config('seo.social.github') }}" rel="me" class="flex items-center w-5 h-5 text-gray-500 hover:text-black" title="GitHub" aria-label="GitHub">
-            <i class="fa-brands fa-github" aria-hidden="true"></i>
-        </a>
-        <a href="{{ config('seo.social.linkedin') }}" rel="me" class="flex items-center w-5 h-5 text-gray-500 hover:text-black" title="LinkedIn" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a href="/contact" class="flex items-center w-5 h-5 text-gray-500 hover:text-black" title="Email" aria-label="Contact">
-            <i class="fa-light fa-envelope" aria-hidden="true"></i>
-        </a>
+@php
+    $social = [
+        ['href' => config('seo.social.x'), 'label' => 'X', 'icon' => 'fa-brands fa-x-twitter', 'rel' => 'me'],
+        ['href' => config('seo.social.instagram'), 'label' => 'Instagram', 'icon' => 'fa-brands fa-instagram', 'rel' => 'me'],
+        ['href' => config('seo.social.github'), 'label' => 'GitHub', 'icon' => 'fa-brands fa-github', 'rel' => 'me'],
+        ['href' => config('seo.social.linkedin'), 'label' => 'LinkedIn', 'icon' => 'fa-brands fa-linkedin', 'rel' => 'me'],
+        ['href' => '/contact', 'label' => 'Contact', 'icon' => 'fa-light fa-envelope', 'rel' => null],
+    ];
+@endphp
+<footer class="mt-24 border-t border-frost dark:border-zinc-800">
+    <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-6 mx-auto max-w-6xl px-4 py-10 md:px-8">
+        <div class="flex items-center gap-1 -ms-2">
+            @foreach ($social as $link)
+                <flux:tooltip :content="$link['label']">
+                    <flux:button variant="ghost" size="sm" square href="{{ $link['href'] }}" :rel="$link['rel']" aria-label="{{ $link['label'] }}">
+                        <i class="{{ $link['icon'] }} text-base" aria-hidden="true"></i>
+                    </flux:button>
+                </flux:tooltip>
+            @endforeach
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-4">
+            <flux:radio.group x-data variant="segmented" size="sm" x-model="$flux.appearance" aria-label="Colour theme">
+                <flux:radio value="light" icon="sun" aria-label="Light" />
+                <flux:radio value="dark" icon="moon" aria-label="Dark" />
+                <flux:radio value="system" icon="computer-desktop" aria-label="Match system" />
+            </flux:radio.group>
+            {{-- Apple's mark and legal link, which its terms ask for wherever its
+                 weather shows. The sky's script fills it in once real weather
+                 arrives; previews and pages without weather leave it hidden. --}}
+            <a class="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-ink dark:text-zinc-400 dark:hover:text-white" target="_blank" rel="noopener" data-sky-attribution hidden>
+                <span>Sky weather from</span>
+                <img class="h-3.5 w-auto dark:hidden" alt="Apple Weather" data-mark="light">
+                <img class="hidden h-3.5 w-auto dark:block" alt="Apple Weather" data-mark="dark">
+            </a>
+            {{-- NOAA's data is public domain; this is a courtesy, shown while
+                 the sky has an aurora in it. --}}
+            <a href="https://www.swpc.noaa.gov/" class="text-sm text-zinc-500 hover:text-ink dark:text-zinc-400 dark:hover:text-white" target="_blank" rel="noopener" data-aurora-credit hidden>Aurora from NOAA SWPC</a>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400">&copy; {{ now()->year }} Sheldon Kotyk</p>
+        </div>
     </div>
-    <p class="pt-4 text-xs text-gray-500">&copy;{{ now()->year }} Sheldon Kotyk</p>
 </footer>

@@ -32,13 +32,11 @@ new class extends Component
 };
 ?>
 
-<div class="relative z-10 max-w-6xl px-6 py-8 mx-auto">
-    <div class="py-8">
-        <h1 class="mb-6">Tags</h1>
-        <ul class="flex flex-wrap gap-4 pt-8 mt-8 content">
-            @foreach ($this->tags as $slug => $title)
-                <li><a href="/tags/{{ $slug }}" rel="tag">{{ $title }}</a></li>
-            @endforeach
-        </ul>
-    </div>
+<div class="mx-auto max-w-6xl px-4 pt-10 md:px-8 md:pt-14">
+    <h1 class="font-semiwide text-4xl md:text-6xl font-bold tracking-tight">Tags</h1>
+    <ul class="flex flex-wrap gap-2 mt-10 max-w-3xl">
+        @foreach ($this->tags as $slug => $title)
+            <li><flux:badge as="a" href="/tags/{{ $slug }}" rel="tag">{{ $title }}</flux:badge></li>
+        @endforeach
+    </ul>
 </div>

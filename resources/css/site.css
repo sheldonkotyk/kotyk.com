@@ -1,178 +1,613 @@
 @import 'tailwindcss';
-/* @import '../../vendor/livewire/flux/dist/flux.css'; */
-
-/* This is all you. */
-/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap') */
-
+@import '../../vendor/livewire/flux/dist/flux.css';
 
 @plugin '@tailwindcss/typography';
-@plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/aspect-ratio';
 
 @source "../views";
 @source "../content";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  The prairie palette. Ink is the ground and the silhouette on the horizon,
+  snow is the page, flax (the blue flower) carries links, and canola marks
+  focus and the current page on the dark ground. The sky has no token: it is
+  computed from the sun over Steinbach (see components/site/sky.blade.php).
+*/
 @theme {
-  --color-white: #ffffff;
+    --color-ink: #15202b;
+    --color-ground: #0b1118;
+    --color-snow: #f5f7fa;
+    --color-night: #0f161e;
+    --color-frost: #dce3eb;
+    --color-flax: #4058a8;
+    --color-flax-light: #a3b4ee;
+    --color-canola: #f2c230;
 
-  --color-brand-darkgraybg: #333333;
-  --color-brand-blue: #00bdbb;
-  --color-brand-green: #5ebf4a;
-  --color-brand-greenhover: #3d7831;
-  --color-brand-orange: #fa993e;
-  --color-brand-yellow: #f8b312;
-  --color-brand-primarybutton: #3ba4a3;
-  --color-brand-primarybuttonhover: #297271;
-  --color-brand-verydarkdesaturatedblue: #1f273b;
-  --color-brand-verydarkblue: #124a70;
-  --color-brand-darkmoderateblue: #4b698b;
-  --color-brand-lightgray: #f4f4f4;
-  --color-brand-lightergray: #fafafa;
+    --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
 
-  --font-headline: Assistant, sans-serif;
-  --font-title: Assistant, sans-serif;
-  --font-regular: Assistant, sans-serif;
-
-  --padding-29: 7rem;
-
-  --padding--29: -7rem;
-  --padding--36: -10rem;
-
-  --margin-29: 7rem;
-  --margin-36: 10rem;
-  --margin-72: 22rem;
-  --margin-128: 48rem;
-
-  --margin--22: -5rem;
-  --margin--26: -6rem;
-  --margin--29: -7rem;
-  --margin--36: -10rem;
-  --margin--72: -22rem;
-  --margin--74: -24rem;
-  --margin--82: -28rem;
-
-  --height-300: 300px;
-  --height-350: 350px;
-  --height-500: 500px;
-  --height-750: 750px;
-
-  --width-500: 500px;
-
-  --z-index-0: 0;
-  --z-index-10: 10;
-  --z-index-20: 20;
-  --z-index-25: 25;
-  --z-index-30: 30;
-  --z-index-40: 40;
-  --z-index-50: 50;
-  --z-index-75: 75;
-  --z-index-100: 100;
-
-  --z-index--10: -10;
-
-  --z-index-auto: auto;
+    --color-accent: var(--color-flax);
+    --color-accent-content: var(--color-flax);
+    --color-accent-foreground: var(--color-white);
 }
 
-/* Typography plugin */
+@layer theme {
+    .dark {
+        --color-accent: var(--color-canola);
+        --color-accent-content: var(--color-canola);
+        --color-accent-foreground: var(--color-ink);
+    }
+}
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-canola);
+        outline-offset: 2px;
+    }
+}
+
+/* The name on the horizon, set tall and narrow. */
+@utility font-tall {
+    font-family: var(--font-sans);
+    font-stretch: 62%;
+}
+
+@utility font-semiwide {
+    font-family: var(--font-sans);
+    font-stretch: 112%;
+}
+
+/* Underlines in canola thicken on hover; the link colour stays flax. */
+@utility link {
+    color: var(--color-flax);
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in oklab, var(--color-canola), transparent 20%);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+
+    &:hover {
+        text-decoration-thickness: 0.35em;
+        text-decoration-skip-ink: none;
+    }
+
+    &:where(.dark, .dark *) {
+        color: var(--color-flax-light);
+    }
+}
+
 @utility prose {
-    --tw-prose-body: var(--color-primary);
-    --tw-prose-headings: var(--color-primary);
-    --tw-prose-bold: var(--color-primary);
-    --tw-prose-quote-borders: var(--color-slate-300);
-    --tw-prose-quotes: var(--color-muted-foreground);
-    --tw-prose-code: var(--color-primary);
+    --tw-prose-body: var(--color-ink);
+    --tw-prose-headings: var(--color-ink);
+    --tw-prose-bold: var(--color-ink);
+    --tw-prose-links: var(--color-flax);
+    --tw-prose-bullets: var(--color-canola);
+    --tw-prose-counters: var(--color-ink);
+    --tw-prose-quote-borders: var(--color-canola);
+    --tw-prose-quotes: var(--color-ink);
+    --tw-prose-captions: var(--color-zinc-600);
+    --tw-prose-hr: var(--color-frost);
+    --tw-prose-code: var(--color-ink);
+
+    --tw-prose-invert-body: var(--color-zinc-200);
+    --tw-prose-invert-headings: var(--color-white);
+    --tw-prose-invert-bold: var(--color-white);
+    --tw-prose-invert-links: var(--color-flax-light);
+    --tw-prose-invert-bullets: var(--color-canola);
+    --tw-prose-invert-quote-borders: var(--color-canola);
+    --tw-prose-invert-quotes: var(--color-zinc-100);
+    --tw-prose-invert-hr: var(--color-zinc-700);
+    --tw-prose-invert-code: var(--color-white);
+
+    font-family: var(--font-serif);
+
+    :where(h1, h2, h3, h4):not(:where(.not-prose, .not-prose *)) {
+        font-family: var(--font-sans);
+        font-stretch: 112%;
+        letter-spacing: -0.01em;
+    }
+
+    a:not(:where(.not-prose, .not-prose *)) {
+        text-decoration-color: color-mix(in oklab, var(--color-canola), transparent 20%);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.2em;
+        font-weight: inherit;
+
+        &:hover {
+            text-decoration-thickness: 0.35em;
+            text-decoration-skip-ink: none;
+        }
+    }
 
     code {
-      &::before,
-      &::after {
-        display : none ;
-      }
-      text-wrap : nowrap ;
+        &::before,
+        &::after {
+            display: none;
+        }
+        text-wrap: nowrap;
     }
 
     blockquote {
-      font-weight : 400 ;
+        font-weight: 400;
+        font-style: italic;
     }
-  }
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
 }
 
-h1 {
-    @apply font-sans text-5xl font-black;
+/* -------------------------------------------------------------------------
+   The horizon: sky, sun, stars and the name standing on the ground.
+   ------------------------------------------------------------------------- */
+
+.sky {
+    --sky-top: #2f7bc8;
+    --sky-bottom: #d6ecfa;
+    --stars: 0;
+    --sun-x: 70%;
+    --sun-y: 60%;
+    --sun-visible: 1;
+    --sun-color: #fff3c4;
+    --name-edge: transparent;
+
+    background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom));
 }
 
-.videoWrapper {
-    position: relative;
-    padding-bottom: 38.59%; /* 16:9 */
-    padding-top: 35px;
-    height: 0;
+.sky-stars {
+    opacity: var(--stars);
+    background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 27% 42%, #fff 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 38% 12%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 51% 33%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 63% 9%, #fff 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 72% 47%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 81% 22%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 91% 38%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 6% 52%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 45% 58%, #fff 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 18% 6%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 86% 61%, #fff 50%, transparent 51%);
 }
-.videoWrapper iframe {
+
+.sky-sun {
+    left: var(--sun-x);
+    bottom: calc(var(--field-h) + var(--sun-y));
+    opacity: var(--sun-visible);
+    background: var(--sun-color);
+    box-shadow: 0 0 2.5rem 0.75rem color-mix(in oklab, var(--sun-color), transparent 55%);
+    translate: -50% 50%;
+}
+
+/* The town sits a mile off: the ink of the ground, hazed by the sky. */
+.sky-skyline-land {
+    fill: color-mix(in oklab, var(--color-ink) 62%, var(--sky-bottom));
+}
+
+.sky-hill {
+    fill: color-mix(in oklab, color-mix(in oklab, #5f9b3e 85%, var(--sky-bottom)) calc(100% - var(--stars) * 80%), var(--color-ink));
+}
+
+/* The light on Abe's Hill: always on, and it glows after dark. */
+.sky-lamp {
+    fill: #fff3c4;
+}
+
+.sky-lamp-glow {
+    fill: #ffe9a3;
+    opacity: calc(0.15 + var(--stars) * 0.55);
+}
+
+.sky-windsock {
+    fill: color-mix(in oklab, #e8762c calc(100% - var(--stars) * 85%), var(--color-ink));
+}
+
+.sky-skyline-windows {
+    fill: var(--color-canola);
+    opacity: var(--stars);
+}
+
+/* The crops in the sun, going to dark as the light goes. Each field sets its
+   colour and a deeper shade for up close; the rest follows from those. */
+.crop {
+    --crop: color-mix(in oklab, var(--crop-base) calc(100% - var(--stars) * 80%), var(--color-ink));
+    --crop-shade: color-mix(in oklab, var(--crop-deep) calc(100% - var(--stars) * 80%), var(--color-ink));
+    fill: var(--crop);
+}
+
+.crop-canola {
+    --crop-base: #f2c230;
+    --crop-deep: #b58a12;
+    --crop-stem: #6b8a2a;
+}
+
+.crop-wheat {
+    --crop-base: #d9a441;
+    --crop-deep: #6b4310;
+}
+
+.crop-soy {
+    --crop-base: #6f9a3e;
+    --crop-deep: #2a4514;
+}
+
+.crop-corn {
+    --crop-base: #4f8030;
+    --crop-deep: #1f3a10;
+    --crop-tassel: #d8b56a;
+}
+
+.crop-stroke {
+    stroke: var(--crop);
+}
+
+.crop-stem {
+    stroke: color-mix(in oklab, var(--crop-stem) calc(100% - var(--stars) * 80%), var(--color-ink));
+}
+
+.crop-tassel {
+    stroke: color-mix(in oklab, var(--crop-tassel) calc(100% - var(--stars) * 80%), var(--color-ink));
+}
+
+.crop-back {
+    opacity: 0.7;
+}
+
+.crop-far {
+    stop-color: color-mix(in oklab, var(--crop) 82%, var(--sky-bottom));
+}
+
+.crop-near {
+    stop-color: color-mix(in oklab, var(--crop) 78%, var(--crop-shade));
+}
+
+.crop-row {
+    stroke: color-mix(in oklab, var(--crop) 65%, var(--crop-shade));
+    opacity: 0.45;
+}
+
+.crop-row-fill {
+    fill: color-mix(in oklab, var(--crop) 55%, white);
+    opacity: calc(0.5 - var(--stars) * 0.4);
+}
+
+/* Gravel grid roads, pale at the horizon, dusty up close. */
+.sky-road {
+    --road: color-mix(in oklab, #cdbb96 calc(100% - var(--stars) * 80%), var(--color-ink));
+    background: linear-gradient(
+        color-mix(in oklab, var(--road) 75%, var(--sky-bottom)),
+        color-mix(in oklab, var(--road) 85%, #5a4a32)
+    );
+}
+
+.sky-name {
+    color: var(--color-ink);
+    /* After dark the name catches the moon, so it holds against the town. */
+    -webkit-text-stroke: 1.5px var(--name-edge);
+    paint-order: stroke fill;
+}
+
+/* Small planes, in the town's haze. They head home as the stars come out. */
+.sky-planes {
+    fill: color-mix(in oklab, var(--color-ink) 78%, var(--sky-top));
+    opacity: calc(1 - var(--stars) * 1.5);
+}
+
+.sky-plane-line {
+    stroke: color-mix(in oklab, var(--color-ink) 78%, var(--sky-top));
+}
+
+.sky-plane,
+.sky-plane-loop {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
-.text-columns  {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    -webkit-column-width: 200px;
-    -moz-column-width: 200px;
-    column-width: 200px;
+.sky-plane-east {
+    left: 30%;
+}
+
+.sky-plane-west {
+    left: 70%;
+    scale: -1 1;
+}
+
+/* The loop: in from the left, over the top, and away to the right. The
+   stunt plane is painted red, as stunt planes are. */
+.sky-plane-stunt {
+    fill: #c8302a;
+    offset-path: path('M -1100 0 L 0 0 A 55 55 0 0 0 0 -110 A 55 55 0 0 0 0 0 L 1100 0');
+    offset-rotate: auto;
+    offset-distance: 30%;
+
+    .sky-plane-line {
+        stroke: #c8302a;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sky-plane-east {
+        animation: fly-east 70s linear infinite;
+    }
+
+    .sky-plane-west {
+        animation: fly-west 95s linear -40s infinite;
+    }
+
+    .sky-plane-stunt {
+        animation: loop 28s linear -6s infinite;
+    }
+}
+
+@keyframes fly-east {
+    from { left: -6%; }
+    to { left: 106%; }
+}
+
+@keyframes fly-west {
+    from { left: 106%; }
+    to { left: -6%; }
+}
+
+@keyframes loop {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+}
+
+/* The weather. Clouds drift with the wind, white by day and grey under rain;
+   rain, snow and fog sit in front of the town but behind the name. */
+.sky {
+    --aurora: 0;
+    --clouds: 0;
+    --fog: 0;
+    --rain: 0;
+    --snow: 0;
+    --drift: 200s;
+    --drift-dir: normal;
+    --slant: 10deg;
+}
+
+/* Northern lights: green curtains low over the town, fading upward into
+   violet, with folds that drift and a slow shimmer. */
+.sky-aurora {
+    opacity: var(--aurora);
+    background:
+        repeating-linear-gradient(90deg, transparent 0 18px, rgb(160 255 200 / 0.18) 22px, transparent 30px 44px),
+        radial-gradient(120% 90% at 30% 100%, rgb(70 235 150 / 0.55), transparent 60%),
+        radial-gradient(90% 80% at 75% 100%, rgb(60 220 170 / 0.45), transparent 62%),
+        linear-gradient(to top, rgb(80 240 160 / 0.35), rgb(140 110 230 / 0.18) 55%, transparent);
+    mask-image: linear-gradient(to top, #000 10%, rgb(0 0 0 / 0.6) 50%, transparent);
+    mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sky-aurora {
+        animation: aurora-fold 24s ease-in-out infinite alternate, aurora-shimmer 7s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes aurora-fold {
+    to { background-position: 140px 0, 8% 0, -6% 0, 0 0; }
+}
+
+@keyframes aurora-shimmer {
+    50% { filter: brightness(1.35) saturate(1.2); }
+}
+
+.sky-cloud {
+    position: absolute;
+    fill: color-mix(in oklab, color-mix(in oklab, #ffffff calc(100% - var(--clouds) * 55%), #6b7685) calc(100% - var(--stars) * 85%), #1b2230);
+    opacity: 0.92;
+    font-size: clamp(0.5rem, 1vw, 1rem);
+}
+
+.sky:not(.sky-home) .sky-cloud {
+    font-size: 0.35rem;
+}
+
+.sky-fog {
+    background: linear-gradient(to top, color-mix(in oklab, #d6dce3 calc(100% - var(--stars) * 80%), #1b2230) 0%, transparent);
+    opacity: calc(var(--fog) * 0.9);
+}
+
+.sky-rain,
+.sky-snow {
+    /* Wider than the sky so the slant never shows an edge. */
+    inset: 0 -25%;
+    transform: skewX(calc(-1 * var(--slant)));
+}
+
+/* Two layers of scattered streaks or flakes at different sizes and speeds,
+   so the pattern never lines up into rows. */
+.sky-rain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cg stroke='rgb%28224,234,248%29' stroke-opacity='0.7' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M49 23v14'/%3E%3Cpath d='M11 80v12'/%3E%3Cpath d='M9 76v9'/%3E%3Cpath d='M65 10v10'/%3E%3Cpath d='M64 124v10'/%3E%3Cpath d='M33 94v17'/%3E%3Cpath d='M87 60v17'/%3E%3Cpath d='M7 129v11'/%3E%3Cpath d='M22 18v11'/%3E%3Cpath d='M122 27v14'/%3E%3Cpath d='M96 56v13'/%3E%3Cpath d='M9 9v11'/%3E%3Cpath d='M102 64v12'/%3E%3Cpath d='M88 68v11'/%3E%3Cpath d='M119 105v11'/%3E%3Cpath d='M86 79v16'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cg stroke='rgb%28224,234,248%29' stroke-opacity='0.4' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M80 32v17'/%3E%3Cpath d='M13 46v15'/%3E%3Cpath d='M17 54v9'/%3E%3Cpath d='M74 84v14'/%3E%3Cpath d='M96 35v15'/%3E%3Cpath d='M65 64v13'/%3E%3Cpath d='M92 104v13'/%3E%3Cpath d='M73 7v15'/%3E%3Cpath d='M71 109v16'/%3E%3Cpath d='M31 42v14'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: var(--rain);
+}
+
+.sky-snow {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='white'%3E%3Ccircle cx='4' cy='74' r='1.4'/%3E%3Ccircle cx='19' cy='9' r='2.0'/%3E%3Ccircle cx='21' cy='40' r='1.6'/%3E%3Ccircle cx='139' cy='13' r='1.6'/%3E%3Ccircle cx='88' cy='141' r='2.0'/%3E%3Ccircle cx='138' cy='45' r='1.6'/%3E%3Ccircle cx='57' cy='141' r='2.2'/%3E%3Ccircle cx='24' cy='28' r='1.4'/%3E%3Ccircle cx='37' cy='78' r='1.8'/%3E%3Ccircle cx='42' cy='1' r='1.6'/%3E%3Ccircle cx='59' cy='91' r='2.2'/%3E%3Ccircle cx='110' cy='82' r='1.8'/%3E%3Ccircle cx='108' cy='9' r='2.1'/%3E%3Ccircle cx='125' cy='140' r='2.0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cg fill='white'%3E%3Ccircle cx='43' cy='44' r='0.7'/%3E%3Ccircle cx='70' cy='7' r='0.6'/%3E%3Ccircle cx='23' cy='18' r='0.8'/%3E%3Ccircle cx='6' cy='0' r='0.7'/%3E%3Ccircle cx='11' cy='40' r='0.6'/%3E%3Ccircle cx='96' cy='68' r='0.7'/%3E%3Ccircle cx='28' cy='38' r='0.8'/%3E%3Ccircle cx='14' cy='93' r='1.2'/%3E%3Ccircle cx='51' cy='53' r='0.7'/%3E%3Ccircle cx='11' cy='38' r='0.8'/%3E%3Ccircle cx='91' cy='18' r='0.6'/%3E%3Ccircle cx='105' cy='58' r='0.7'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: var(--snow);
+}
+
+.sky-flash {
+    background: #eef2ff;
+    opacity: 0;
+}
+
+.sky[data-grounded] .sky-planes {
+    display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sky-cloud {
+        animation: drift var(--drift) linear infinite var(--drift-dir);
+    }
+
+    .sky-rain {
+        animation: rain 0.5s linear infinite;
+    }
+
+    .sky-snow {
+        animation: snow 14s linear infinite;
+    }
+}
+
+@keyframes drift {
+    from { left: -16%; }
+    to { left: 106%; }
+}
+
+@keyframes rain {
+    to { background-position: 0 150px, 0 220px; }
+}
+
+@keyframes snow {
+    to { background-position: 30px 160px, -20px 220px; }
+}
+
+/* Albert Martens on his run. He heads home when it gets dark. */
+.sky-runner {
+    stroke: var(--color-ink);
+    opacity: calc(1 - var(--stars) * 1.5);
+}
+
+.sky-runner-head {
+    fill: var(--color-ink);
+}
+
+.sky-runner-path {
+    left: 38%;
+}
+
+.sky-runner-leg,
+.sky-runner-arms {
+    transform-box: view-box;
+    transform-origin: 5.6px 8.6px;
+}
+
+.sky-runner-arms {
+    transform-origin: 5.2px 5.2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sky-runner-path {
+        animation: run-east 110s linear -50s infinite;
+    }
+
+    .sky-runner-body {
+        animation: jog-bounce 0.3s ease-in-out infinite alternate;
+    }
+
+    .sky-runner-leg {
+        animation: stride 0.3s ease-in-out infinite alternate;
+    }
+
+    .sky-runner-leg-back {
+        animation-direction: alternate-reverse;
+    }
+
+    .sky-runner-arms {
+        animation: stride 0.3s ease-in-out infinite alternate-reverse;
+    }
+}
+
+@keyframes run-east {
+    from { left: -2%; }
+    to { left: 102%; }
+}
+
+@keyframes jog-bounce {
+    to { translate: 0 -1px; }
+}
+
+@keyframes stride {
+    from { rotate: -22deg; }
+    to { rotate: 22deg; }
+}
+
+/* The old car on the grid road: turquoise and white, chrome and whitewalls
+   long gone. Its paint goes dark with the light, and the headlights come on. */
+.sky-car-path {
+    left: 70%;
+}
+
+.sky-car-paint {
+    fill: color-mix(in oklab, #2f9c97 calc(100% - var(--stars) * 75%), var(--color-ink));
+}
+
+.sky-car-roof {
+    fill: color-mix(in oklab, #f2f4f1 calc(100% - var(--stars) * 75%), var(--color-ink));
+}
+
+.sky-car-glass {
+    fill: color-mix(in oklab, #34495c 80%, var(--sky-bottom));
+}
+
+.sky-car-chrome {
+    fill: color-mix(in oklab, #c9cfd6 calc(100% - var(--stars) * 70%), var(--color-ink));
+}
+
+.sky-car-tire {
+    fill: var(--color-ink);
+}
+
+.sky-car-lamp {
+    fill: color-mix(in oklab, #fff1b8 calc(30% + var(--stars) * 70%), #c9cfd6);
+}
+
+.sky-car-dust {
+    background: radial-gradient(closest-side, rgb(214 196 160 / 0.7), transparent);
+    opacity: calc(0.8 - var(--stars) * 0.8 - var(--rain) - var(--snow));
+    filter: blur(2px);
+}
+
+.sky-car-beam {
+    background: linear-gradient(to left, rgb(255 240 180 / 0.75), transparent);
+    clip-path: polygon(100% 35%, 0 0, 0 100%, 100% 65%);
+    opacity: var(--stars);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sky-car-path {
+        animation: drive-west 48s linear -20s infinite;
+    }
+
+    .sky-car-body {
+        animation: jog-bounce 0.22s ease-in-out infinite alternate;
+    }
+
+    .sky-car-dust {
+        animation: dust 0.6s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes drive-west {
+    from { left: 104%; }
+    to { left: -8%; }
+}
+
+@keyframes dust {
+    to { scale: 1.25 1.1; translate: 4px -1px; }
+}
+
+/* On the home page, the sun comes up into place. */
+@media (prefers-reduced-motion: no-preference) {
+    .sky-home .sky-sun {
+        animation: sun-rise 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+}
+
+@keyframes sun-rise {
+    from {
+        bottom: -4rem;
+    }
 }
 
 [x-cloak] {
     display: none;
 }
-
-.button-primary {
-	@apply font-bold! rounded-md! bg-red-800! no-underline! py-2! px-4! whitespace-nowrap! text-white! hover:bg-red-900!;
-}
-
-.button-primary-sm {
-	@apply font-bold! rounded-md! bg-red-800! no-underline! py-1! px-2! whitespace-nowrap! text-white! hover:bg-red-900!;
-}
-
-.button-yellow {
-	@apply font-bold! rounded-md! bg-brand-yellow! no-underline! py-2! px-4! whitespace-nowrap! text-black! hover:bg-brand-primarybuttonhover!;
-}
-
-.button-white {
-	@apply font-bold! rounded-md! bg-white! no-underline! py-2! px-4! whitespace-nowrap! text-black! hover:bg-brand-primarybuttonhover!;
-}
-
-.button-black {
-	@apply font-bold! rounded-md! bg-black! no-underline! py-2! px-4! whitespace-nowrap! text-white! hover:bg-brand-primarybuttonhover!;
-}
-
-.button-secondary {
-	@apply font-bold! rounded-md! bg-white! no-underline! py-2! px-4! whitespace-nowrap! text-black! hover:bg-brand-orange! hover:text-white!;
-}
-
-.button-outline {
-	@apply rounded-lg! border-brand-darkgraybg! border-2! no-underline! py-2! px-4! whitespace-nowrap! text-brand-darkgraybg! hover:bg-brand-primarybutton! hover:text-white!;
-}
-
-.button-Link {
-	@apply underline! py-2! whitespace-nowrap! text-3xl! text-brand-verydarkblue! font-black!;
-}
-

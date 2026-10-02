@@ -44,12 +44,13 @@ new class extends Component
 };
 ?>
 
-<div class="relative z-10 max-w-6xl px-6 py-8 mx-auto">
-    <div class="py-8">
-        <nav aria-label="Breadcrumb" class="mb-4 text-sm text-gray-500">
-            <a href="/tags" class="hover:underline">Tags</a>
-        </nav>
-        <h1 class="mb-6">{{ $title }}</h1>
+<div class="mx-auto max-w-6xl px-4 pt-8 md:px-8 md:pt-12">
+    <flux:breadcrumbs class="mb-6">
+        <flux:breadcrumbs.item href="/tags">Tags</flux:breadcrumbs.item>
+        <flux:breadcrumbs.item>{{ $title }}</flux:breadcrumbs.item>
+    </flux:breadcrumbs>
+    <h1 class="font-semiwide text-4xl md:text-6xl font-bold tracking-tight">{{ $title }}</h1>
+    <div class="mt-10 max-w-4xl">
         @foreach ($this->entries as $entry)
             <x-blog.card :post="$entry" />
         @endforeach
