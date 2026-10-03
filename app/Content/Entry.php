@@ -29,6 +29,7 @@ final readonly class Entry
         public ?string $description,
         public string $excerpt,
         public bool $interactive,
+        public int $words = 0,
     ) {}
 
     public function isPost(): bool
@@ -53,6 +54,15 @@ final readonly class Entry
     public function isListed(): bool
     {
         return $this->published && ($this->date === null || $this->date->isPast());
+    }
+
+    /**
+     * Midjourney experiments are pictures with a prompt under them, kept
+     * apart from the writing.
+     */
+    public function isExperiment(): bool
+    {
+        return in_array('midjourney', $this->tags, true);
     }
 
     public function summary(): string

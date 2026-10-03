@@ -24,6 +24,8 @@
     --color-flax: #4058a8;
     --color-flax-light: #a3b4ee;
     --color-canola: #f2c230;
+    --color-seed-green: #2f6b3a;
+    --color-seed-red: #b5352b;
 
     --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
     --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
@@ -139,6 +141,34 @@
     blockquote {
         font-weight: 400;
         font-style: italic;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   The seed catalogue on the home page
+   ------------------------------------------------------------------------- */
+
+/* The packet's glued flap: folded down to a point at the middle. */
+.seed-packet-flap {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 50% 100%, 0 45%);
+}
+
+/* Pictures printed the way a catalogue would: a touch flatter in colour,
+   with a halftone dot laid over them. */
+.seed-print {
+    position: relative;
+
+    img {
+        filter: saturate(0.8) contrast(1.05) sepia(0.12);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgb(21 32 43 / 0.16) 0.6px, transparent 1.1px) 0 0 / 4px 4px;
+        mix-blend-mode: multiply;
+        pointer-events: none;
     }
 }
 
@@ -635,6 +665,12 @@
 
 .sky-car-lamp {
     fill: color-mix(in oklab, #fff1b8 calc(30% + var(--stars) * 70%), #c9cfd6);
+}
+
+.sky-car-tail {
+    fill: #e0261b;
+    opacity: calc(0.55 + var(--stars) * 0.45);
+    filter: drop-shadow(0 0 calc(var(--stars) * 1.5px) #ff2a1a);
 }
 
 .sky-car-dust {

@@ -1,7 +1,7 @@
 {{-- An old two-tone sedan out for a drive along the crossing grid road,
      heading west. It kicks up gravel dust by day and puts its headlights on
-     after dark. Its wheels sit on the road, 30–38% of the way down the field
-     (see fields). It drives off to It's Worth the Trip when clicked. --}}
+     after dark, red taillights glowing at the back. Its wheels sit on the
+     road, 30–38% of the way down the field (see fields). It drives off to It's Worth the Trip when clicked. --}}
 <div {{ $attributes->class('sky-car absolute inset-x-0 bottom-0 h-[calc(var(--field-h)+1.25rem)] pointer-events-none') }}>
     <a href="https://itsworththetrip.com/" target="_blank" rel="noopener" title="It's Worth the Trip" aria-label="It's Worth the Trip"
        class="sky-car-path absolute top-[calc(20px+(100%-20px)*0.38)] -translate-y-[calc(100%-0.75rem)] -ml-3 p-3 pointer-events-auto">
@@ -15,6 +15,7 @@
                 <rect x="0.8" y="7.4" width="1.6" height="1.5" rx="0.5" class="sky-car-chrome" />
                 <rect x="28.2" y="7.4" width="1.4" height="1.5" rx="0.5" class="sky-car-chrome" />
                 <circle cx="2.1" cy="6.5" r="0.7" class="sky-car-lamp" />
+                <rect x="28.3" y="5.9" width="0.9" height="1.3" rx="0.4" class="sky-car-tail" />
                 <circle cx="7" cy="9.2" r="2" class="sky-car-tire" />
                 <circle cx="23" cy="9.2" r="2" class="sky-car-tire" />
                 <circle cx="7" cy="9.2" r="0.8" class="sky-car-chrome" />

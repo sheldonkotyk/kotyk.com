@@ -69,6 +69,26 @@ class ContentRepository
     }
 
     /**
+     * Listed posts that are writing rather than Midjourney experiments.
+     *
+     * @return Collection<int, Entry>
+     */
+    public function writing(): Collection
+    {
+        return $this->posts()->reject->isExperiment()->values();
+    }
+
+    /**
+     * Listed Midjourney experiments, newest first.
+     *
+     * @return Collection<int, Entry>
+     */
+    public function experiments(): Collection
+    {
+        return $this->posts()->filter->isExperiment()->values();
+    }
+
+    /**
      * @return Collection<int, Entry>
      */
     public function navigation(): Collection
@@ -131,6 +151,7 @@ class ContentRepository
             description: $meta['description'] ?? null,
             excerpt: $this->excerpt($body),
             interactive: str_contains($body, '<livewire:'),
+            words: str_word_count(strip_tags(preg_replace('#<(x-|livewire:)[^>]*?/>#s', ' ', $body))),
         );
     }
 
