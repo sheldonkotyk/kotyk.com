@@ -5,6 +5,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\RedirectMailSubdomain;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WeatherController;
+use App\Http\Middleware\RedirectNonCanonicalHost;
 use Illuminate\Support\Facades\Route;
 
 // Redirect the mail subdomain to webmail. Registered here so it is matched
@@ -30,8 +31,17 @@ Route::get('/weather.json', WeatherController::class)
     ->withoutMiddleware('web')
     ->name('weather');
 
-Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
-Route::get('/feed', FeedController::class)->name('feed');
+// The sitemap and the feed, outside the web group for the same reason: no
+// session cookie, so the edge caches them and a crawler checking them doesn't
+// wake the container. They keep the canonical-host redirect.
+Route::get('/sitemap.xml', SitemapController::class)
+    ->withoutMiddleware('web')
+    ->middleware(RedirectNonCanonicalHost::class)
+    ->name('sitemap');
+Route::get('/feed', FeedController::class)
+    ->withoutMiddleware('web')
+    ->middleware(RedirectNonCanonicalHost::class)
+    ->name('feed');
 
 Route::livewire('/blog', 'pages::blog.index')->name('blog.index');
 Route::livewire('/blog/{slug}', 'pages::blog.show')->name('blog.show');

@@ -106,6 +106,17 @@ class ContentSiteTest extends TestCase
         $this->assertNotContains(url('/episodes'), $locs);
     }
 
+    public function test_the_sitemap_and_feed_are_edge_cacheable(): void
+    {
+        foreach (['/sitemap.xml', '/feed'] as $path) {
+            $response = $this->get($path);
+
+            $response->assertOk()->assertHeaderMissing('Set-Cookie');
+            $this->assertStringContainsString('s-maxage=', $response->headers->get('Cache-Control'));
+            $this->assertStringContainsString('public', $response->headers->get('Cache-Control'));
+        }
+    }
+
     public function test_feed_is_valid_atom(): void
     {
         $response = $this->get('/feed');

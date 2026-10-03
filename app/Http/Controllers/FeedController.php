@@ -16,6 +16,8 @@ class FeedController extends Controller
 
         return response()
             ->view('feed', ['posts' => $posts, 'updated' => $posts->first()?->lastModified()])
-            ->header('Content-Type', 'application/atom+xml; charset=utf-8');
+            ->header('Content-Type', 'application/atom+xml; charset=utf-8')
+            // Cached at the edge like the pages, and purged with them on deploy.
+            ->header('Cache-Control', 'public, max-age=0, s-maxage='.(int) config('edge_cache.ttl', 3600));
     }
 }
