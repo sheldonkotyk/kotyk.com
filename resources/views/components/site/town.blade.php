@@ -75,6 +75,9 @@
         <circle cx="1342" cy="103" r="2.2" class="sky-lamp" />
         <rect x="1380" y="98" width="2" height="42" />
         <polygon points="1382,99 1398,101 1398,105 1382,107" class="sky-windsock" />
+        {{-- The light at the top of the pole that shines on it after dark --}}
+        <circle cx="1381" cy="96" r="5" class="sky-lamp-glow" />
+        <circle cx="1381" cy="96" r="1.5" class="sky-lamp" />
 
         {{-- Grain bins --}}
         @foreach ($bins as $x)
