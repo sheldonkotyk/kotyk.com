@@ -18,8 +18,8 @@
         <x-site.planes />
     @endif
     <div class="absolute inset-0 z-[4] pointer-events-none" data-sky-clouds aria-hidden="true"></div>
-    <x-site.skyline :compact="! $home" @class(['z-[5] bottom-(--field-h)!', 'h-[clamp(4.5rem,9vw,8rem)]' => $home]) />
-    <x-site.fields class="z-[7]" />
+    <x-site.skyline :compact="! $home" @class(['z-[5] bottom-(--field-h)! pointer-events-none', 'h-[clamp(4.5rem,9vw,8rem)]' => $home]) />
+    <x-site.fields class="z-[7] pointer-events-none" />
     @if ($home)
         <x-site.car class="z-[8]" />
         {{-- Above the name's layer, which spans the fields, so he can be clicked --}}
@@ -30,9 +30,11 @@
     <div class="sky-snow absolute z-[9] pointer-events-none" aria-hidden="true"></div>
     <div class="sky-flash absolute inset-0 z-[9] pointer-events-none" aria-hidden="true"></div>
     <div @class([
-        // Spans the whole sky, so it lets clicks through to the plane and the
-        // runner behind it; only the name link takes them.
-        'relative z-10 flex items-end mx-auto max-w-6xl px-4 pb-(--field-h) md:px-8 pointer-events-none',
+        // Behind the town (z-5) and the fields, in front of the sky and the
+        // planes up high, so the buildings stand in front of the name. It
+        // spans the whole sky, so it lets clicks through; only the name link
+        // takes them.
+        'relative z-[4] flex items-end mx-auto max-w-6xl px-4 pb-(--field-h) md:px-8 pointer-events-none',
         'min-h-[52svh] md:min-h-[60svh]' => $home,
         'h-28 md:h-32' => ! $home,
     ])>

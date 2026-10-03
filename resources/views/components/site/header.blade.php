@@ -6,8 +6,8 @@
 @endphp
 <header>
     <x-site.sky :home="$home" :time="$skyTime">
-        {{-- The name stands on the horizon in the ground's own colour, like a
-             town's name painted on its water tower. --}}
+        {{-- The name stands on the horizon in the ground's own colour, behind
+             the town, so the buildings stand in front of it. --}}
         @if ($home)
             <p class="sky-name font-tall font-black uppercase leading-[0.76] tracking-[-0.01em] text-[25vw] md:text-[12vw] xl:text-[9.5rem] translate-y-[0.02em]" aria-hidden="true">
                 Sheldon<br class="md:hidden"> Kotyk
