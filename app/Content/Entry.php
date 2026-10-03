@@ -30,6 +30,7 @@ final readonly class Entry
         public string $excerpt,
         public bool $interactive,
         public int $words = 0,
+        public string $opening = '',
     ) {}
 
     public function isPost(): bool

@@ -151,6 +151,7 @@ class ContentRepository
             description: $meta['description'] ?? null,
             excerpt: $this->excerpt($body),
             interactive: str_contains($body, '<livewire:'),
+            opening: $this->excerpt($body, 320),
             words: str_word_count(strip_tags(preg_replace('#<(x-|livewire:)[^>]*?/>#s', ' ', $body))),
         );
     }

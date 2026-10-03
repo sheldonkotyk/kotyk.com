@@ -145,30 +145,116 @@
 }
 
 /* -------------------------------------------------------------------------
-   The seed catalogue on the home page
+   The postcards on the home page
    ------------------------------------------------------------------------- */
 
-/* The packet's glued flap: folded down to a point at the middle. */
-.seed-packet-flap {
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 50% 100%, 0 45%);
+/* The back of a card: postcard stock, a shade warmer than the page. */
+.postcard-paper {
+    background-color: #fbfaf7;
 }
 
-/* Pictures printed the way a catalogue would: a touch flatter in colour,
-   with a halftone dot laid over them. */
-.seed-print {
-    position: relative;
+/* Greetings from Steinbach: a large-letter card, the letters filled with
+   the fields under a prairie sky and outlined the way the old cards were. */
+.postcard-greeting {
+    background:
+        linear-gradient(to bottom, rgb(255 255 255 / 0) 55%, rgb(255 255 255 / 0.25)),
+        linear-gradient(to bottom, #2f7bc8, #8ec5e8 70%, #d6ecfa);
+}
 
-    img {
-        filter: saturate(0.8) contrast(1.05) sepia(0.12);
+.postcard-big-letters {
+    background: linear-gradient(to bottom, #8ec5e8 0 28%, #f2c230 28% 46%, #d9a441 46% 64%, #6f9a3e 64% 82%, #4f8030 82%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    filter: drop-shadow(3px 4px 0 rgb(21 32 43 / 0.55));
+}
+
+/* The stamp's perforated edge. */
+.postcard-stamp {
+    mask: radial-gradient(circle at 50% 50%, transparent 1.6px, #000 1.9px) -2.5px -2.5px / 5px 5px, linear-gradient(#000, #000) 3px 3px / calc(100% - 6px) calc(100% - 6px) no-repeat;
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.25));
+}
+
+/* Photo fronts printed a touch flat and warm, like an old view card. */
+.postcard-photo {
+    filter: saturate(0.85) sepia(0.12) contrast(1.03);
+}
+
+/* A view card for a post without a picture: the prairie under the sky. */
+.postcard-scene {
+    background: linear-gradient(to bottom, #3a85cf, #bfe0f5 58%, #f2c230 58% 66%, #d9a441 66% 80%, #6f9a3e 80%);
+}
+
+/* The essay cards, each set down a little crooked, and turned over to the
+   back on hover or focus where there's a pointer to hover with. */
+.postcard {
+    perspective: 1400px;
+    rotate: var(--tilt);
+}
+
+.postcard-inner {
+    position: relative;
+    display: grid;
+    /* Without this the photo's own width sets the card's, and it overflows. */
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.postcard-face {
+    grid-area: 1 / 1;
+    min-width: 0;
+}
+
+.postcard-front {
+    aspect-ratio: 3 / 2;
+}
+
+@media (hover: hover) {
+    .postcard-inner {
+        transform-style: preserve-3d;
+        transition: transform 0.7s cubic-bezier(0.3, 0.7, 0.3, 1);
     }
 
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at center, rgb(21 32 43 / 0.16) 0.6px, transparent 1.1px) 0 0 / 4px 4px;
-        mix-blend-mode: multiply;
-        pointer-events: none;
+    .postcard-face {
+        backface-visibility: hidden;
+    }
+
+    .postcard-back {
+        transform: rotateY(180deg);
+    }
+
+    .postcard:hover .postcard-inner,
+    .postcard:focus-visible .postcard-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* No hover (a phone): the back sits under the front. */
+@media (hover: none) {
+    .postcard-back {
+        grid-area: auto;
+        margin-top: -2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .postcard-inner {
+        transition: none;
+    }
+}
+
+/* The novelty cards, fanned out on the rack; each straightens up to be
+   looked at. */
+.novelty-card {
+    rotate: var(--tilt);
+    transition: rotate 0.2s, translate 0.2s;
+
+    &:hover,
+    &:focus-within {
+        rotate: 0deg;
+        translate: 0 -6px;
+        z-index: 1;
+        position: relative;
     }
 }
 
