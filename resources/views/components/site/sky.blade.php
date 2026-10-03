@@ -259,8 +259,10 @@
         if (previewWeather) return setWeather(previewWeather);
 
         // The real weather, cached for the hour at the edge; checked again
-        // every quarter hour for a page left open.
-        const fetchWeather = () => fetch('/weather.json')
+        // every quarter hour for a page left open. The date and hour (UTC)
+        // make each hour its own URL, so a browser holding on to an older
+        // copy can't keep showing it.
+        const fetchWeather = () => fetch('/weather.json?at=' + new Date().toISOString().slice(0, 13))
             .then(response => response.ok ? response.json() : null)
             .then(data => data?.weather && setWeather(data.weather))
             .catch(() => {});
