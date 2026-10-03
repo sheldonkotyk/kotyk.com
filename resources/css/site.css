@@ -226,6 +226,12 @@
     50% { opacity: 0.15; }
 }
 
+/* The town lets clicks through to what's behind it, except its links. */
+.sky-town-link {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
 .sky-skyline-windows {
     fill: var(--color-canola);
     opacity: var(--stars);

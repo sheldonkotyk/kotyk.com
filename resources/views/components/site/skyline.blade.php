@@ -17,7 +17,7 @@
          its size beside the name on wide screens: the viewBox is three towns
          wide, and the flanking ones (houses only) fill out whatever the
          screen shows beyond the middle one. --}}
-    <svg {{ $attributes->class('sky-skyline absolute inset-x-0 bottom-0 w-full') }} viewBox="-1600 0 4800 140" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <svg {{ $attributes->class('sky-skyline absolute inset-x-0 bottom-0 w-full') }} viewBox="-1600 0 4800 140" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Steinbach">
         <g transform="translate(-1600 0)">@include('components.site.town', ['landmarks' => false])</g>
         @include('components.site.town')
         <g transform="translate(1600 0)">@include('components.site.town', ['landmarks' => false])</g>
