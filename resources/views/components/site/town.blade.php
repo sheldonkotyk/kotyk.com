@@ -48,9 +48,6 @@
         <rect x="514" y="82" width="46" height="58" />
         <rect x="1004" y="92" width="34" height="48" />
 
-        {{-- The event centre: the arena's arched roof and its lower wing --}}
-        <path d="M760 {{ $base }} L760 98 Q830 72 900 98 L900 {{ $base }} Z" />
-        <rect x="900" y="114" width="52" height="26" />
 
         {{-- The water tower: a round tank on one tapered pedestal --}}
         <path d="M{{ $tower - 6 }} 56 L{{ $tower + 6 }} 56 L{{ $tower + 9 }} 124 Q{{ $tower + 12 }} 136 {{ $tower + 22 }} {{ $base }} L{{ $tower - 22 }} {{ $base }} Q{{ $tower - 12 }} 136 {{ $tower - 9 }} 124 Z" />
@@ -88,17 +85,31 @@
             <rect x="{{ $x }}" y="{{ $y }}" width="7" height="6" />
         @endforeach
 
-        {{-- The event centre on a game night: a band of windows along the
-             arena wall, the wing's windows, and the sign over the doors. --}}
-        @for ($x = 770; $x <= 882; $x += 14)
-            <rect x="{{ $x }}" y="118" width="9" height="5" />
-        @endfor
-        @foreach ([908, 922, 936] as $x)
-            <rect x="{{ $x }}" y="121" width="8" height="6" />
-        @endforeach
-        <rect x="812" y="104" width="36" height="6" rx="1" />
     @endif
 </g>
+
+{{-- The Southeast Event Centre: the arena's arched roof and its lower wing,
+     lit up on a game night (a band of windows along the arena wall, the
+     wing's windows, the sign over the doors). It links to the centre, so
+     unlike the rest of the town it takes clicks. --}}
+@if ($landmarks)
+    <a href="https://southeasteventcentre.ca/" target="_blank" rel="noopener" class="sky-town-link" aria-label="Southeast Event Centre">
+        <title>Southeast Event Centre</title>
+        <g class="sky-skyline-land">
+            <path d="M760 {{ $base }} L760 98 Q830 72 900 98 L900 {{ $base }} Z" />
+            <rect x="900" y="114" width="52" height="26" />
+        </g>
+        <g class="sky-skyline-windows">
+            @for ($x = 770; $x <= 882; $x += 14)
+                <rect x="{{ $x }}" y="118" width="9" height="5" />
+            @endfor
+            @foreach ([908, 922, 936] as $x)
+                <rect x="{{ $x }}" y="121" width="8" height="6" />
+            @endforeach
+            <rect x="812" y="104" width="36" height="6" rx="1" />
+        </g>
+    </a>
+@endif
 
 {{-- Red warning lights for the planes on the tallest things in town: the
      water tower and the apartment blocks. --}}
