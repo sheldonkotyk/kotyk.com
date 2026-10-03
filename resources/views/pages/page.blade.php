@@ -62,35 +62,36 @@ new class extends Component
 <div>
     @if ($this->isHome())
         <h1 class="sr-only">{{ config('seo.author.name') }}</h1>
-        @php($season = ['Winter', 'Winter', 'Spring', 'Spring', 'Spring', 'Summer', 'Summer', 'Summer', 'Fall', 'Fall', 'Fall', 'Winter'][now()->month - 1])
-        {{-- The home page is a prairie seed catalogue: the masthead, the
-             grower's word beside today's growing conditions, then the latest
-             posts as seed packets and an order form. --}}
-        <header class="mx-auto max-w-6xl px-4 pt-12 md:px-8 md:pt-16 text-center">
-            <div class="border-y-4 border-double border-seed-green py-4 dark:border-[#8fc79a]">
-                <p class="font-serif italic text-seed-red dark:text-[#e98a80]">{{ $season }} {{ now()->year }}</p>
-                <p class="mt-1 font-tall font-black uppercase leading-[0.85] text-5xl sm:text-7xl md:text-8xl text-seed-green dark:text-[#8fc79a]">The Kotyk Seed Catalogue</p>
-                <p class="mt-2 font-serif italic text-seed-red dark:text-[#e98a80]">Stories grown in Steinbach, Manitoba</p>
-            </div>
-        </header>
-
-        <div class="mx-auto mt-12 grid max-w-6xl gap-10 px-4 md:px-8 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16">
-            <div>
-                <h2 class="font-serif italic text-xl text-seed-red dark:text-[#e98a80]">From the grower</h2>
-                <div class="mt-3 prose prose-lg md:prose-xl dark:prose-invert max-w-2xl md:prose-p:first-of-type:text-[1.4em] md:prose-p:first-of-type:leading-snug">
-                    @include($this->entry->view)
-                </div>
-            </div>
-            <x-home.almanac class="self-start lg:mt-10" />
-        </div>
-
         @php($content = app(\App\Content\ContentRepository::class))
-        {{-- The packets are for real writing: no Midjourney experiments, and
-             nothing too short to read as a post. --}}
-        <x-home.catalogue
-            :posts="$content->writing()->filter(fn ($post) => $post->words >= 150)->take(4)"
-            :experiments="$content->experiments()->take(5)"
-            class="mt-20" />
+        {{-- The home page is a handful of postcards: one from Steinbach with
+             the intro on the back, the latest writing as photo cards that
+             turn over, the day's weather, and the Midjourney experiments as
+             novelty cards. --}}
+        <div class="mx-auto max-w-6xl px-4 pt-12 md:px-8 md:pt-16">
+            <x-home.greeting>
+                @include($this->entry->view)
+            </x-home.greeting>
+
+            <section class="mt-20" aria-labelledby="latest-writing">
+                <h2 id="latest-writing" class="font-semiwide text-3xl md:text-4xl font-bold tracking-tight">The latest writing</h2>
+                <p class="mt-2 font-serif italic text-zinc-600 dark:text-zinc-400">The first few lines of each are on the back.</p>
+                {{-- Real writing only: no Midjourney experiments, and nothing
+                     too short to read as a post. --}}
+                <x-home.postcards :posts="$content->writing()->filter(fn ($post) => $post->words >= 150)->take(4)" class="mt-8" />
+            </section>
+
+            <div class="mt-20 grid gap-12 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-16">
+                <x-home.almanac class="self-start" />
+                <x-home.novelties :experiments="$content->experiments()->take(5)" />
+            </div>
+
+            <p class="mt-16 border-t border-frost pt-6 font-serif text-lg dark:border-zinc-800">
+                More in the mailbag:
+                <a href="/blog" class="link">every post</a> ({{ $content->writing()->count() }}),
+                <a href="/tags/midjourney" class="link">the novelty cards</a> ({{ $content->experiments()->count() }}),
+                and <a href="{{ route('feed') }}" class="link">the feed</a>, for new ones as they're sent.
+            </p>
+        </div>
     @else
         <article class="pt-10 md:pt-14">
             <header class="mx-auto max-w-6xl px-4 md:px-8">
