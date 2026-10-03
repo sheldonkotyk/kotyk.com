@@ -26,12 +26,13 @@
                 <flux:radio value="system" icon="computer-desktop" aria-label="Match system" />
             </flux:radio.group>
             {{-- Apple's mark and legal link, which its terms ask for wherever its
-                 weather shows. The sky's script fills it in once real weather
-                 arrives; previews and pages without weather leave it hidden. --}}
-            <a class="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-ink dark:text-zinc-400 dark:hover:text-white" target="_blank" rel="noopener" data-sky-attribution hidden>
+                 weather shows. Always here and served from this site, so it
+                 doesn't wait on the sky's script or on Apple's servers, which
+                 Firefox's tracking protection and content blockers can stop. --}}
+            <a href="https://developer.apple.com/weatherkit/data-source-attribution/" class="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-ink dark:text-zinc-400 dark:hover:text-white" target="_blank" rel="noopener">
                 <span>Sky weather from</span>
-                <img class="h-3.5 w-auto dark:hidden" alt="Apple Weather" data-mark="light">
-                <img class="hidden h-3.5 w-auto dark:block" alt="Apple Weather" data-mark="dark">
+                <img src="/images/apple-weather/mark-black.png" class="h-3.5 w-auto dark:hidden" width="231" height="42" alt="Apple Weather">
+                <img src="/images/apple-weather/mark-white.png" class="hidden h-3.5 w-auto dark:block" width="231" height="42" alt="Apple Weather">
             </a>
             {{-- NOAA's data is public domain; this is a courtesy, shown while
                  the sky has an aurora in it. --}}

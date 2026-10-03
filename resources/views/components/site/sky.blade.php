@@ -168,16 +168,6 @@
         sky.toggleAttribute('data-grounded', !! weather.precipitation || weather.clouds > 0.92 || weather.fog > 0.4 || kph > 45);
         sky.toggleAttribute('data-storm', /thunder/i.test(weather.condition || ''));
 
-        // Apple's mark and legal link in the footer: the black mark on the
-        // light page, the white one on the dark.
-        const credit = document.querySelector('[data-sky-attribution]');
-        if (credit && data?.attribution?.mark_url) {
-            credit.href = data.attribution.legal_url;
-            credit.querySelector('[data-mark=light]').src = data.attribution.mark_url;
-            credit.querySelector('[data-mark=dark]').src = data.attribution.mark_dark_url || data.attribution.mark_url;
-            credit.hidden = false;
-        }
-
         drawClouds();
         update();
     }
