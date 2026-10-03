@@ -1,6 +1,7 @@
 {{-- The town itself, 1600 × 140 with the ground at the bottom: houses, City
      Hall, the event centre's arched roof, a couple of apartment blocks, the
-     water tower on its pedestal, Abe's Hill and its light, the airfield's
+     water tower on its pedestal, the Steinbach Credit Union, Abe's Hill and
+     its light, the airfield's
      hangar and windsock, and a couple of grain bins. The
      windows light up as the stars come out, and the tall ones carry red
      warning lights. Shared by both sizes of sky.
@@ -12,7 +13,7 @@
     $houses = [
         [16, 40, 21, 13, false], [150, 36, 19, 12, true], [194, 52, 26, 16, false], [254, 38, 20, 13, false],
         [460, 40, 21, 13, true], [608, 42, 22, 14, true], [658, 36, 18, 12, false], [702, 54, 27, 17, false],
-        [964, 40, 21, 13, true], [1056, 52, 25, 16, false], [1116, 38, 20, 13, true], [1418, 44, 23, 15, false], [1470, 36, 19, 12, true], [1514, 40, 21, 13, false],
+        [964, 40, 21, 13, true], [1056, 52, 25, 16, false], [1116, 38, 20, 13, true],
     ];
     // Wide screens show the edges of a town either side: just a run of houses.
     if (! $landmarks) {
@@ -111,11 +112,47 @@
     </a>
 @endif
 
+{{-- The Steinbach Credit Union on Main Street, the tallest building in town:
+     the low podium and its canopy, the curved glass wing, the main glass
+     block, the white stone fins rising past the roof, and the stair tower.
+     After dark the glass lights up in bands and the red sign over the
+     entrance glows. It links to the credit union, so it takes clicks. --}}
+@if ($landmarks)
+    <a href="https://scu.mb.ca/" target="_blank" rel="noopener" class="sky-town-link" aria-label="Steinbach Credit Union">
+        <title>Steinbach Credit Union</title>
+        <g class="sky-skyline-land">
+            <rect x="1412" y="126" width="30" height="2" />
+            <rect x="1416" y="128" width="26" height="12" />
+            <path d="M1440 {{ $base }} L1440 92 Q1441 80 1456 78 L1478 77 L1478 {{ $base }} Z" />
+            <rect x="1478" y="76" width="26" height="64" />
+            <rect x="1512" y="72" width="18" height="68" />
+        </g>
+        <g class="sky-scu-fins">
+            <rect x="1504" y="64" width="3.5" height="76" />
+            <rect x="1508" y="66" width="3.5" height="74" />
+            <rect x="1530" y="76" width="3" height="64" />
+        </g>
+        <g class="sky-skyline-windows">
+            @foreach ([84, 93, 102, 111, 120] as $y)
+                <rect x="{{ $y < 90 ? 1452 : 1446 }}" y="{{ $y }}" width="{{ $y < 90 ? 24 : 30 }}" height="4" />
+            @endforeach
+            @for ($y = 82; $y <= 122; $y += 9)
+                @unless ($y === 100)
+                    <rect x="1481" y="{{ $y }}" width="9" height="5" />
+                    <rect x="1492" y="{{ $y }}" width="9" height="5" />
+                @endunless
+                <rect x="1515" y="{{ $y - 4 }}" width="12" height="5" />
+            @endfor
+        </g>
+        <rect x="1483" y="104" width="16" height="5" rx="1" class="sky-scu-sign" />
+    </a>
+@endif
+
 {{-- Red warning lights for the planes on the tallest things in town: the
-     water tower and the apartment blocks. --}}
+     water tower, the apartment blocks and the credit union. --}}
 @if ($landmarks)
     <g class="sky-hazards">
-        @foreach ([[$tower, 11], [537, 80], [1021, 90]] as [$x, $y])
+        @foreach ([[$tower, 11], [537, 80], [1021, 90], [1506, 61]] as [$x, $y])
             <circle cx="{{ $x }}" cy="{{ $y }}" r="3.2" />
         @endforeach
     </g>
