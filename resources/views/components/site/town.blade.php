@@ -2,7 +2,8 @@
      Hall, the event centre's arched roof, a couple of apartment blocks, the
      water tower on its pedestal, Abe's Hill and its light, the airfield's
      hangar and windsock, and a couple of grain bins. The
-     windows light up as the stars come out. Shared by both sizes of sky.
+     windows light up as the stars come out, and the tall ones carry red
+     warning lights. Shared by both sizes of sky.
      Without $landmarks it is just a run of houses, to fill out wide screens. --}}
 @php
     $landmarks ??= true;
@@ -88,3 +89,13 @@
         @endforeach
     @endif
 </g>
+
+{{-- Red warning lights for the planes on the tallest things in town: the
+     water tower and the apartment blocks. --}}
+@if ($landmarks)
+    <g class="sky-hazards">
+        @foreach ([[$tower, 11], [537, 80], [1021, 90]] as [$x, $y])
+            <circle cx="{{ $x }}" cy="{{ $y }}" r="3.2" />
+        @endforeach
+    </g>
+@endif

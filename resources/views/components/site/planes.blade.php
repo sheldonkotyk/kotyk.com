@@ -1,7 +1,9 @@
 {{-- Small planes out of Steinbach's airfields: two crossing the sky, one in
      the middle of a loop, and now and then one coming in to land at the
-     hangar. They head home as the light goes, and hold still (and stay
-     parked) for anyone who prefers reduced motion. --}}
+     hangar. After dark they fly on as silhouettes with their lights on: a
+     steady red navigation light, a flashing red beacon and white strobe, and
+     a landing light on the one coming in. They hold still (and stay parked)
+     for anyone who prefers reduced motion. --}}
 @php
     // A high-wing single, side on, nose to the right.
     $plane = '<svg viewBox="0 0 40 14" class="w-full h-auto">'
@@ -11,6 +13,13 @@
         .'<path d="M19 5 L16 9" stroke-width="0.8" class="sky-plane-line"/>'
         .'<rect x="37.6" y="3.6" width="0.9" height="7.8" rx="0.45"/>'
         .'<circle cx="24" cy="11.4" r="1.2"/><circle cx="34" cy="11.2" r="1"/>'
+        // Lights, which only show after dark: nav on the wingtip, beacon on
+        // the belly, strobe on the tail.
+        .'<g class="sky-plane-lights">'
+        .'<circle cx="15.4" cy="4.2" r="1.1" class="plane-nav"/>'
+        .'<circle cx="20" cy="9.9" r="1.1" class="plane-beacon"/>'
+        .'<circle cx="2.2" cy="1.4" r="1.2" class="plane-strobe"/>'
+        .'</g>'
         .'</svg>';
 @endphp
 {{-- Up high, behind the town --}}
@@ -27,7 +36,10 @@
 
 {{-- Coming in low, in front of the town and behind the name --}}
 <div class="sky-planes absolute inset-0 z-[8] pointer-events-none" aria-hidden="true">
-    <div class="absolute top-0 left-0 w-8 opacity-0" data-landing-plane>{!! $plane !!}</div>
+    <div class="absolute top-0 left-0 w-8 opacity-0" data-landing-plane>
+        <div class="sky-landing-light absolute left-[92%] top-[55%] -translate-y-1/2 w-24 h-7"></div>
+        {!! $plane !!}
+    </div>
 </div>
 
 <script>
@@ -39,10 +51,9 @@
 
     function land() {
         const hangar = sky.querySelector('[data-hangar]');
-        const night = parseFloat(sky.style.getPropertyValue('--stars')) > 0.3;
 
-        // Nobody flies in after dark, in bad weather, or when the hangar is off screen.
-        if (! hangar || night || sky.hasAttribute('data-grounded')) return schedule();
+        // Nobody flies in bad weather, or when the hangar is off screen.
+        if (! hangar || sky.hasAttribute('data-grounded')) return schedule();
 
         const box = sky.getBoundingClientRect();
         const shed = hangar.getBoundingClientRect();
