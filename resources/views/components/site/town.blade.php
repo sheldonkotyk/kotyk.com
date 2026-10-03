@@ -87,6 +87,16 @@
         @foreach ($windows as [$x, $y])
             <rect x="{{ $x }}" y="{{ $y }}" width="7" height="6" />
         @endforeach
+
+        {{-- The event centre on a game night: a band of windows along the
+             arena wall, the wing's windows, and the sign over the doors. --}}
+        @for ($x = 770; $x <= 882; $x += 14)
+            <rect x="{{ $x }}" y="118" width="9" height="5" />
+        @endfor
+        @foreach ([908, 922, 936] as $x)
+            <rect x="{{ $x }}" y="121" width="8" height="6" />
+        @endforeach
+        <rect x="812" y="104" width="36" height="6" rx="1" />
     @endif
 </g>
 
