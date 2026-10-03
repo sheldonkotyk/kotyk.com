@@ -23,6 +23,8 @@ class SitemapController extends Controller
 
         return response()
             ->view('sitemap', ['entries' => $entries, 'tagsModified' => $tagsModified])
-            ->header('Content-Type', 'application/xml; charset=utf-8');
+            ->header('Content-Type', 'application/xml; charset=utf-8')
+            // Cached at the edge like the pages, and purged with them on deploy.
+            ->header('Cache-Control', 'public, max-age=0, s-maxage='.(int) config('edge_cache.ttl', 3600));
     }
 }
