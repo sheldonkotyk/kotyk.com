@@ -218,6 +218,39 @@
 
     const describe = w => w.condition ? w.condition.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase() : null;
 
+    // Today in Steinbach, on the home page: the same day the sky is drawing.
+    const compass = ['north', 'north-northeast', 'northeast', 'east-northeast', 'east', 'east-southeast', 'southeast', 'south-southeast',
+        'south', 'south-southwest', 'southwest', 'west-southwest', 'west', 'west-northwest', 'northwest', 'north-northwest'];
+
+    function almanac(sun, hours, when, lights) {
+        const set = (key, text) => {
+            const cell = document.querySelector(`[data-almanac=${key}]`);
+            if (cell) cell.textContent = text;
+        };
+        const length = sun.sunset - sun.sunrise;
+        const night = parseFloat(sky.style.getPropertyValue('--stars')) > 0.5;
+        const a = weather.aurora;
+
+        set('date', when);
+        set('sunrise', clock(sun.sunrise));
+        set('sunset', clock(sun.sunset));
+        set('daylight', `${Math.floor(length)} h ${Math.round((length % 1) * 60)} min`);
+
+        const conditions = [weather.temperature_c == null ? null : `${Math.round(weather.temperature_c)}°`, describe(weather)].filter(Boolean).join(' and ');
+        set('weather', conditions || '—');
+        set('wind', weather.wind_kph == null ? '—'
+            : `${Math.round(weather.wind_kph)} km/h` + (weather.wind_from_deg == null ? '' : ` from the ${compass[Math.round(weather.wind_from_deg / 22.5) % 16]}`));
+        set('aurora', lights ? 'Look north tonight'
+            : ! a ? '—'
+            : ! night ? 'Not while the sun’s up'
+            : weather.clouds > 0.6 ? 'Hidden by cloud'
+            : (a.chance_in_view ?? 0) >= 0.05 ? 'Possible, low in the north'
+            : 'Not tonight');
+        set('planes', sky.hasAttribute('data-grounded') ? 'Grounded by the weather'
+            : night ? 'Flying with their lights on'
+            : 'Three up, one looping');
+    }
+
     function update() {
         const now = winnipegNow();
         const day = previewDate ? winnipegNow(previewDate) : now;
@@ -230,6 +263,9 @@
         // NOAA's courtesy credit in the footer, while there's an aurora to credit.
         const noaa = document.querySelector('[data-aurora-credit]');
         if (noaa) noaa.hidden = ! lights || !! previewWeather;
+
+        const today = (previewDate ?? new Date()).toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric', timeZone: previewDate ? 'UTC' : 'America/Winnipeg' });
+        almanac(sun, hours, (previewing || previewWeather ? 'Previewing ' : '') + today + ', ' + clock(hours), lights);
 
         const line = document.querySelector('[data-sky-clock]');
         if (line && ! pinned) {

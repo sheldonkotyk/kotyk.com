@@ -62,9 +62,14 @@ new class extends Component
 <div>
     @if ($this->isHome())
         <h1 class="sr-only">{{ config('seo.author.name') }}</h1>
-        <x-content.body class="pt-10 md:pt-14">
-            @include($this->entry->view)
-        </x-content.body>
+        {{-- The intro beside today's almanac, then the latest posts by the road --}}
+        <div class="mx-auto grid max-w-6xl gap-10 px-4 pt-10 md:px-8 md:pt-14 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16">
+            <div class="prose prose-lg md:prose-xl dark:prose-invert max-w-2xl md:prose-p:first-of-type:text-[1.45em] md:prose-p:first-of-type:leading-snug">
+                @include($this->entry->view)
+            </div>
+            <x-home.almanac class="self-start lg:mt-2" />
+        </div>
+        <x-home.roadside :posts="app(\App\Content\ContentRepository::class)->posts()->take(5)" class="mt-20" />
     @else
         <article class="pt-10 md:pt-14">
             <header class="mx-auto max-w-6xl px-4 md:px-8">
