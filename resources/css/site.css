@@ -204,8 +204,11 @@
     opacity: calc(0.15 + var(--stars) * 0.55);
 }
 
+/* The windsock is lit after dark, as an airfield's is, so pilots can read
+   the wind coming in: it keeps its orange and glows a little. */
 .sky-windsock {
-    fill: color-mix(in oklab, #e8762c calc(100% - var(--stars) * 85%), var(--color-ink));
+    fill: color-mix(in oklab, #e8762c calc(100% - var(--stars) * 15%), var(--color-ink));
+    filter: drop-shadow(0 0 calc(var(--stars) * 3px) rgb(255 170 90 / 0.8));
 }
 
 /* Aircraft warning lights: always on, faint by day and glowing at night,
