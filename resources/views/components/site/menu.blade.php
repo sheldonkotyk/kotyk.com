@@ -17,8 +17,16 @@
     <flux:button variant="ghost" icon="book-open" class="-me-2">Menu</flux:button>
 </flux:modal.trigger>
 
-<flux:modal name="site-menu" class="w-full max-w-md bg-white! text-ink! p-0! overflow-hidden" aria-label="Site menu">
-    <div class="border-[6px] border-double border-ink/80 m-2 px-6 py-8 sm:px-8">
+{{-- Its own close button, in ink: Flux's would take the dark strip's or the
+     dark theme's white, and vanish against the paper. --}}
+<flux:modal name="site-menu" :closable="false" class="w-full max-w-md bg-white! text-ink! p-0! overflow-hidden" aria-label="Site menu">
+    <div class="relative border-[6px] border-double border-ink/80 m-2 px-6 py-8 sm:px-8">
+        <flux:modal.close>
+            <button type="button" class="absolute top-2 right-2 grid place-items-center size-9 rounded-full text-ink hover:bg-zinc-100" aria-label="Close menu">
+                <flux:icon.x-mark class="size-5" />
+            </button>
+        </flux:modal.close>
+
         <header class="text-center">
             <p class="font-tall font-black uppercase text-6xl leading-none tracking-tight">Menu</p>
             <p class="mt-2 font-serif italic text-zinc-600">Served fresh in Steinbach, Manitoba</p>
