@@ -166,9 +166,11 @@
         style.setProperty('--drift-dir', east ? 'normal' : 'reverse');
         style.setProperty('--slant', ((east ? 1 : -1) * Math.min(25, kph * 0.4)).toFixed(0) + 'deg');
 
-        // Nobody flies in a storm, in fog, or in a gale.
-        sky.toggleAttribute('data-grounded', !! weather.precipitation || weather.clouds > 0.92 || weather.fog > 0.4 || kph > 45);
-        sky.toggleAttribute('data-storm', /thunder/i.test(weather.condition || ''));
+        // Nobody flies in rain or snow, in fog, in a gale or with thunder
+        // about. Overcast alone is fine: small planes fly under a grey sky.
+        const thunder = /thunder/i.test(weather.condition || '');
+        sky.toggleAttribute('data-grounded', !! weather.precipitation || weather.fog > 0.4 || kph > 45 || thunder);
+        sky.toggleAttribute('data-storm', thunder);
 
         drawClouds();
         update();
