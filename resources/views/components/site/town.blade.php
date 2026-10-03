@@ -70,6 +70,9 @@
         {{-- The airfield: a round-roofed hangar and its windsock. Planes land
              here; the landing script finds it by data-hangar. --}}
         <path d="M1314 {{ $base }} L1314 110 Q1342 80 1370 110 L1370 {{ $base }} Z" data-hangar />
+        {{-- Its floodlight over the door, which glows after dark --}}
+        <circle cx="1342" cy="103" r="8" class="sky-lamp-glow" />
+        <circle cx="1342" cy="103" r="2.2" class="sky-lamp" />
         <rect x="1380" y="98" width="2" height="42" />
         <polygon points="1382,99 1398,101 1398,105 1382,107" class="sky-windsock" />
 
@@ -92,6 +95,9 @@
         @foreach ($windows as [$x, $y])
             <rect x="{{ $x }}" y="{{ $y }}" width="7" height="6" />
         @endforeach
+
+        {{-- The hangar's big door, lit from inside after dark --}}
+        <rect x="1327" y="108" width="30" height="32" rx="1" />
 
     @endif
 </g>
