@@ -12,8 +12,8 @@
     // [x, width, wall height, roof height, chimney]
     $houses = [
         [16, 40, 21, 13, false], [150, 36, 19, 12, true], [194, 52, 26, 16, false], [254, 38, 20, 13, false],
-        [460, 40, 21, 13, true],
-        [964, 40, 21, 13, true], [1056, 52, 25, 16, false], [1116, 38, 20, 13, true], [1418, 44, 23, 15, false], [1470, 36, 19, 12, true], [1514, 40, 21, 13, false],
+        [460, 40, 21, 13, true], [608, 42, 22, 14, true], [658, 36, 18, 12, false],
+        [1124, 38, 20, 13, true], [1418, 44, 23, 15, false], [1470, 36, 19, 12, true], [1514, 40, 21, 13, false],
     ];
     // Wide screens show the edges of a town either side: just a run of houses.
     if (! $landmarks) {
@@ -28,9 +28,10 @@
     // The water tower stands in the left margin; the hill and airfield in the right.
     $tower = 104;
     $bins = [1552, 1590];
-    // The credit union stands on Main Street, next door to the event centre.
-    $creditUnion = 636;
-    $windows = [[522, 90], [544, 90], [522, 106], [544, 106], [533, 122], [1012, 100], [1024, 116]];
+    // The credit union stands on Main Street to the right of the event centre,
+    // with a small building between them.
+    $creditUnion = 996;
+    $windows = [[522, 90], [544, 90], [522, 106], [544, 106], [533, 122], [708, 100], [720, 116], [962, 125], [976, 125]];
 @endphp
 <g class="sky-skyline-land">
     @foreach ($houses as [$x, $w, $wall, $roof, $chimney])
@@ -49,7 +50,11 @@
 
         {{-- Apartment blocks --}}
         <rect x="514" y="82" width="46" height="58" />
-        <rect x="1004" y="92" width="34" height="48" />
+        <rect x="700" y="92" width="34" height="48" />
+
+        {{-- The small building between the event centre and the credit union --}}
+        <rect x="956" y="121" width="34" height="19" />
+        <rect x="955" y="119" width="36" height="2.5" />
 
 
         {{-- The water tower: a round tank on one tapered pedestal --}}
@@ -115,7 +120,7 @@
 @endif
 
 {{-- The Steinbach Credit Union on Main Street, the tallest building in town,
-     next door to the event centre: the low podium and its canopy, the curved
+     to the right of the event centre with a small building between them: the low podium and its canopy, the curved
      glass wing, the main glass block, the white stone fins rising past the
      roof, and the stair tower. After dark the glass lights up in bands and
      the red sign over the entrance glows. It links to the credit union, so it
@@ -158,7 +163,7 @@
      water tower, the apartment blocks and the credit union. --}}
 @if ($landmarks)
     <g class="sky-hazards">
-        @foreach ([[$tower, 11], [537, 80], [1021, 90], [$creditUnion + 94, 61]] as [$x, $y])
+        @foreach ([[$tower, 11], [537, 80], [717, 90], [$creditUnion + 94, 61]] as [$x, $y])
             <circle cx="{{ $x }}" cy="{{ $y }}" r="3.2" />
         @endforeach
     </g>
