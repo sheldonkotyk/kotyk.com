@@ -58,14 +58,24 @@ new class extends Component
     }
 
     /**
-     * Posts grouped by the year they went up, newest year first.
+     * The writing, grouped by the year it went up, newest year first. The
+     * Midjourney experiments are kept apart, below.
      *
      * @return Collection<int, Collection<int, Entry>>
      */
     #[Computed]
     public function years(): Collection
     {
-        return $this->posts->groupBy(fn (Entry $post) => $post->date->year);
+        return app(ContentRepository::class)->writing()->groupBy(fn (Entry $post) => $post->date->year);
+    }
+
+    /**
+     * @return Collection<int, Entry>
+     */
+    #[Computed]
+    public function experiments(): Collection
+    {
+        return app(ContentRepository::class)->experiments();
     }
 };
 ?>
@@ -100,4 +110,25 @@ new class extends Component
             @endforeach
         </flux:timeline>
     </div>
+
+    @if ($this->experiments->isNotEmpty())
+        {{-- Pictures rather than writing, so they get a shelf of their own --}}
+        <section class="mx-auto max-w-6xl px-4 md:px-8 mt-16" aria-labelledby="experiments-title">
+            <h2 id="experiments-title" class="font-semiwide text-3xl font-bold">Midjourney experiments</h2>
+            <p class="mt-2 max-w-2xl font-serif text-lg text-zinc-700 dark:text-zinc-300">Pictures from Midjourney, each with the prompt that grew it.</p>
+            <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                @foreach ($this->experiments as $experiment)
+                    <li>
+                        <a href="{{ $experiment->uri }}" class="group block focus-visible:outline-offset-4">
+                            @if ($experiment->image())
+                                <img src="{{ \App\Support\Image::url($experiment->image(), 'card') }}" alt="" class="block w-full aspect-square rounded-sm object-cover" loading="lazy" decoding="async">
+                            @endif
+                            <span class="mt-2 block font-semiwide font-bold leading-snug group-hover:underline decoration-canola decoration-2 underline-offset-4">{{ $experiment->title }}</span>
+                            <time class="block text-sm text-zinc-500 dark:text-zinc-400" datetime="{{ $experiment->date->toDateString() }}">{{ $experiment->date->format('M j, Y') }}</time>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </section>
+    @endif
 </div>

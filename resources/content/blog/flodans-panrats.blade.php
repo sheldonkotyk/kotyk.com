@@ -3,6 +3,8 @@ title: 'Flodans Panrats'
 date: '2025-06-10 02:37'
 updated: '2025-06-26'
 teaser_image: pages/0_0.png
+tags:
+  - midjourney
 --}}
 <x-content.image-with-caption image="pages/0_0.png" locate="full" />
 
