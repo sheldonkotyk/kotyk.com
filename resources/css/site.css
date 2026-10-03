@@ -226,6 +226,18 @@
     50% { opacity: 0.15; }
 }
 
+/* The credit union's white stone fins, a shade lighter than the town so
+   they still read in the haze; and its red sign, lit after dark. */
+.sky-scu-fins {
+    fill: color-mix(in oklab, color-mix(in oklab, var(--color-ink) 62%, var(--sky-bottom)) 70%, white);
+}
+
+.sky-scu-sign {
+    fill: #e2231a;
+    opacity: calc(0.25 + var(--stars) * 0.75);
+    filter: drop-shadow(0 0 2px #e2231a);
+}
+
 /* The town lets clicks through to what's behind it, except its links. */
 .sky-town-link {
     pointer-events: auto;
