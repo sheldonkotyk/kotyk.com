@@ -208,6 +208,24 @@
     fill: color-mix(in oklab, #e8762c calc(100% - var(--stars) * 85%), var(--color-ink));
 }
 
+/* Aircraft warning lights: always on, faint by day and glowing at night,
+   with the slow blink of the real thing. */
+.sky-hazards {
+    fill: #ff3b30;
+    opacity: calc(0.45 + var(--stars) * 0.55);
+    filter: drop-shadow(0 0 2.5px #ff3b30);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sky-hazards circle {
+        animation: hazard 2s ease-in-out infinite;
+    }
+}
+
+@keyframes hazard {
+    50% { opacity: 0.15; }
+}
+
 .sky-skyline-windows {
     fill: var(--color-canola);
     opacity: var(--stars);
@@ -296,7 +314,45 @@
 /* Small planes, in the town's haze. They head home as the stars come out. */
 .sky-planes {
     fill: color-mix(in oklab, var(--color-ink) 78%, var(--sky-top));
-    opacity: calc(1 - var(--stars) * 1.5);
+}
+
+/* After dark: lights on. A steady red nav light, a red beacon and a white
+   strobe that flash out of step, and the landing light on the one coming in. */
+.sky-plane-lights {
+    opacity: var(--stars);
+}
+
+.plane-nav,
+.plane-beacon {
+    fill: #ff4a3d;
+    filter: drop-shadow(0 0 1.2px #ff4a3d);
+}
+
+.plane-strobe {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 1.6px #ffffff);
+}
+
+.sky-landing-light {
+    background: linear-gradient(to right, rgb(255 246 214 / 0.85), rgb(255 246 214 / 0.25) 60%, transparent);
+    clip-path: polygon(0 42%, 100% 0, 100% 100%, 0 58%);
+    opacity: var(--stars);
+    filter: blur(0.5px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .plane-strobe {
+        animation: flash 1.3s steps(1) infinite;
+    }
+
+    .plane-beacon {
+        animation: flash 1.7s steps(1) -0.6s infinite;
+    }
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    9% { opacity: 0; }
 }
 
 .sky-plane-line {
